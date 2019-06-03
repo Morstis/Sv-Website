@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Sv Website'; //alte Version
+  //mit neuem Titel
 }
