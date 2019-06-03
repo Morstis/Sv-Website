@@ -1,0 +1,19 @@
+<header>
+  <div id="container">
+    <a routerLink="/start" class="logo">
+      <img src="assets/icons/SVLogo_weiss.svg" />
+    </a>
+    <div id="nav">
+      <nav>
+        <ul>
+          <li *ngFor="let element of list">
+            <a routerLink="{{ element.linkTo }}">{{ element.val }}</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div id="settings">
+      <a routerLink="/login"><img src="assets/icons/settings.svg"/></a>
+    </div>
+  </div>
+</header>
