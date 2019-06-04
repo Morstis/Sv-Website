@@ -4,7 +4,7 @@
     class="box"
     [id]="div.id"
     [routerLink]="div.linkTo"
-    [ngStyle]="{ padding: padding }"
+    [ngStyle]="{ 'background-image': div.image, 'grid-column': div.grid }"
   >
     <h1 class="centerHorizontal">{{ div.show }}</h1>
   </div>

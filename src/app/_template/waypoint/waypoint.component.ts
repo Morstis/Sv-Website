@@ -10,24 +10,16 @@ export class WaypointComponent implements OnInit {
   constructor() {}
 
   divs: WaypointDiv[] = [
-    new WaypointDiv('box1', 'Beratungslehrer', 'Beratungslehrer'),
-    new WaypointDiv('box2', 'Umwelt-AG', 'Umwelt AG'),
-    new WaypointDiv('box1', 'Beratungslehrer', 'Beratungslehrer'),
-    new WaypointDiv('box2', 'Umwelt-AG', 'Umwelt AG'),
-    new WaypointDiv('box1', 'Beratungslehrer', 'Beratungslehrer'),
-    new WaypointDiv('box2', 'Umwelt-AG', 'Umwelt AG')
+    new WaypointDiv('Beratungslehrer', 'Beratungslehrer', 'IMG_7852.JPG'),
+    new WaypointDiv('Umwelt-AG', 'Umwelt AG', 'IMG_7852.JPG')
   ];
 
   padding = '';
 
   ngOnInit() {
-    if (this.divs.length % 2 === 0) {
-      //grade
-      this.padding = `calc(100% / ${this.divs.length}) 0 calc(100% / ${
-        this.divs.length
-      }) 0`;
-    } else {
+    if (this.divs.length % 2 !== 0) {
       //ungrade
+      this.divs[this.divs.length - 1].grid = '1/3';
     }
   }
 }
