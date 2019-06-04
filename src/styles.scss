@@ -21,7 +21,7 @@ menu,
 ol,
 ul {
   padding: 0;
-  margin: 0px;
+  margin: 0;
 }
 body {
   background-color: white;
@@ -30,21 +30,22 @@ body {
   touch-action: manipulation;
   overflow-x: hidden;
   overflow-y: hidden;
+  line-height: 1; //das ist sehr wichtig!! Bewirkt, dass der Bug das 20px bei Schrift 24px sind.
 }
 html {
-  font-size: 20px;
+  font-size: 125%;
 }
-.info {
-  position: absolute;
-  right: 0;
-  top: 1rem;
-  z-index: 100;
-  // color: green; setted by the class
-  padding: 1rem 2rem 1rem 2rem;
-  border: 0.05rem solid rgb(128, 128, 128);
-  border-radius: 0.8rem;
-  background-color: rgba(245, 245, 245, 0.3);
-}
+// .info {
+//   position: absolute;
+//   right: 0;
+//   top: 1rem;
+//   z-index: 100;
+//   // color: green; setted by the class
+//   padding: 1rem 2rem 1rem 2rem;
+//   border: 0.05rem solid rgb(128, 128, 128);
+//   border-radius: 0.8rem;
+//   background-color: rgba(245, 245, 245, 0.3);
+// }
 h1 {
   font-size: 2rem;
 }

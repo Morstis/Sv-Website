@@ -1,5 +1,6 @@
 header {
   background-color: rgb(25, 25, 25);
+  height: 3rem;
 
   #container {
     width: 100vw;
@@ -8,34 +9,30 @@ header {
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
 
-    a {
-      color: white;
-      padding: 1rem 0rem;
-      text-decoration: none;
-    }
-    #settings {
-      padding: 0.8rem 0.5rem 0 0.4rem;
-      float: right;
-      text-align: right;
-
+    #logo {
+      // padding: 0.5rem 0.4rem 0.5rem 0;
       img {
-        width: 1.5rem;
+        height: 3rem;
+        float: left;
       }
     }
-    .logo {
-      padding: 0.5rem 0 0 0.4rem;
-      float: left;
-      text-align: left;
 
+    #settings {
+      padding: 0.5rem 0.4rem 0.5rem 0;
       img {
-        width: 4rem;
+        width: 2rem;
+        float: right;
       }
     }
 
     nav {
       width: 100%;
       text-align: center;
-
+      a {
+        color: white;
+        padding: 1rem 0rem;
+        text-decoration: none;
+      }
       ul {
         list-style-type: none;
         margin-left: 24%;

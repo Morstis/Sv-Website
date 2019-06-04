@@ -1,0 +1,11 @@
+<div id="container" scroll="no">
+  <div
+    *ngFor="let div of divs"
+    class="box"
+    [id]="div.id"
+    [routerLink]="div.linkTo"
+    [ngStyle]="{ padding: padding }"
+  >
+    <span>{{ div.show }}</span>
+  </div>
+</div>
