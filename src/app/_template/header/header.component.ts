@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderList } from 'src/app/_class/header-list';
 
 @Component({
   selector: 'mors-header',
@@ -8,11 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   constructor() {}
 
-  list: headerList[] = [
-    new headerList('Aktuelles', 'aktuelles_waypoint'),
-    new headerList('Projekte', 'projekte_waypoint'),
-    new headerList('Nachhilfe', 'nachhilfe_waypoint'),
-    new headerList('Über uns', '')
+  list: HeaderList[] = [
+    new HeaderList('Aktuelles', 'aktuelles_waypoint'),
+    new HeaderList('Projekte', 'projekte_waypoint'),
+    new HeaderList('Nachhilfe', 'nachhilfe_waypoint'),
+    new HeaderList('Über uns', '')
   ];
 
   ngOnInit() {
@@ -20,15 +21,5 @@ export class HeaderComponent implements OnInit {
       alert('Do not use Edge!');
     }
     console.log(this.list);
-  }
-}
-
-class headerList {
-  val: string;
-  linkTo: string;
-
-  constructor(val: string, link: string) {
-    this.val = val;
-    this.linkTo = link;
   }
 }
