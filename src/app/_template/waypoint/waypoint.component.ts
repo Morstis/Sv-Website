@@ -9,12 +9,11 @@ import { WaypointDiv } from 'src/app/_class/waypoint-div';
 export class WaypointComponent implements OnInit {
   constructor() {}
 
+  //TODO: Auslagern
   divs: WaypointDiv[] = [
     new WaypointDiv('Beratungslehrer', 'Beratungslehrer', 'IMG_7852.JPG'),
     new WaypointDiv('Umwelt-AG', 'Umwelt AG', 'IMG_7852.JPG')
   ];
-
-  padding = '';
 
   ngOnInit() {
     if (this.divs.length % 2 !== 0) {
