@@ -1,5 +1,4 @@
 header {
-  background-color: rgb(25, 25, 25);
   height: 3rem;
 
   #container {
@@ -10,7 +9,6 @@ header {
     grid-template-columns: 1fr 5fr 1fr;
 
     #logo {
-      // padding: 0.5rem 0.4rem 0.5rem 0;
       img {
         height: 3rem;
         float: left;

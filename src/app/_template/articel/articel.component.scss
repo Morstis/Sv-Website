@@ -1,0 +1,52 @@
+.container {
+  -ms-overflow-style: none;
+  .background {
+    height: calc(100vh - 3rem);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    z-index: 1;
+
+    h1 {
+      text-align: center;
+      color: white;
+    }
+  }
+
+  .content {
+    position: absolute;
+    height: calc((100vh - 3rem));
+    z-index: 3;
+    width: 100%;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .left {
+      text-align: center;
+      div {
+        position: relative;
+        height: 40%;
+        width: 60%;
+        left: 15%;
+        top: 20%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 0.3rem;
+      }
+    }
+    .right {
+      margin: 1rem 4rem 4rem 0;
+      #text {
+        text-align: justify;
+        font-size: 1.3rem;
+      }
+      #meta {
+        color: grey;
+      }
+    }
+  }
+}

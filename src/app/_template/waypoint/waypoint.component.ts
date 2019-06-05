@@ -14,7 +14,6 @@ export class WaypointComponent implements OnInit {
     private router: Router
   ) {}
 
-  //TODO: Auslagern
   divs: WaypointDiv[] = [];
 
   ngOnInit() {

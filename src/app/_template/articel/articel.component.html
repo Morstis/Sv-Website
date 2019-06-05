@@ -1,0 +1,18 @@
+<div class="container">
+  <div
+    class="background"
+    [ngStyle]="{ 'background-image': articel.image }"
+  ></div>
+  <div class="content" [ngStyle]="{ 'background-color': theme.bg_color }">
+    <div class="left">
+      <div [ngStyle]="{ 'background-image': articel.image }"></div>
+    </div>
+    <div class="right" [ngStyle]="{ color: theme.color }">
+      <h1>{{ articel.titel }}</h1>
+      <div id="text">
+        <p id="normal">{{ articel.text }}</p>
+        <br /><span id="meta">Autor: {{ articel.autor }}</span>
+      </div>
+    </div>
+  </div>
+</div>

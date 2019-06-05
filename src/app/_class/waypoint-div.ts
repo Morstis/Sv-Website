@@ -5,7 +5,7 @@ export class WaypointDiv {
   grid: string;
 
   constructor(linkTo, shownTitel, image) {
-    this.linkTo = linkTo;
+    this.linkTo = '/' + linkTo;
     this.shownTitel = shownTitel;
     this.image = 'url("../../../../assets/img/' + image + '")';
   }
