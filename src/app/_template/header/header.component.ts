@@ -9,6 +9,7 @@ import { HeaderList } from 'src/app/_class/header-list';
 export class HeaderComponent implements OnInit {
   constructor() {}
 
+  //TODO: Auslagern
   list: HeaderList[] = [
     new HeaderList('Aktuelles', 'aktuelles_waypoint'),
     new HeaderList('Projekte', 'projekte_waypoint'),
@@ -20,6 +21,5 @@ export class HeaderComponent implements OnInit {
     if (/Edge/.test(navigator.userAgent)) {
       alert('Do not use Edge!');
     }
-    console.log(this.list);
   }
 }

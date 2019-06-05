@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { WaypointDiv } from 'src/app/_class/waypoint-div';
+import { RouterCheckService } from 'src/app/_service/router-check.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'mors-waypoint',
@@ -7,15 +9,16 @@ import { WaypointDiv } from 'src/app/_class/waypoint-div';
   styleUrls: ['./waypoint.component.scss']
 })
 export class WaypointComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private routerCheck: RouterCheckService,
+    private router: Router
+  ) {}
 
   //TODO: Auslagern
-  divs: WaypointDiv[] = [
-    new WaypointDiv('Beratungslehrer', 'Beratungslehrer', 'IMG_7852.JPG'),
-    new WaypointDiv('Umwelt-AG', 'Umwelt AG', 'IMG_7852.JPG')
-  ];
+  divs: WaypointDiv[] = [];
 
   ngOnInit() {
+    this.divs = this.routerCheck.checkWaypoint(this.router.url);
     if (this.divs.length % 2 !== 0) {
       //ungrade
       this.divs[this.divs.length - 1].grid = '1/3';
