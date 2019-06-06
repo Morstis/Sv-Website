@@ -19,13 +19,20 @@ export class KeksService {
     }
   }
 
-  setKeks(index: string, value: string): boolean {
+  setKeks(index: string, value: string) {
     this.keks.set(index, value);
 
     if (this.getKeks(index) === value) {
-      return true;
     } else {
-      return false;
+      throw new Error('Keks konnte nicht gesetzt werden!');
+    }
+  }
+
+  deleteKeke() {
+    try {
+      this.keks.deleteAll();
+    } catch (e) {
+      console.error(e);
     }
   }
 

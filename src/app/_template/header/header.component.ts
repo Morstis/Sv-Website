@@ -25,6 +25,8 @@ export class HeaderComponent implements OnInit {
     if (/Edge/.test(navigator.userAgent)) {
       alert('Do not use Edge!');
     }
+
+    // TODO: schöner machen
     if (this.userService.theme() === 'dark') {
       this.theme.bgColor = 'black';
     } else {

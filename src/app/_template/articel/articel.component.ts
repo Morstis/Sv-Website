@@ -24,6 +24,7 @@ export class ArticelComponent implements OnInit {
     this.articel = this.routerCheck.checkArticel(this.router.url);
 
     // TODO: make it fancier
+
     if (this.userService.theme() === 'dark') {
       this.theme.bgColor = '#16161d';
       this.theme.color = 'white';

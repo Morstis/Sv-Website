@@ -8,6 +8,6 @@ export class UserService {
   constructor(private Keks: KeksService) {}
 
   theme(): string {
-    return this.Keks.getKeks('thema'); // "dark", "white", "Wert nicht im cookie gesetzt" oder "no Cookie set"
+    return this.Keks.getKeks('theme'); // "dark", "white", "Wert nicht im cookie gesetzt" oder "no Cookie set"
   }
 }
