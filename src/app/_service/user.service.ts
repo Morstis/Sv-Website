@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
+import { KeksService } from './keks.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  constructor() {}
+  constructor(private Keks: KeksService) {}
 
   theme(): string {
-    // TODO: set a Cookie and at theme to settings
-    return 'dark'; // or white
+    return this.Keks.getKeks('thema'); // "dark", "white", "Wert nicht im cookie gesetzt" oder "no Cookie set"
   }
 }

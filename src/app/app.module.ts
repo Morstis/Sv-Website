@@ -8,6 +8,7 @@ import { WaypointComponent } from './_template/waypoint/waypoint.component';
 import { RouterCheckService } from './_service/router-check.service';
 import { ArticelComponent } from './_template/articel/articel.component';
 import { UserService } from './_service/user.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { UserService } from './_service/user.service';
     ArticelComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [RouterCheckService, UserService],
+  providers: [RouterCheckService, UserService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
