@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderList } from 'src/app/_class/header-list';
 import { UserService } from 'src/app/_service/user.service';
+import { Theme } from 'src/app/_class/theme';
 
 @Component({
   selector: 'mors-header',
@@ -10,8 +11,7 @@ import { UserService } from 'src/app/_service/user.service';
 export class HeaderComponent implements OnInit {
   constructor(private userService: UserService) {}
 
-  // TODO: create a theme class
-  theme: any = { bg_color: '', color: '' };
+  theme: Theme = new Theme();
 
   // TODO: Auslagern
   list: HeaderList[] = [
@@ -26,9 +26,9 @@ export class HeaderComponent implements OnInit {
       alert('Do not use Edge!');
     }
     if (this.userService.theme() === 'dark') {
-      this.theme.bg_color = 'black';
+      this.theme.bgColor = 'black';
     } else {
-      this.theme.bg_color = 'rgb(25, 25, 25)';
+      this.theme.bgColor = 'rgb(25, 25, 25)';
     }
   }
 }
