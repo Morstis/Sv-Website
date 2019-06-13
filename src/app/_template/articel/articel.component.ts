@@ -23,7 +23,7 @@ export class ArticelComponent implements OnInit {
   ngOnInit() {
     this.articel = this.routerCheck.checkArticel(this.router.url);
 
-    // TODO: make it fancier
+    // TODO: make it fancier i.e config in ein Json auslagern
 
     if (this.userService.theme() === 'dark') {
       this.theme.bgColor = '#16161d';

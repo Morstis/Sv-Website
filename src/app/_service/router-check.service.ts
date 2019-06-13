@@ -9,9 +9,22 @@ export class RouterCheckService {
   constructor() {}
 
   checkArticel(router) {
+    // TODO: Put this JSON to a server and make it editable
     const data = {
       '/Umwelt-AG': {
         titel: 'Umwelt AG',
+        text: `Das Thema Umwelt an unserer Schule beschäftigt uns schon seit längerer Zeit.
+          Gerade bei einer so großen Institution wie einer Schule kann man schließlich viel
+          für die Umwelt tun. Daher gab es die Idee, eine Umwelt-AG zu gründen. Diese könnte
+          zum Beispiel mit der Schulgarten-AG zusammenarbeiten, aber selbstverständlich auch
+          eigene Projekte hervorbringen. Daher sind wir gerade mit den Lehrern und einigen
+          Fachruppen im Gespräch.
+          Seid auf Neuigkeiten gespannt!`,
+        autor: 'Rieke Duhm, Hannahlyse/SV',
+        image: 'IMG_7852.JPG'
+      },
+      '/Pausen-Ausleihe': {
+        titel: 'Pausen Ausleihe',
         text: `Das Thema Umwelt an unserer Schule beschäftigt uns schon seit längerer Zeit.
           Gerade bei einer so großen Institution wie einer Schule kann man schließlich viel
           für die Umwelt tun. Daher gab es die Idee, eine Umwelt-AG zu gründen. Diese könnte

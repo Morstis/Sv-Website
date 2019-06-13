@@ -9,6 +9,7 @@ export class SettingsService {
 
   saveSettings() {
     try {
+      // TODO: make it dynamic
       this.Keks.setKeks('theme', 'dark');
     } catch (e) {
       console.error(e);

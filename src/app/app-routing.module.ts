@@ -3,11 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { WaypointComponent } from './_template/waypoint/waypoint.component';
 import { ArticelComponent } from './_template/articel/articel.component';
 
-const routes: Routes = [
-  { path: 'start', component: WaypointComponent },
-  { path: 'projekte', component: WaypointComponent },
-  { path: 'Umwelt-AG', component: ArticelComponent }
-];
+const routes: Routes = [];
+
+const waypointpathes: string[] = ['start', 'projekte'];
+const articelpathes: string[] = ['Umwelt-AG', 'Pausen-Ausleihe'];
+
+waypointpathes.forEach(element => {
+  routes.push({ path: element, component: WaypointComponent });
+});
+
+articelpathes.forEach(element => {
+  routes.push({ path: element, component: ArticelComponent });
+});
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

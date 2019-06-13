@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
 
   // TODO: Auslagern
   list: HeaderList[] = [
-    new HeaderList('Aktuelles', 'aktuelles_waypoint'),
+    new HeaderList('Aktuelles', 'start'),
     new HeaderList('Projekte', 'projekte_waypoint'),
     new HeaderList('Nachhilfe', 'nachhilfe_waypoint'),
     new HeaderList('Über uns', '')
