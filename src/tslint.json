@@ -1,17 +1,7 @@
 {
-  "extends": "../tslint.json",
-  "rules": {
-    "directive-selector": [
-      true,
-      "attribute",
-      "mors",
-      "camelCase"
-    ],
-    "component-selector": [
-      true,
-      "element",
-      "mors",
-      "kebab-case"
-    ]
-  }
+	"extends": "../tslint.json",
+	"rules": {
+		"directive-selector": [ true, "attribute", "mors", "camelCase" ],
+		"component-selector": [ true, "element", "mors", "kebab-case" ]
+	}
 }

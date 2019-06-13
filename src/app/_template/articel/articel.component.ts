@@ -4,6 +4,7 @@ import { RouterCheckService } from 'src/app/_service/router-check.service';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/_service/user.service';
 import { Theme } from 'src/app/_class/theme';
+import { KeksService } from 'src/app/_service/keks.service';
 
 @Component({
   selector: 'mors-articel',
@@ -14,7 +15,8 @@ export class ArticelComponent implements OnInit {
   constructor(
     private routerCheck: RouterCheckService,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private keks: KeksService
   ) {}
 
   theme: Theme = new Theme();
@@ -22,8 +24,13 @@ export class ArticelComponent implements OnInit {
 
   ngOnInit() {
     this.articel = this.routerCheck.checkArticel(this.router.url);
+    // TODO: make it fancier i.e config in ein Json auslagern or using material design
 
-    // TODO: make it fancier i.e config in ein Json auslagern
+    try {
+      this.keks.setKeks('theme', 'white');
+    } catch (e) {
+      console.error(e);
+    }
 
     if (this.userService.theme() === 'dark') {
       this.theme.bgColor = '#16161d';

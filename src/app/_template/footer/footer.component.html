@@ -1,0 +1,18 @@
+<footer>
+  <a (click)="hide()" class="arrow" *ngIf="show"
+    ><img src="assets/icons/down-arrow-weiss.svg"
+  /></a>
+  <a (click)="unhide()" class="arrow" *ngIf="!show"
+    ><img src="assets/icons/down-arrow-schwarz.svg"
+  /></a>
+  <div id="container" *ngIf="show">
+    <div id="content">
+      <div></div>
+      <div><a href="mailto:SV@hag-iserv.de">E-Mail: SV@hag-iserv.de</a></div>
+      <div><a routerLink="/">Impressum</a></div>
+      <div><a routerLink="/">Fehler Melden</a></div>
+      <div><a routerLink="/">Datenschutz</a></div>
+      <div></div>
+    </div>
+  </div>
+</footer>

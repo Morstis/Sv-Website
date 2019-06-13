@@ -9,13 +9,15 @@ import { RouterCheckService } from './_service/router-check.service';
 import { ArticelComponent } from './_template/articel/articel.component';
 import { UserService } from './_service/user.service';
 import { CookieService } from 'ngx-cookie-service';
+import { FooterComponent } from './_template/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     WaypointComponent,
-    ArticelComponent
+    ArticelComponent,
+    FooterComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [RouterCheckService, UserService, CookieService],
