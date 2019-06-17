@@ -7,14 +7,15 @@ import { KeksService } from 'src/app/_service/keks.service';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+  show = true;
   constructor(private keks: KeksService) {
-    if (this.keks.getKeks('footer') === 'true') {
-      this.show = true;
-    } else {
+    if (this.keks.getKeks('footer') === 'false') {
       this.show = false;
+    } else {
+      this.show = true;
     }
   }
-  show = true;
+
 
   ngOnInit() {}
 
