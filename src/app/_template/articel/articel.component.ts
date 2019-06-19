@@ -24,7 +24,7 @@ export class ArticelComponent implements OnInit {
 
   ngOnInit() {
     this.articel = this.routerCheck.checkArticel(this.router.url);
-    // TODO: make it fancier i.e config in ein Json auslagern or using material design
+    // TODO: make it fancier e.g. config in ein Json auslagern or using material design
 
     try {
       this.keks.setKeks('theme', 'white');

@@ -10,16 +10,18 @@ import { ArticelComponent } from './_template/articel/articel.component';
 import { UserService } from './_service/user.service';
 import { CookieService } from 'ngx-cookie-service';
 import { FooterComponent } from './_template/footer/footer.component';
-
+import { RegisterComponent } from './_template/register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     WaypointComponent,
     ArticelComponent,
-    FooterComponent
+    FooterComponent,
+    RegisterComponent
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [RouterCheckService, UserService, CookieService],
   bootstrap: [AppComponent]
 })

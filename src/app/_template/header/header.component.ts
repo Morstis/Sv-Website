@@ -22,9 +22,7 @@ export class HeaderComponent implements OnInit {
   ];
 
   ngOnInit() {
-    if (/Edge/.test(navigator.userAgent)) {
-      alert('Do not use Edge!');
-    }
+
 
     // TODO: schöner machen
     if (this.userService.theme() === 'dark') {

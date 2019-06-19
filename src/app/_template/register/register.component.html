@@ -1,0 +1,68 @@
+<h2>SV-Account erstellen</h2>
+<form novalidate (ngSubmit)="saveTask(form.value)" #form="ngForm">
+  <div id="top">
+    <div class="form-group">
+      <label>Vorname</label>
+      <input type="text" name="title" class="form-control" ngModel required />
+    </div>
+    <div class="form-group">
+      <label>Nachname</label>
+      <input type="text" name="title" class="form-control" ngModel required />
+    </div>
+  </div>
+
+  <hr />
+
+  <div id="middle">
+    <div class="form-group">
+      <label>Klasse</label>
+      <input type="text" name="title" class="form-control" ngModel required />
+    </div>
+    <div class="form-group">
+      <label>E-Mail</label>
+      <input type="text" name="title" class="form-control" ngModel required />
+    </div>
+    <div class="form-group">
+      <label>Passwort (nicht Iserv)</label>
+      <input type="text" name="title" class="form-control" ngModel required />
+    </div>
+    <div class="form-group">
+      <label>Passwort wiederholen</label>
+      <input type="text" name="title" class="form-control" ngModel required />
+    </div>
+  </div>
+
+  <hr />
+
+  <div id="bottom">
+    <div class="form-group">
+      <input
+        type="checkbox"
+        name="datenschutz"
+        id="datenschutz"
+        ngModel
+        required
+      />
+      <label for="datenschutz" class="noselect"
+        >Ich habe die <a href="/">Datenschutzerklärung</a> gelesen und
+        akzeptiere diese hiermit.</label
+      >
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="!form.valid"
+      class="btn"
+      [ngClass]="{
+        btn_shadow: form.valid,
+        valid: form.valid,
+        notValid: !form.valid
+      }"
+    >
+      Speichern
+    </button>
+    <button type="reset" class="btn btn_shadow" routerLink="/login">
+      Abbrechen
+    </button>
+  </div>
+</form>
