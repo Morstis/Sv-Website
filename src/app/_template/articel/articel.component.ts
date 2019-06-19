@@ -24,14 +24,15 @@ export class ArticelComponent implements OnInit {
 
   ngOnInit() {
     this.articel = this.routerCheck.checkArticel(this.router.url);
-    // TODO: make it fancier e.g. config in ein Json auslagern or using material design
 
+    // TODO: remove
     try {
       this.keks.setKeks('theme', 'white');
     } catch (e) {
       console.error(e);
     }
 
+    // TODO: make it fancier e.g. config in ein Json auslagern or using material design
     if (this.userService.theme() === 'dark') {
       this.theme.bgColor = '#16161d';
       this.theme.color = 'white';

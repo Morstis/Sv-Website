@@ -79,6 +79,23 @@ export class RouterCheckService {
           shownTitel: 'Umwelt AG',
           image: 'IMG_7852.JPG'
         }
+      },
+      '/nachhilfe': {
+        'nachhilfe-geben': {
+          linkTo: 'nachhilfe-geben',
+          shownTitel: 'Nachhilfe geben',
+          image: 'IMG_7910.JPG'
+        },
+        'nachhilfe-nehmen': {
+          linkTo: 'nachhilfe-nehmen',
+          shownTitel: 'Nachhilfe nehmen',
+          image: 'IMG_7894.JPG'
+        },
+        'nachhilfe-info': {
+          linkTo: 'nachhilfe-info',
+          shownTitel: 'Allgemeine Informationen',
+          image: 'IMG_7901.jpg'
+        }
       }
     };
 

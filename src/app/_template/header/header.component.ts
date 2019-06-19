@@ -16,19 +16,17 @@ export class HeaderComponent implements OnInit {
   // TODO: Auslagern
   list: HeaderList[] = [
     new HeaderList('Aktuelles', 'start'),
-    new HeaderList('Projekte', 'projekte_waypoint'),
-    new HeaderList('Nachhilfe', 'nachhilfe_waypoint'),
+    new HeaderList('Projekte', 'projekte'),
+    new HeaderList('Nachhilfe', 'nachhilfe'),
     new HeaderList('Über uns', '')
   ];
 
   ngOnInit() {
-
-
     // TODO: schöner machen
     if (this.userService.theme() === 'dark') {
       this.theme.bgColor = 'black';
     } else {
-      this.theme.bgColor = 'rgb(25, 25, 25)';
+      this.theme.bgColor = '#191919';
     }
   }
 }
