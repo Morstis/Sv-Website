@@ -12,6 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { FooterComponent } from './_template/footer/footer.component';
 import { RegisterComponent } from './_template/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ShowErrorComponent } from './_components/show-error.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     WaypointComponent,
     ArticelComponent,
     FooterComponent,
-    RegisterComponent
+    RegisterComponent,
+    ShowErrorComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [RouterCheckService, UserService, CookieService],

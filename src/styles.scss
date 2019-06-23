@@ -1,48 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
 ::-webkit-scrollbar {
-	width: 10px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-	background: #f1f1f1;
+  background: #f1f1f1;
 }
 ::-webkit-scrollbar-thumb {
-	background: #888;
+  background: #888;
 }
 ::-webkit-scrollbar-thumb:hover {
-	background: #555;
+  background: #555;
 }
 body {
-	background-color: white;
-	margin: 0;
-	font-family: Arial;
-	touch-action: manipulation;
+  background-color: white;
+  margin: 0;
+  font-family: Arial;
+  touch-action: manipulation;
+}
+.error {
+  color: red;
+  margin-top: -1rem;
+  font-size: 0.7rem;
+  padding: 0.2rem;
 }
 menu,
 ol,
 ul {
-	padding: 0;
-	margin: 0;
+  padding: 0;
+  margin: 0;
 }
 body {
-	background-color: white;
-	margin: 0;
-	font-family: 'Roboto', sans-serif;
-	touch-action: manipulation;
-	overflow-x: hidden;
+  background-color: white;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  touch-action: manipulation;
+  overflow-x: hidden;
 
-	line-height: 1; //das ist sehr wichtig!! Bewirkt, dass der Bug das 20px bei Schrift 24px sind.
+  line-height: 1; //das ist sehr wichtig!! Bewirkt, dass der Bug das 20px bei Schrift 24px sind.
 }
 html {
-	font-size: 125%;
+  font-size: 125%;
 }
 
 .centerHorizontal {
-	margin: 0;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 // .info {
 //   position: absolute;
@@ -56,19 +62,19 @@ html {
 //   background-color: rgba(245, 245, 245, 0.3);
 // }
 h1 {
-	font-size: 2rem;
+  font-size: 2rem;
 }
 .noselect {
-	-webkit-touch-callout: none; /* iOS Safari */
-	-webkit-user-select: none; /* Safari */
-	-khtml-user-select: none; /* Konqueror HTML */
-	-moz-user-select: none; /* Firefox */
-	-ms-user-select: none; /* Internet Explorer/Edge */
-	user-select: none; /* Non-prefixed version, currently
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 }
 @media only screen and (max-width: 1680px) {
-	html {
-		font-size: 15px;
-	}
+  html {
+    font-size: 15px;
+  }
 }

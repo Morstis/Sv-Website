@@ -8,6 +8,19 @@
       >
 
       <input type="text" [name]="form.name" ngModel required />
+
+      <mors-show-error
+        *ngIf="form.title; else elseError"
+        [path]="form.name"
+        text="{{ form.title }}"
+      >
+      </mors-show-error>
+      <ng-template #elseError>
+        <mors-show-error
+          [path]="form.name"
+          text="{{ form.name | titlecase }}"
+        ></mors-show-error>
+      </ng-template>
     </div>
     <hr *ngIf="form.hr" />
   </div>
