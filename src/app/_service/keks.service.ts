@@ -7,15 +7,15 @@ import { CookieService } from 'ngx-cookie-service';
 export class KeksService {
   constructor(private keks: CookieService) {}
 
-  getKeks(name: string): string {
+  getKeks(name: string): any {
     if (this.ckeckKekse) {
       if (this.keks.check(name)) {
         return this.keks.get(name);
       } else {
-        return 'Wert nicht im cookie gesetzt';
+        return false;
       }
     } else {
-      return 'no Cookie set';
+      return false;
     }
   }
 
@@ -36,7 +36,7 @@ export class KeksService {
     }
   }
 
-  private ckeckKekse(): boolean {
+  ckeckKekse(): boolean {
     if (Object.keys(this.keks.getAll()).length === 0) {
       return false;
     }
