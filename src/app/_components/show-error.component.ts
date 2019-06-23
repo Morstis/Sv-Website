@@ -44,8 +44,11 @@ export class ShowErrorComponent {
               error.requiredLength
             } Zeichen enthalten`;
             break;
-          case 'invalidEMail':
-            message = `Bitte geben Sie eine gültige E-Mail Adresse an`;
+          case 'emailValid':
+            message = `Bitte gebe deine Iserv Email an`;
+            break;
+          case 'klasseValid':
+            message = `Bitte gebe deine Klasse an (z.B. 10FLS)`;
             break;
           default:
             message = `${name} ist nicht valide`;
