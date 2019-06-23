@@ -8,5 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class RegisterComponent implements OnInit {
   constructor() {}
 
+  forms: object[] = [
+    { name: 'vorname' },
+    { name: 'nachname', hr: true },
+    { name: 'klasse' },
+    { name: 'email' },
+    { name: 'pw1', title: 'Passwort (nicht Iserv)' },
+    { name: 'pw2', title: 'Passwort wiederholen', hr: true }
+  ];
   ngOnInit() {}
+
+  saveTask(value) {
+    console.log(value);
+  }
 }

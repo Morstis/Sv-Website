@@ -32,6 +32,9 @@ form {
       background-color: #ddd;
       outline: none;
     }
+    &.ng-touched.ng-invalid {
+      border: 0.2rem red solid;
+    }
   }
   hr {
     margin-bottom: 1.4rem;
