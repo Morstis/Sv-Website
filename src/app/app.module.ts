@@ -16,6 +16,7 @@ import { ShowErrorComponent } from './_components/show-error.component';
 import { EmailValidationDirective } from './_directive/validation/email-validation.directive';
 import { KlasseValidationDirective } from './_directive/validation/klasse-validation.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { XssDirective } from './_directive/validation/xss.directive';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     ShowErrorComponent,
     EmailValidationDirective,
-    KlasseValidationDirective
+    KlasseValidationDirective,
+    XssDirective
   ],
   imports: [
     BrowserModule,

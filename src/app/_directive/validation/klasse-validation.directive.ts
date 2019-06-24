@@ -1,5 +1,5 @@
 import { Directive, Input } from '@angular/core';
-import { FormControl, NG_VALIDATORS } from '@angular/forms';
+import { FormControl, NG_VALIDATORS, Validator } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { KeksService } from 'src/app/_service/keks.service';
 
@@ -13,7 +13,7 @@ import { KeksService } from 'src/app/_service/keks.service';
     }
   ]
 })
-export class KlasseValidationDirective {
+export class KlasseValidationDirective implements Validator {
   @Input('morsKlasseValidation') options: any;
   constructor(private http: HttpClient, private keks: KeksService) {}
   klasse: any;

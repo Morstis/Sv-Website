@@ -32,7 +32,7 @@ export class ShowErrorComponent {
         let message = '';
         switch (code) {
           case 'required':
-            message = `${this.displayName} ist ein Pflichtfeld`;
+            message = `\"${this.displayName}\" ist ein Pflichtfeld`;
             break;
           case 'minlength':
             message = `${this.displayName} muss mindestens ${
@@ -49,6 +49,9 @@ export class ShowErrorComponent {
             break;
           case 'klasseValid':
             message = `Bitte gebe deine Klasse an (z.B. 10FLS)`;
+            break;
+          case 'xss':
+            message = `Der Ausdruck \"<x>\" ist nicht erlaubt`;
             break;
           default:
             message = `${name} ist nicht valide`;
