@@ -13,8 +13,8 @@ export class RegisterComponent implements OnInit {
   forms: object[] = [
     { name: 'vorname' },
     { name: 'nachname', hr: true },
-    { name: 'klasse', check: 'klasse' },
-    { name: 'email', check: 'email' },
+    { name: 'klasse' },
+    { name: 'email' },
     { name: 'pw1', title: 'Passwort (nicht Iserv)' },
     { name: 'pw2', title: 'Passwort wiederholen', hr: true }
   ];

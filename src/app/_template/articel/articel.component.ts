@@ -27,7 +27,7 @@ export class ArticelComponent implements OnInit {
 
     // TODO: remove
     try {
-      this.keks.setKeks('theme', 'white');
+      this.keks.setKeks('theme', 'dark');
     } catch (e) {
       console.error(e);
     }

@@ -17,6 +17,8 @@ import { EmailValidationDirective } from './_directive/validation/email-validati
 import { KlasseValidationDirective } from './_directive/validation/klasse-validation.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { XssDirective } from './_directive/validation/xss.directive';
+import {NgxImageCompressService} from 'ngx-image-compress';
+import { CheckEqualInputWithDirective } from './_directive/validation/check-equal-input-with.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { XssDirective } from './_directive/validation/xss.directive';
     ShowErrorComponent,
     EmailValidationDirective,
     KlasseValidationDirective,
-    XssDirective
+    XssDirective,
+    CheckEqualInputWithDirective
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,7 @@ import { XssDirective } from './_directive/validation/xss.directive';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [RouterCheckService, UserService, CookieService],
+  providers: [RouterCheckService, UserService, CookieService, NgxImageCompressService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

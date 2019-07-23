@@ -32,26 +32,29 @@ export class ShowErrorComponent {
         let message = '';
         switch (code) {
           case 'required':
-            message = `\"${this.displayName}\" ist ein Pflichtfeld`;
+            message = `\"${this.displayName}\" ist ein Pflichtfeld.`;
             break;
           case 'minlength':
             message = `${this.displayName} muss mindestens ${
               error.requiredLength
-            } Zeichen enthalten`;
+            } Zeichen enthalten.`;
             break;
           case 'maxlength':
-            message = `${this.displayName} darf maximal ${
+            message = `\"${this.displayName}\" darf maximal ${
               error.requiredLength
-            } Zeichen enthalten`;
+            } Zeichen enthalten.`;
             break;
           case 'emailValid':
-            message = `Bitte gebe deine Iserv Email an`;
+            message = `Bitte gebe deine Iserv Email Adresse an.`;
             break;
           case 'klasseValid':
-            message = `Bitte gebe deine Klasse an (z.B. 10FLS)`;
+            message = `Bitte gebe deine Klasse an (z.B. 10FLS).`;
             break;
           case 'xss':
-            message = `Der Ausdruck \"<x>\" ist nicht erlaubt`;
+            message = `Der Ausdruck \"<x>\" ist nicht erlaubt.`;
+            break;
+          case 'notEqual':
+            message = `Die Passwöter stimmen nicht überein.`;
             break;
           default:
             message = `${name} ist nicht valide`;

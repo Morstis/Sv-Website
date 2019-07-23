@@ -21,7 +21,7 @@ export class RouterCheckService {
           Fachruppen im Gespräch.
           Seid auf Neuigkeiten gespannt!`,
         autor: 'Rieke Duhm, Hannahlyse/SV',
-        image: 'IMG_7852.JPG'
+        image: 'Bild2.jfif'
       },
       '/Pausen-Ausleihe': {
         titel: 'Pausen Ausleihe',
@@ -33,7 +33,7 @@ export class RouterCheckService {
           Fachruppen im Gespräch.
           Seid auf Neuigkeiten gespannt!`,
         autor: 'Rieke Duhm, Hannahlyse/SV',
-        image: 'IMG_7852.JPG'
+        image: 'Download.jfif'
       }
     };
 
@@ -60,7 +60,7 @@ export class RouterCheckService {
         'Umwelt-AG': {
           linkTo: 'Umwelt-AG',
           shownTitel: 'Umwelt AG',
-          image: 'IMG_7852.JPG'
+          image: 'Download.jfif'
         }
       },
       '/projekte': {
