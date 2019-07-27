@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Articel } from 'src/app/_class/articel';
 import { RouterCheckService } from 'src/app/_service/router-check.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/_service/user.service';
 import { Theme } from 'src/app/_class/theme';
 import { KeksService } from 'src/app/_service/keks.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'mors-articel',
@@ -14,16 +15,20 @@ import { KeksService } from 'src/app/_service/keks.service';
 export class ArticelComponent implements OnInit {
   constructor(
     private routerCheck: RouterCheckService,
-    private router: Router,
+    private route: ActivatedRoute,
     private userService: UserService,
     private keks: KeksService
   ) {}
 
   theme: Theme = new Theme();
   articel: Articel;
+  subscribtion: Subscription;
 
   ngOnInit() {
-    this.articel = this.routerCheck.checkArticel(this.router.url);
+    this.subscribtion = this.route.params.subscribe(params => {
+      const projekt = params.projekt;
+      this.articel = this.routerCheck.checkArticel(projekt);
+    });
 
     // TODO: remove
     try {
@@ -40,5 +45,9 @@ export class ArticelComponent implements OnInit {
       this.theme.bgColor = 'white';
       this.theme.color = 'black';
     }
+  }
+
+  OnDestroy(): void {
+    this.subscribtion.unsubscribe();
   }
 }

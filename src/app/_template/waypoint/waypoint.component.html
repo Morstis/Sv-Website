@@ -3,7 +3,7 @@
     *ngFor="let div of divs"
     class="box"
     [id]="div.id"
-    [routerLink]="div.linkTo"
+    [routerLink]="['/projekte', div.linkTo]"
     [ngStyle]="{ 'background-image': div.image, 'grid-column': div.grid }"
   >
     <h1 class="centerHorizontal">{{ div.shownTitel }}</h1>

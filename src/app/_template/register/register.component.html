@@ -3,9 +3,11 @@
   <div *ngFor="let form of forms">
     <div>
       <label *ngIf="form.title; else elseTemplate">{{ form.title }}</label>
-      <ng-template #elseTemplate
-        ><label>{{ form.name | titlecase }}</label></ng-template
-      >
+      <!-- prettier-ignore -->
+      <ng-template #elseTemplate>
+        <label>{{ form.name | titlecase }}</label>
+      </ng-template>
+
       <!-- prettier-ignore -->
       <input
         [type]="form.name == 'pw1' ? 'password' : form.name == 'pw2' ? 'password' : 'text'"
@@ -25,6 +27,7 @@
         text="{{ form.title }}"
       >
       </mors-show-error>
+
       <ng-template #elseError>
         <mors-show-error
           [path]="form.name"
