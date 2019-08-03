@@ -3,21 +3,26 @@ import { Routes, RouterModule } from '@angular/router';
 import { WaypointComponent } from './_template/waypoint/waypoint.component';
 import { ArticelComponent } from './_template/articel/articel.component';
 import { RegisterComponent } from './_template/register/register.component';
-import { AppComponent } from './app.component';
 import { BasicRouterComponent } from './_components/basicRouter.component';
+import { LoginGuard } from './_service/guards/login-guard.service';
+import { LoginComponent } from './_template/login/login.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
-  { path: 'start', component: WaypointComponent },
+  { path: 'start', component: WaypointComponent, canActivate: [LoginGuard] },
   // prettier-ignore
   {
-    path: 'projekte', component: BasicRouterComponent,
+    path: 'projekte', component: BasicRouterComponent, canActivate: [LoginGuard],
       children: [
         { path: '', component:  WaypointComponent},
         { path: ':projekt', component: ArticelComponent }
       ]
   },
-  { path: 'nachhilfe', component: WaypointComponent }
+  // prettier-ignore
+  {
+    path: 'nachhilfe', component: WaypointComponent, canActivate: [LoginGuard]
+  },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({

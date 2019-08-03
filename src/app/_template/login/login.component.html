@@ -1,0 +1,38 @@
+<img id="logo" src="assets/icons/SVLogo_black.svg" />
+
+<div id="container">
+  <h1>
+    Bei der <span style="color: rgb(40, 94, 131);">Sv-Website</span> anmelden
+  </h1>
+
+  <div
+    id="input_with_icon"
+    [ngStyle]="{ 'border-color': error ? 'red' : 'grey' }"
+  >
+    <input
+      [type]="check == 1 ? 'email' : 'password'"
+      [placeholder]="check == 1 ? 'ac.count@hag-iserv.de' : 'Passwort'"
+      #input
+      (keyup.enter)="forward(input.value)"
+    />
+    <img
+      id="arrow"
+      (click)="forward(input.value)"
+      src="assets/icons/login_arrow_right.svg"
+    />
+  </div>
+  <div id="error" *ngIf="error">
+    {{
+      check == 1
+        ? "Deine Email-Addresse ist nicht vorhanden!"
+        : "Dein passwort ist falsch!"
+    }}
+  </div>
+  <hr />
+  <p [ngStyle]="{ visibility: check == 1 ? 'visible' : 'hidden' }">
+    SV-Account <a routerLink="/register">erstellen...</a>
+  </p>
+  <a id="cancel" (click)="backward()">{{
+    check == 1 ? "Abbrechen" : "Zurück"
+  }}</a>
+</div>

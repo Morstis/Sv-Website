@@ -20,6 +20,7 @@ import { XssDirective } from './_directive/validation/xss.directive';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { CheckEqualInputWithDirective } from './_directive/validation/check-equal-input-with.directive';
 import { BasicRouterComponent } from './_components/basicRouter.component';
+import { LoginComponent } from './_template/login/login.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { BasicRouterComponent } from './_components/basicRouter.component';
     KlasseValidationDirective,
     XssDirective,
     CheckEqualInputWithDirective,
-    BasicRouterComponent
+    BasicRouterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

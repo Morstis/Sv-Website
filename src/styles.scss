@@ -36,7 +36,7 @@ body {
   touch-action: manipulation;
   overflow-x: hidden;
 
-  line-height: 1; //das ist sehr wichtig!! Bewirkt, dass der Bug das 20px bei Schrift 24px sind.
+  line-height: 1; //das ist sehr wichtig!! Bewirkt, dass 20px bei Schrift nicht 24px sind.
 }
 html {
   font-size: 125%;
