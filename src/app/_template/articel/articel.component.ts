@@ -32,7 +32,7 @@ export class ArticelComponent implements OnInit {
 
     // TODO: remove
     try {
-      this.keks.setKeks('theme', 'dark');
+      this.keks.setKeks('theme', 'white');
     } catch (e) {
       console.error(e);
     }
