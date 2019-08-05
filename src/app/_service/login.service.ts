@@ -10,27 +10,43 @@ export class LoginService {
   // TODO: provide CURRENT_USER as JWT
   CURRENT_USER = 'currentUser';
   BASE_URL = 'http://localhost:3000/api/user';
+  user: User;
 
   constructor(private http: HttpClient) {}
 
-  login(name: string): Observable<User[]> {
-    const params = new HttpParams().append('name', name);
+  getUserServer(email: string): Observable<User[]> {
+    const params = new HttpParams().append('email', email);
     return this.http.get<User[]>(this.BASE_URL, { params });
+  }
+
+  setUserLocal(user) {
+    localStorage.setItem(this.CURRENT_USER, JSON.stringify(user));
   }
 
   logout() {
     localStorage.removeItem(this.CURRENT_USER);
   }
 
-  isLoggedIn() {
-    return true;
-    // TODO: add logic
+  isLoggedIn(): boolean {
+    // tslint:disable-next-line: no-conditional-assignment | ist da die effizienteste Variante
+    if ((this.user = this.getUserLocal())) {
+      return true;
+    }
+    return false;
   }
 
-  getUser() {
+  getUserLocal() {
     const userString = localStorage.getItem(this.CURRENT_USER);
     if (userString) {
       return JSON.parse(userString);
     }
+    return false;
+  }
+
+  register(user): Observable<User> {
+    return this.http.post<User>(this.BASE_URL, user);
+  }
+  mail(email): Observable<any> {
+    return this.http.post<any>('http://localhost/mail.php', email);
   }
 }

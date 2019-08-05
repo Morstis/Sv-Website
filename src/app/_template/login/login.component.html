@@ -29,8 +29,11 @@
     }}
   </div>
   <hr />
-  <p [ngStyle]="{ visibility: check == 1 ? 'visible' : 'hidden' }">
-    SV-Account <a routerLink="/register">erstellen...</a>
+  <p>
+    {{ check == 1 ? " SV-Account " : "Passwort " }}
+    <a [routerLink]="check == 1 ? '/register' : '/start'">{{
+      check == 1 ? "erstellen..." : "vergessen..."
+    }}</a>
   </p>
   <a id="cancel" (click)="backward()">{{
     check == 1 ? "Abbrechen" : "Zurück"

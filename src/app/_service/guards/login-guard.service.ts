@@ -12,13 +12,13 @@ import { LoginService } from '../login.service';
   providedIn: 'root'
 })
 export class LoginGuard implements CanActivate {
-  constructor(private router: Router, private loginService: LoginService) {}
+  constructor(private router: Router, private login: LoginService) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    if (!this.loginService.isLoggedIn()) {
+    if (!this.login.isLoggedIn()) {
       this.router.navigateByUrl('/login');
     }
     return true;

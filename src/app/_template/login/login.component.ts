@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { LoginService } from 'src/app/_service/login.service';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/_class/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'mors-login',
@@ -9,7 +10,7 @@ import { User } from 'src/app/_class/user';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  constructor(private login: LoginService) {}
+  constructor(private router: Router, private login: LoginService) {}
 
   check = 1;
   users: User[];
@@ -17,8 +18,9 @@ export class LoginComponent implements OnInit {
   @ViewChild('input', { static: false }) input: ElementRef;
 
   forward(input) {
+    // Email input
     if (this.check === 1) {
-      this.login.login(input).subscribe(users => {
+      this.login.getUserServer(input).subscribe(users => {
         if (users.length < 1) {
           this.error = true;
         } else {
@@ -29,10 +31,13 @@ export class LoginComponent implements OnInit {
         }
       });
     }
+
+    // Passwort input
     if (this.check === 2) {
       this.users.forEach(user => {
         if (user.password === input) {
-          console.log(true);
+          this.login.setUserLocal(user);
+          this.router.navigateByUrl('/start');
         }
       });
       this.error = true;

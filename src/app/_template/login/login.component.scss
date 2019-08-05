@@ -46,6 +46,11 @@
       }
     }
   }
+  #error {
+    color: red;
+    text-align: center;
+    padding-top: 1rem;
+  }
 
   hr {
     border-bottom: 0.05rem solid rgb(128, 128, 128);
