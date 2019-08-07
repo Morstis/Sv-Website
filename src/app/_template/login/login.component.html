@@ -29,13 +29,15 @@
     }}
   </div>
   <hr />
-  <p>
-    {{ check == 1 ? " SV-Account " : "Passwort " }}
-    <a [routerLink]="check == 1 ? '/register' : '/start'">{{
-      check == 1 ? "erstellen..." : "vergessen..."
+  <div id="bottom">
+    <p>
+      {{ check == 1 ? " SV-Account " : "Passwort " }}
+      <a [routerLink]="check == 1 ? '/register' : '/start'">{{
+        check == 1 ? "erstellen..." : "vergessen..."
+      }}</a>
+    </p>
+    <a id="cancel" (click)="backward()">{{
+      check == 1 ? "Abbrechen" : "Zurück"
     }}</a>
-  </p>
-  <a id="cancel" (click)="backward()">{{
-    check == 1 ? "Abbrechen" : "Zurück"
-  }}</a>
+  </div>
 </div>

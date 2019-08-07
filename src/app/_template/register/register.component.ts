@@ -8,7 +8,13 @@ import { User } from 'src/app/_class/user';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService) {
+    this.loginService
+      .mail('lucas.wiese@gmx.de', this.create_UUID())
+      .subscribe(request => {
+        console.log(request);
+      });
+  }
 
   user: User = new User();
 

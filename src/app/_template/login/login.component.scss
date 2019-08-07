@@ -8,16 +8,17 @@
 }
 
 #container {
-  padding: 15rem 30rem;
+  padding: 20% 30%;
   h1 {
     color: rgb(128, 128, 128);
     text-align: center;
   }
   #input_with_icon {
     border: 0.08rem grey solid;
-    padding: 0.1rem;
+    padding: 0.2rem;
     border-radius: 0.6rem;
-    margin: 0 7rem 0 7rem;
+    margin: 1rem;
+    // margin: 0 7rem 0 7rem;
     input[type="Email"],
     input[type="password"] {
       z-index: 1;
@@ -29,7 +30,8 @@
       border-radius: 0.6rem;
       font-size: 1.4rem;
       background-color: white !important;
-      padding: 0.9rem 6.2rem 0.8rem 1rem;
+      padding: 0.8rem 0 0.8rem 1rem;
+      width: calc(100% - 4.7rem);
     }
     input:-webkit-autofill {
       border: white !important;
@@ -40,7 +42,8 @@
     img {
       float: right;
       width: 3.7rem;
-      padding-top: 0.1rem;
+      // padding-top: 0.1rem;
+      // margin-top: -0.76rem;
       &:hover {
         cursor: pointer;
       }
@@ -49,54 +52,55 @@
   #error {
     color: red;
     text-align: center;
-    padding-top: 1rem;
+    padding-top: 0.5rem;
   }
 
   hr {
     border-bottom: 0.05rem solid rgb(128, 128, 128);
     margin: 1rem;
   }
-
-  #cancel {
-    border: 0.05rem solid rgb(128, 128, 128);
-    border-radius: 0.4rem;
-    padding: 0.4rem 1rem 0.4rem 1rem;
-    position: relative;
-    display: inline-block;
-    text-decoration: none;
+  #bottom {
     text-align: center;
-    margin: 0 0 0 3rem;
-    &:hover {
-      box-shadow: 0px 8px 16px 0px rgba(10, 10, 10, 0.2);
-      cursor: pointer;
-    }
-    &:link {
-      color: rgb(128, 128, 128);
-    }
-    &:visited {
-      color: rgb(128, 128, 128);
-    }
-    &:active {
-      color: rgb(128, 128, 128);
-    }
-  }
-  p {
-    display: inline;
-    color: grey;
-    padding-top: 0.7rem;
-    margin-left: 12rem;
-    a {
-      color: steelblue;
+    #cancel {
+      border: 0.05rem solid rgb(128, 128, 128);
+      border-radius: 0.4rem;
+      padding: 0.4rem 1rem 0.4rem 1rem;
+      position: relative;
+      display: inline-block;
       text-decoration: none;
-
+      text-align: center;
+      margin: 0 0 0 3rem;
+      &:hover {
+        box-shadow: 0px 8px 16px 0px rgba(10, 10, 10, 0.2);
+        cursor: pointer;
+      }
       &:link {
-        color: steelblue;
+        color: rgb(128, 128, 128);
       }
       &:visited {
-        color: steelblue;
+        color: rgb(128, 128, 128);
       }
       &:active {
+        color: rgb(128, 128, 128);
+      }
+    }
+    p {
+      display: inline;
+      color: grey;
+      padding-top: 0.7rem;
+      a {
         color: steelblue;
+        text-decoration: none;
+
+        &:link {
+          color: steelblue;
+        }
+        &:visited {
+          color: steelblue;
+        }
+        &:active {
+          color: steelblue;
+        }
       }
     }
   }

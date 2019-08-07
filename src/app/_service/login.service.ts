@@ -46,7 +46,10 @@ export class LoginService {
   register(user): Observable<User> {
     return this.http.post<User>(this.BASE_URL, user);
   }
-  mail(email): Observable<any> {
-    return this.http.post<any>('http://localhost/mail.php', email);
+  mail(email, uuid): Observable<any> {
+    return this.http.post<any>('http://localhost/mail.php', {
+      email,
+      uuid
+    });
   }
 }
