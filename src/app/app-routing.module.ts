@@ -8,7 +8,6 @@ import { LoginGuard } from './_service/guards/login-guard.service';
 import { LoginComponent } from './_template/login/login.component';
 
 const routes: Routes = [
-  { path: 'register', component: RegisterComponent },
   { path: 'start', component: WaypointComponent, canActivate: [LoginGuard] },
   // prettier-ignore
   {
@@ -22,7 +21,8 @@ const routes: Routes = [
   {
     path: 'nachhilfe', component: WaypointComponent, canActivate: [LoginGuard]
   },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({

@@ -8,15 +8,9 @@ import { User } from 'src/app/_class/user';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  constructor(private loginService: LoginService) {
-    this.loginService
-      .mail('lucas.wiese@gmx.de', this.create_UUID())
-      .subscribe(request => {
-        console.log(request);
-      });
-  }
+  constructor(private loginService: LoginService) {}
 
-  user: User = new User();
+  user: User;
 
   forms: object[] = [
     { name: 'vorname' },
@@ -31,10 +25,10 @@ export class RegisterComponent implements OnInit {
   saveTask(user) {
     this.user.firstName = user.vorname;
     this.user.name = user.nachname;
-    this.user.class = user.klasse;
+    this.user.class = user.klasse.toUpperCase();
     this.user.email = user.email;
     this.user.password = user.pw1;
-    this.user.validationUUID = this.create_UUID();
+    this.user.uid = this.create_UUID();
 
     this.loginService.getUserServer(user.email).subscribe(users => {
       if (users.length === 0) {
@@ -49,12 +43,14 @@ export class RegisterComponent implements OnInit {
   }
   register() {
     this.loginService.register(this.user).subscribe(user => {
+      // console.log(user);
+
       console.log('%cUser gespeichert!', 'color: green');
-      // this.loginService
-      //   .mail('lucas.wiese@gmx.de', this.user.validationUUID)
-      //   .subscribe(request => {
-      //     console.log(request);
-      //   });
+      this.loginService
+        .mail(this.user.email, this.user.uid)
+        .subscribe(request => {
+          console.log(request);
+        });
     });
   }
   create_UUID() {
