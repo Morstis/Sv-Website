@@ -17,7 +17,7 @@
         [morsEmailValidation]="form.name == 'email' ? true : null"
         [morsKlasseValidation]="form.name == 'klasse' ? true : null"
         [morsCheckEqualInputWith]="form.name == 'pw2' ? 'pw1' : null"
-        [minlength]="form.name == 'pw1' ? 8 : form.name == 'pw2'? 8 : 0"
+        [minlength]="form.name == 'pw1' ? 8 : form.name == 'pw2'? 8 : form.name == 'klasse'? 2 : 4"
         morsXss
 
       />

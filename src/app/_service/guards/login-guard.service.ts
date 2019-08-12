@@ -6,19 +6,19 @@ import {
   Router
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { LoginService } from '../login.service';
+import { AuthService } from '../auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginGuard implements CanActivate {
-  constructor(private router: Router, private login: LoginService) {}
+  constructor(private router: Router, private auth: AuthService) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    if (!this.login.isLoggedIn()) {
+    if (!this.auth.isLoggedIn()) {
       this.router.navigateByUrl('/login');
     }
     return true;

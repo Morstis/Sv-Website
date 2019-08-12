@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/_service/login.service';
-import { User } from 'src/app/_class/user';
+import { AuthService } from 'src/app/_service/auth.service';
+import { User } from 'src/app/_interface/user';
+import { ApiResponse } from 'src/app/_interface/api-response';
 
 @Component({
   selector: 'mors-register',
@@ -8,9 +9,10 @@ import { User } from 'src/app/_class/user';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  constructor(private loginService: LoginService) {}
+  constructor(private auth: AuthService) {}
 
-  user: User;
+  // equals user: User = new User(); if User would be a class
+  user: User = {} as User;
 
   forms: object[] = [
     { name: 'vorname' },
@@ -25,32 +27,24 @@ export class RegisterComponent implements OnInit {
   saveTask(user) {
     this.user.firstName = user.vorname;
     this.user.name = user.nachname;
-    this.user.class = user.klasse.toUpperCase();
+    this.user.klasse = user.klasse.toUpperCase();
     this.user.email = user.email;
     this.user.password = user.pw1;
     this.user.uid = this.create_UUID();
 
-    this.loginService.getUserServer(user.email).subscribe(users => {
-      if (users.length === 0) {
-        this.loginService.getUserServer('').subscribe(AllUsers => {
-          this.user.id = AllUsers.length++;
-          this.register();
-        });
-      } else {
-        console.log('%cuser exists', 'color: red');
-      }
-    });
-  }
-  register() {
-    this.loginService.register(this.user).subscribe(user => {
-      // console.log(user);
+    this.auth.register(this.user).subscribe(response => {
+      const res: ApiResponse = response;
 
-      console.log('%cUser gespeichert!', 'color: green');
-      this.loginService
-        .mail(this.user.email, this.user.uid)
-        .subscribe(request => {
+      if (res.res === true) {
+        console.log('%cUser gespeichert!', 'color: green');
+        this.auth.mail(this.user.email, this.user.uid).subscribe(request => {
           console.log(request);
         });
+      }
+      if (res.res === false) {
+        // TODO visible error
+        console.log('%c' + res.error, 'color: red');
+      }
     });
   }
   create_UUID() {

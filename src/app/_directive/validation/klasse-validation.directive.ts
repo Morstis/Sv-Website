@@ -37,7 +37,7 @@ export class KlasseValidationDirective implements Validator {
 
     // basic Iteration
     for (const item in this.klasse) {
-      if (this.klasse[item] === c.value.toUpperCase()) {
+      if (this.klasse[item].toUpperCase() === c.value.toUpperCase()) {
         return null;
       }
     }
