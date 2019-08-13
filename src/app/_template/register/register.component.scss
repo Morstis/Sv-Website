@@ -43,6 +43,17 @@ form {
 
   a {
     color: dodgerblue;
+    text-decoration: none;
+
+    &:link {
+      color: dodgerblue;
+    }
+    &:visited {
+      color: dodgerblue;
+    }
+    &:active {
+      color: dodgerblue;
+    }
   }
   .btn {
     background-color: grey;

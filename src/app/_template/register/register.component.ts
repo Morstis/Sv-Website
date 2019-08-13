@@ -30,33 +30,17 @@ export class RegisterComponent implements OnInit {
     this.user.klasse = user.klasse.toUpperCase();
     this.user.email = user.email;
     this.user.password = user.pw1;
-    this.user.uid = this.create_UUID();
 
     this.auth.register(this.user).subscribe(response => {
       const res: ApiResponse = response;
 
       if (res.res === true) {
         console.log('%cUser gespeichert!', 'color: green');
-        this.auth.mail(this.user.email, this.user.uid).subscribe(request => {
-          console.log(request);
-        });
       }
       if (res.res === false) {
         // TODO visible error
         console.log('%c' + res.error, 'color: red');
       }
     });
-  }
-  create_UUID() {
-    let dt = new Date().getTime();
-    const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
-      // tslint:disable-next-line: no-bitwise
-      const r = (dt + Math.random() * 16) % 16 | 0;
-      dt = Math.floor(dt / 16);
-
-      // tslint:disable-next-line: no-bitwise
-      return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16);
-    });
-    return uuid;
   }
 }

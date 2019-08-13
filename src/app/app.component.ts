@@ -13,7 +13,13 @@ export class AppComponent {
     // on route change to '/login', set the variable hideHeader to true
     router.events.forEach(event => {
       if (event instanceof NavigationStart) {
-        if (event.url === '/login' || event.url === '/register') {
+        // ignoring query parameters e.g /verify?email&uid
+        const UrlSegment: string[] = event.url.split('?');
+        if (
+          UrlSegment[0] === '/login' ||
+          UrlSegment[0] === '/register' ||
+          UrlSegment[0] === '/verify'
+        ) {
           this.hideHeader = true;
         } else {
           this.hideHeader = false;

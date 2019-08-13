@@ -16,7 +16,7 @@ import { KeksService } from 'src/app/_service/keks.service';
 export class KlasseValidationDirective implements Validator {
   @Input('morsKlasseValidation') options: any;
   constructor(private http: HttpClient) {}
-  klasse: any;
+  klassen: string[];
   validate(c: FormControl): { [key: string]: any } {
     // testet, ob das Directive gesetzt werden soll
     if (!this.options) {
@@ -29,15 +29,17 @@ export class KlasseValidationDirective implements Validator {
     } else {
       // http request zu opossumts.net, um da die Klassenliste zu holen
       this.http
-        .get('https://api.opossum.media/public/mobileapps/hag/KlassenListe.php')
-        .subscribe(klasse => {
-          this.klasse = klasse;
+        .get<string[]>(
+          'https://api.opossum.media/public/mobileapps/hag/KlassenListe.php'
+        )
+        .subscribe(klassen => {
+          this.klassen = klassen;
         });
     }
 
     // basic Iteration
-    for (const item in this.klasse) {
-      if (this.klasse[item].toUpperCase() === c.value.toUpperCase()) {
+    for (const item in this.klassen) {
+      if (this.klassen[item].toUpperCase() === c.value.toUpperCase()) {
         return null;
       }
     }

@@ -23,11 +23,7 @@
     />
   </div>
   <div id="error" *ngIf="error">
-    {{
-      check == 1
-        ? "Deine Email-Addresse ist nicht vorhanden!"
-        : "Dein passwort ist falsch!"
-    }}
+    {{ errorMessage }}
   </div>
   <hr />
   <div id="bottom">

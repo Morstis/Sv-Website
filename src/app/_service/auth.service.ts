@@ -21,6 +21,12 @@ export class AuthService {
       password
     });
   }
+  verify(id: number, uid: string): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>(this.BASE_URL + '/auth/verify', {
+      id,
+      uid
+    });
+  }
 
   getUserServer(email: string): Observable<User[]> {
     const params = new HttpParams().append('email', email);
@@ -51,11 +57,5 @@ export class AuthService {
 
   register(user): Observable<ApiResponse> {
     return this.http.post<ApiResponse>(this.BASE_URL + '/user', user);
-  }
-  mail(email, uuid): Observable<any> {
-    return this.http.post<any>('http://localhost/mail.php', {
-      email,
-      uuid
-    });
   }
 }

@@ -6,6 +6,7 @@ import { RegisterComponent } from './_template/register/register.component';
 import { BasicRouterComponent } from './_components/basicRouter.component';
 import { LoginGuard } from './_service/guards/login-guard.service';
 import { LoginComponent } from './_template/login/login.component';
+import { VerifyEmailComponent } from './_template/verify-email/verify-email.component';
 
 const routes: Routes = [
   { path: 'start', component: WaypointComponent, canActivate: [LoginGuard] },
@@ -22,7 +23,8 @@ const routes: Routes = [
     path: 'nachhilfe', component: WaypointComponent, canActivate: [LoginGuard]
   },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'verify', component: VerifyEmailComponent }
 ];
 
 @NgModule({

@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   check = 1;
   users: User[];
   error = false;
+  errorMessage: string;
   email: string;
   @ViewChild('input', { static: false }) input: ElementRef;
 
@@ -32,6 +33,11 @@ export class LoginComponent implements OnInit {
           this.check = 2;
         } else {
           this.error = true;
+          if (res.error === 'user not found') {
+            this.errorMessage = 'Deine Email Addresse ist nicht vorhanden!';
+          } else {
+            this.errorMessage = 'Bitte verifiziere dich zuerst!';
+          }
         }
       });
     }
@@ -49,6 +55,7 @@ export class LoginComponent implements OnInit {
         if (res.res === false) {
           console.log('%c' + res.error, 'color: red');
           this.error = true;
+          this.errorMessage = 'Dein passwort ist falsch!';
           // Die unmögliche Möglichkeit. Die Email ist beim zweiten Request falsch.
           if (res.error !== 'wrong password') {
             console.log(res.description);

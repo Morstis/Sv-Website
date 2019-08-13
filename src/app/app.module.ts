@@ -21,6 +21,7 @@ import { NgxImageCompressService } from 'ngx-image-compress';
 import { CheckEqualInputWithDirective } from './_directive/validation/check-equal-input-with.directive';
 import { BasicRouterComponent } from './_components/basicRouter.component';
 import { LoginComponent } from './_template/login/login.component';
+import { VerifyEmailComponent } from './_template/verify-email/verify-email.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { LoginComponent } from './_template/login/login.component';
     XssDirective,
     CheckEqualInputWithDirective,
     BasicRouterComponent,
-    LoginComponent
+    LoginComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
