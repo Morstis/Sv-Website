@@ -5,4 +5,5 @@ export interface User {
   klasse: string;
   email: string;
   password: string;
+  role: string;
 }

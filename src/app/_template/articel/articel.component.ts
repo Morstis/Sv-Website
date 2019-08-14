@@ -6,6 +6,7 @@ import { UserService } from 'src/app/_service/user.service';
 import { Theme } from 'src/app/_class/theme';
 import { KeksService } from 'src/app/_service/keks.service';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/_service/auth.service';
 
 @Component({
   selector: 'mors-articel',
@@ -22,10 +23,9 @@ export class ArticelComponent implements OnInit {
 
   theme: Theme = new Theme();
   articel: Articel;
-  subscribtion: Subscription;
 
   ngOnInit() {
-    this.subscribtion = this.route.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       const projekt = params.projekt;
       this.articel = this.routerCheck.checkArticel(projekt);
     });
@@ -45,9 +45,5 @@ export class ArticelComponent implements OnInit {
       this.theme.bgColor = 'white';
       this.theme.color = 'black';
     }
-  }
-
-  OnDestroy(): void {
-    this.subscribtion.unsubscribe();
   }
 }

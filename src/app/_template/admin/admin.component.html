@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="content">
+    <div id="input">
+      <div id="top">
+        <h2>Filter</h2>
+        <input type="text" id="email" placeholder="email" />
+      </div>
+    </div>
+    <div id="output">
+      <div
+        *ngFor="let user of users; trackBy: trackByFn"
+        id="user"
+        [routerLink]="['/admin', user.id]"
+      >
+        <div id="left">
+          <img src="assets/avatar.png" />
+        </div>
+        <div id="right">
+          <ol>
+            <li>ID: {{ user.id }}</li>
+            <li>Email: {{ user.email }}</li>
+            <li>Rolle: {{ user.role }}</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

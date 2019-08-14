@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/_service/auth.service';
 import { User } from 'src/app/_interface/user';
 import { ApiResponse } from 'src/app/_interface/api-response';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'mors-register',
@@ -13,6 +14,7 @@ export class RegisterComponent implements OnInit {
 
   // equals user: User = new User(); if User would be a class
   user: User = {} as User;
+  error: string;
 
   forms: object[] = [
     { name: 'vorname' },
@@ -36,10 +38,14 @@ export class RegisterComponent implements OnInit {
 
       if (res.res === true) {
         console.log('%cUser gespeichert!', 'color: green');
+        window.location.href = 'https://hag-iserv.de/iserv/';
       }
       if (res.res === false) {
-        // TODO visible error
         console.log('%c' + res.error, 'color: red');
+
+        if (res.error === 'email already in use') {
+          this.error = 'Deine E-mail Adresse wird bereits verwendet!';
+        } else { this.error = 'Die angegebene E-mail Adresse existiert nicht!'; }
       }
     });
   }

@@ -33,7 +33,8 @@ header {
       }
       ul {
         list-style-type: none;
-        margin-left: 24%;
+        display: flex;
+        justify-content: center;
         padding: 0rem;
         overflow: hidden;
         padding-inline-start: 0rem;

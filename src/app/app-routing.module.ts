@@ -7,8 +7,12 @@ import { BasicRouterComponent } from './_components/basicRouter.component';
 import { LoginGuard } from './_service/guards/login-guard.service';
 import { LoginComponent } from './_template/login/login.component';
 import { VerifyEmailComponent } from './_template/verify-email/verify-email.component';
+import { AdminComponent } from './_template/admin/admin.component';
+import { RoleGuard } from './_service/guards/role-guard.service';
+import { AdminShowUserComponent } from './_template/admin/admin-show-user/admin-show-user.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/start', pathMatch: 'full' },
   { path: 'start', component: WaypointComponent, canActivate: [LoginGuard] },
   // prettier-ignore
   {
@@ -24,7 +28,15 @@ const routes: Routes = [
   },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'verify', component: VerifyEmailComponent }
+  { path: 'verify', component: VerifyEmailComponent },
+  // prettier-ignore
+
+  { path: 'admin', component: BasicRouterComponent, canActivate: [RoleGuard],
+    children: [
+      {path: '', component: AdminComponent},
+      {path: ':id', component: AdminShowUserComponent}
+    ]
+  }
 ];
 
 @NgModule({

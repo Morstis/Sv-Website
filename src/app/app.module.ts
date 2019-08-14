@@ -12,16 +12,15 @@ import { CookieService } from 'ngx-cookie-service';
 import { FooterComponent } from './_template/footer/footer.component';
 import { RegisterComponent } from './_template/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ShowErrorComponent } from './_components/show-error.component';
-import { EmailValidationDirective } from './_directive/validation/email-validation.directive';
-import { KlasseValidationDirective } from './_directive/validation/klasse-validation.directive';
 import { HttpClientModule } from '@angular/common/http';
-import { XssDirective } from './_directive/validation/xss.directive';
 import { NgxImageCompressService } from 'ngx-image-compress';
-import { CheckEqualInputWithDirective } from './_directive/validation/check-equal-input-with.directive';
 import { BasicRouterComponent } from './_components/basicRouter.component';
 import { LoginComponent } from './_template/login/login.component';
 import { VerifyEmailComponent } from './_template/verify-email/verify-email.component';
+import { SharedModule } from './shared/shared.module';
+import { ForgotPasswordComponent } from './_template/forgot-password/forgot-password.component';
+import { AdminComponent } from './_template/admin/admin.component';
+import { AdminShowUserComponent } from './_template/admin/admin-show-user/admin-show-user.component';
 
 @NgModule({
   declarations: [
@@ -31,16 +30,15 @@ import { VerifyEmailComponent } from './_template/verify-email/verify-email.comp
     ArticelComponent,
     FooterComponent,
     RegisterComponent,
-    ShowErrorComponent,
-    EmailValidationDirective,
-    KlasseValidationDirective,
-    XssDirective,
-    CheckEqualInputWithDirective,
     BasicRouterComponent,
     LoginComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    ForgotPasswordComponent,
+    AdminComponent,
+    AdminShowUserComponent
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

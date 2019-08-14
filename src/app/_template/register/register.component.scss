@@ -82,6 +82,11 @@ form {
     cursor: not-allowed;
   }
 }
+#error {
+  color: red;
+  padding: 0.8rem 0 0 0;
+  text-align: center;
+}
 
 @media only screen and (max-width: 1680px) {
   form {

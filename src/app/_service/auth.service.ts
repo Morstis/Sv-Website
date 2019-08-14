@@ -9,9 +9,8 @@ import * as jwt from 'jsonwebtoken';
   providedIn: 'root'
 })
 export class AuthService {
-  // BASE_URL = 'https://api.sv-hag.de/';
+  // BASE_URL = 'https://api.sv-hag.de';
   BASE_URL = 'http://localhost:3000';
-  user: User;
 
   constructor(private http: HttpClient) {}
 
@@ -28,11 +27,6 @@ export class AuthService {
     });
   }
 
-  getUserServer(email: string): Observable<User[]> {
-    const params = new HttpParams().append('email', email);
-    return this.http.get<User[]>(this.BASE_URL, { params });
-  }
-
   setJWT(token): void {
     localStorage.setItem('token', token);
   }
@@ -43,16 +37,19 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('token');
   }
+  getUser(): User {
+    return jwt.verify(this.getJWT(), 'ItsseRd§Wd8?bYliBz$') as User;
+  }
 
   isLoggedIn(): boolean {
     try {
       // Möglicherweise ist dieses System nicht sicher
-      this.user = jwt.verify(this.getJWT(), 'ItsseRd§Wd8?bYliBz$') as User;
-      return true;
+      this.getUser();
     } catch (error) {
-      console.log('%cjwt not verified!', 'color: red');
+      console.log('%cjwt not verified! Relink to login', 'color: red');
+      return false;
     }
-    return false;
+    return true;
   }
 
   register(user): Observable<ApiResponse> {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderList } from 'src/app/_class/header-list';
 import { UserService } from 'src/app/_service/user.service';
 import { Theme } from 'src/app/_class/theme';
+import { AuthService } from 'src/app/_service/auth.service';
 
 @Component({
   selector: 'mors-header',
@@ -9,7 +10,7 @@ import { Theme } from 'src/app/_class/theme';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private auth: AuthService) {}
 
   theme: Theme = new Theme();
 
@@ -22,6 +23,10 @@ export class HeaderComponent implements OnInit {
   ];
 
   ngOnInit() {
+    if (this.auth.getUser().role === 'ADMIN') {
+      this.list.push(new HeaderList('Admin', '/admin'));
+    }
+
     // TODO: schöner machen
     if (this.userService.theme() === 'dark') {
       this.theme.bgColor = 'black';
