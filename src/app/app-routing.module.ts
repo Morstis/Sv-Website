@@ -9,7 +9,6 @@ import { LoginComponent } from './_template/login/login.component';
 import { VerifyEmailComponent } from './_template/verify-email/verify-email.component';
 import { AdminComponent } from './_template/admin/admin.component';
 import { RoleGuard } from './_service/guards/role-guard.service';
-import { AdminShowUserComponent } from './_template/admin/admin-show-user/admin-show-user.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/start', pathMatch: 'full' },
@@ -33,8 +32,9 @@ const routes: Routes = [
 
   { path: 'admin', component: BasicRouterComponent, canActivate: [RoleGuard],
     children: [
-      {path: '', component: AdminComponent},
-      {path: ':id', component: AdminShowUserComponent}
+
+      {path: ':id', component: AdminComponent},
+      {path: '', pathMatch: 'full', component: AdminComponent}
     ]
   }
 ];

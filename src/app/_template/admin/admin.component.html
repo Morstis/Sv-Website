@@ -3,14 +3,18 @@
     <div id="input">
       <div id="top">
         <h2>Filter</h2>
-        <input type="text" id="email" placeholder="email" />
+        <input
+          type="text"
+          placeholder="email"
+          (keyup)="onKeyUp($event.target.value)"
+        />
       </div>
     </div>
     <div id="output">
       <div
-        *ngFor="let user of users; trackBy: trackByFn"
+        *ngFor="let user of getUsers(); trackBy: trackByFn"
         id="user"
-        [routerLink]="['/admin', user.id]"
+        (click)="navigate(user.id)"
       >
         <div id="left">
           <img src="assets/avatar.png" />
@@ -24,5 +28,11 @@
         </div>
       </div>
     </div>
+    <mors-admin-show-user
+      [id]="userId"
+      (closed)="closePopup($event)"
+      *ngIf="popup"
+    ></mors-admin-show-user>
   </div>
 </div>
+<router-outlet></router-outlet>

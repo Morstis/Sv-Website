@@ -30,8 +30,13 @@ export class UserService {
     return this.http.get<User>(this.BASE_URL + '/user/' + id, this.options);
   }
   editUser(id, user): Observable<ApiResponse> {
-    return this.http.patch<ApiResponse>(this.BASE_URL + '/user/' + id, {
-      user
-    });
+    return this.http.patch<ApiResponse>(
+      this.BASE_URL + '/user/' + id,
+      {
+        email: user.email,
+        role: user.role
+      },
+      this.options
+    );
   }
 }

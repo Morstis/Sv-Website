@@ -1,1 +1,13 @@
-{{ user.role }}
+<div id="blur">
+  <div id="container">
+    <img (click)="close()" src="assets/icons/times-circle-solid.svg" />
+    <div>
+      <label>Email:</label>
+      <input type="text" [(ngModel)]="user.email" />
+      <label>Rolle:</label>
+      <input type="text" [(ngModel)]="user.role" />
+      <button type="submit" (click)="updateUser()">Update</button>
+      <p *ngIf="ok">User Update durchgeführt!</p>
+    </div>
+  </div>
+</div>

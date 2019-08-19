@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/_service/auth.service';
 import { User } from 'src/app/_interface/user';
 import { ApiResponse } from 'src/app/_interface/api-response';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'mors-register',
@@ -45,7 +44,9 @@ export class RegisterComponent implements OnInit {
 
         if (res.error === 'email already in use') {
           this.error = 'Deine E-mail Adresse wird bereits verwendet!';
-        } else { this.error = 'Die angegebene E-mail Adresse existiert nicht!'; }
+        } else {
+          this.error = 'Die angegebene E-mail Adresse existiert nicht!';
+        }
       }
     });
   }
