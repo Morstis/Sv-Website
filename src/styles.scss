@@ -35,8 +35,6 @@ body {
   font-family: "Roboto", sans-serif;
   touch-action: manipulation;
   overflow-x: hidden;
-
-  line-height: 1; //das ist sehr wichtig!! Bewirkt, dass 20px bei Schrift nicht 24px sind.
 }
 html {
   font-size: 125%;

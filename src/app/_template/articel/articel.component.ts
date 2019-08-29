@@ -3,7 +3,7 @@ import { Articel } from 'src/app/_class/articel';
 import { RouterCheckService } from 'src/app/_service/router-check.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/_service/user.service';
-import { Theme } from 'src/app/_class/theme';
+import { Theme } from 'src/app/_interface/theme';
 import { KeksService } from 'src/app/_service/keks.service';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/_service/auth.service';
@@ -21,7 +21,7 @@ export class ArticelComponent implements OnInit {
     private keks: KeksService
   ) {}
 
-  theme: Theme = new Theme();
+  theme: Theme;
   articel: Articel;
 
   ngOnInit() {
@@ -32,7 +32,7 @@ export class ArticelComponent implements OnInit {
 
     // TODO: remove
     try {
-      this.keks.setKeks('theme', 'white');
+      this.keks.setKeks('theme', 'dark');
     } catch (e) {
       console.error(e);
     }

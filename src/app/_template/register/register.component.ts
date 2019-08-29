@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
 
       if (res.res === true) {
         console.log('%cUser gespeichert!', 'color: green');
-        window.location.href = 'https://hag-iserv.de/iserv/';
+        window.location.href = 'https://hag-iserv.de/iserv/mail';
       }
       if (res.res === false) {
         console.log('%c' + res.error, 'color: red');

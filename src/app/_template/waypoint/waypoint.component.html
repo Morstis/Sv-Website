@@ -1,11 +1,15 @@
 <div id="container" scroll="no">
   <div
-    *ngFor="let div of divs"
+    *ngFor="let div of divs; last as isLast"
     class="box"
-    [id]="div.id"
     [routerLink]="['/projekte', div.linkTo]"
-    [ngStyle]="{ 'background-image': div.image, 'grid-column': div.grid }"
+    [ngStyle]="{
+      'background-image': div.image,
+      width: calcWidth(isLast),
+      height: calcHeight(isLast)
+    }"
   >
     <h1 class="centerHorizontal">{{ div.shownTitel }}</h1>
   </div>
 </div>
+<mors-edit></mors-edit>

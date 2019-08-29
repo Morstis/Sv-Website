@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderList } from 'src/app/_class/header-list';
 import { UserService } from 'src/app/_service/user.service';
-import { Theme } from 'src/app/_class/theme';
+import { Theme } from 'src/app/_interface/theme';
 import { AuthService } from 'src/app/_service/auth.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/_service/auth.service';
 export class HeaderComponent implements OnInit {
   constructor(private userService: UserService, private auth: AuthService) {}
 
-  theme: Theme = new Theme();
+  theme: Theme = {} as Theme;
 
   // TODO: Auslagern
   list: HeaderList[] = [

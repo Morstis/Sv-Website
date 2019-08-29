@@ -12,7 +12,7 @@
     </div>
     <div id="output">
       <div
-        *ngFor="let user of getUsers(); trackBy: trackByFn"
+        *ngFor="let user of getUsers()"
         id="user"
         (click)="navigate(user.id)"
       >
@@ -35,4 +35,4 @@
     ></mors-admin-show-user>
   </div>
 </div>
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->

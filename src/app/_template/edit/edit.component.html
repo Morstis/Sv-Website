@@ -1,0 +1,35 @@
+<div id="blur">
+  <div id="container">
+    <div id="preQuestions" *ngIf="prequestion">
+      <h1>Wie viele Boxen soll der neue "Wegpunkt" haben?</h1>
+      <div id="input">
+        <input type="text" #number />
+        <button type="submit" (click)="continue(number.value)">Senden</button>
+      </div>
+    </div>
+
+    <div id="overlay" *ngIf="!prequestion">
+      <div
+        *ngFor="let div of divs; last as isLast; let odd = odd; let i = index"
+        class="box"
+        [ngStyle]="{
+          width: calcWidth(isLast),
+          height: calcHeight(isLast),
+          background: div.image ? setBackground(div.image, isLast) : ''
+        }"
+        (click)="file.click()"
+        morsDragDrop
+        (onFileDropped)="preview($event, i)"
+      >
+        <input
+          hidden
+          #file
+          type="file"
+          accept="image/*"
+          (change)="preview(file.files, i)"
+        />
+        <h1 class="centerHorizontal">test</h1>
+      </div>
+    </div>
+  </div>
+</div>

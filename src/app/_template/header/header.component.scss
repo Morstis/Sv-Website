@@ -1,5 +1,6 @@
 header {
   height: 3rem;
+  line-height: 1; //das ist sehr wichtig!! Bewirkt, dass 20px bei Schrift nicht 24px sind.
 
   #container {
     width: 100vw;

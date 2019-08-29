@@ -9,8 +9,8 @@ import * as jwt from 'jsonwebtoken';
   providedIn: 'root'
 })
 export class AuthService {
-  // BASE_URL = 'https://api.sv-hag.de';
-  BASE_URL = 'http://localhost:3000';
+  BASE_URL = 'https://api.sv-hag.de';
+  // BASE_URL = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
 

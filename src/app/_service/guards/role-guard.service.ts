@@ -17,10 +17,21 @@ export class RoleGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.auth.getUser().role !== 'ADMIN') {
-      this.router.navigateByUrl('/start');
-    }
+    switch (state.url) {
+      // Überprüfugn der Rollen abhänging von der Url | Möglicherweise auslagerbar
+      case '/admin':
+        if (this.auth.getUser().role !== 'ADMIN') {
+          this.router.navigateByUrl('/start');
+        }
+        break;
 
+      default:
+        // unnötige doppelte Absicherung
+        if (this.auth.getUser().role !== 'SCHÜLER') {
+          this.router.navigateByUrl('/login');
+        }
+        break;
+    }
     return true;
   }
 }

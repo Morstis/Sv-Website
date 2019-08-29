@@ -16,8 +16,8 @@ export class UserService {
     private auth: AuthService
   ) {}
 
-  // BASE_URL = 'https://api.sv-hag.de';
-  BASE_URL = 'http://localhost:3000';
+  BASE_URL = 'https://api.sv-hag.de';
+  // BASE_URL = 'http://localhost:3000';
   options = { headers: new HttpHeaders({ auth: this.auth.getJWT() }) };
   theme(): string {
     return this.Keks.getKeks('theme'); // "dark", "white", "Wert nicht im cookie gesetzt" oder "no Cookie set"

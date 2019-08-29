@@ -1,50 +1,36 @@
 .container {
-  -ms-overflow-style: none;
-  .background {
-    height: calc(100vh - 3rem);
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    z-index: 1;
+  height: calc((100vh - 3rem));
+
+  #content {
+    margin: 0 25% 0 25%;
 
     h1 {
       text-align: center;
-      color: white;
+      margin-block-end: 0;
+      margin-block-start: 0;
+      font-size: 140%;
+      padding-top: 1rem;
     }
-  }
-
-  .content {
-    position: absolute;
-    height: calc((100vh - 3rem));
-    z-index: 3;
-    width: 100%;
-    bottom: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    .left {
-      text-align: center;
-      div {
-        position: relative;
-        height: 40%;
-        width: 60%;
-        left: 15%;
-        top: 20%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        border-radius: 0.3rem;
-      }
+    hr {
+      border-bottom: 0.06rem lightgray solid;
+      margin: 0.5rem 1rem 0 1rem;
     }
-    .right {
-      margin: 1rem 4rem 4rem 0;
-      #text {
-        text-align: justify;
-        font-size: 1.3rem;
-      }
-      #meta {
+    #image {
+      margin-top: 1rem;
+      width: 100%;
+      background-color: #cccccc;
+      height: 15rem;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      border-radius: 0.15rem;
+    }
+    #text {
+      text-align: justify;
+      text-justify: inter-word;
+      margin-top: 1.5rem;
+      span {
         color: grey;
       }
     }
