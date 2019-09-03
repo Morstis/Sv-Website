@@ -1,11 +1,9 @@
-<div class="container" [ngStyle]="{ 'background-color': theme.bgColor }">
-  <div id="content">
-    <h1 [ngStyle]="{ color: theme.color }">{{ articel.titel }}</h1>
-    <hr />
-    <div id="image" [ngStyle]="{ 'background-image': articel.image }"></div>
-    <div id="text" [ngStyle]="{ color: theme.color }">
-      <p>{{ articel.text }}</p>
-      <br /><span>Autor: {{ articel.autor }}</span>
-    </div>
+<div id="container">
+  <h1>{{ articel.titel }}</h1>
+  <hr />
+  <div id="image" [ngStyle]="{ 'background-image': articel.image }"></div>
+  <div id="text">
+    <p>{{ articel.text }}</p>
+    <br /><span>Autor: {{ articel.autor }}</span>
   </div>
 </div>

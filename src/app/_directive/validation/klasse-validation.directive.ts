@@ -1,7 +1,6 @@
 import { Directive, Input } from '@angular/core';
 import { FormControl, NG_VALIDATORS, Validator } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { KeksService } from 'src/app/_service/keks.service';
 
 @Directive({
   selector: '[morsKlasseValidation]',

@@ -1,45 +1,45 @@
 footer {
-	.arrow {
-		position: fixed;
-		padding: 0.5rem 0 0 0.4rem;
-		right: 1rem;
-		text-align: left;
-		bottom: 0.2rem;
-		z-index: 11;
-		cursor: pointer;
+  .arrow {
+    position: fixed;
+    padding: 0.5rem 0 0 0.4rem;
+    right: 1rem;
+    text-align: left;
+    bottom: 0.2rem;
+    z-index: 999;
+    cursor: pointer;
 
-		img {
-			width: 2rem;
-		}
-	}
-	#container {
-		position: fixed;
-		bottom: 0;
-		background-color: grey;
-		width: 100vw;
-		z-index: 10;
-		#content {
-			display: grid;
-			grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-			//   padding: 0 20rem 0 20rem;
-			div {
-				padding: 1rem 0 1rem 0;
-				text-align: center;
-				a {
-					color: white;
-					text-decoration: none;
+    img {
+      width: 2rem;
+    }
+  }
+  #container {
+    position: fixed;
+    bottom: 0;
+    background-color: grey;
+    width: 100vw;
+    z-index: 998;
+    #liste {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      //   padding: 0 20rem 0 20rem;
+      div {
+        padding: 1rem 0 1rem 0;
+        text-align: center;
+        a {
+          color: white;
+          text-decoration: none;
 
-					&:link {
-						color: white;
-					}
-					&:visited {
-						color: white;
-					}
-					&:active {
-						color: white;
-					}
-				}
-			}
-		}
-	}
+          &:link {
+            color: white;
+          }
+          &:visited {
+            color: white;
+          }
+          &:active {
+            color: white;
+          }
+        }
+      }
+    }
+  }
 }

@@ -21,7 +21,7 @@ export class ArticelComponent implements OnInit {
     private keks: KeksService
   ) {}
 
-  theme: Theme;
+  theme: Theme = {} as Theme;
   articel: Articel;
 
   ngOnInit() {
@@ -38,12 +38,12 @@ export class ArticelComponent implements OnInit {
     }
 
     // TODO: make it fancier e.g. config in ein Json auslagern or using material design
-    if (this.userService.theme() === 'dark') {
-      this.theme.bgColor = '#16161d';
-      this.theme.color = 'white';
-    } else {
-      this.theme.bgColor = 'white';
-      this.theme.color = 'black';
-    }
+    // if (this.userService.theme() === 'dark') {
+    //   this.theme.bgColor = '#16161d';
+    //   this.theme.color = 'white';
+    // } else {
+    //   this.theme.bgColor = 'white';
+    //   this.theme.color = 'black';
+    // }
   }
 }

@@ -9,6 +9,7 @@ import { LoginComponent } from './_template/login/login.component';
 import { VerifyEmailComponent } from './_template/verify-email/verify-email.component';
 import { AdminComponent } from './_template/admin/admin.component';
 import { RoleGuard } from './_service/guards/role-guard.service';
+import { GenericPopupComponent } from './_components/generic-popup/generic-popup.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/start', pathMatch: 'full' },
@@ -30,13 +31,14 @@ const routes: Routes = [
   { path: 'verify', component: VerifyEmailComponent },
   // prettier-ignore
 
-  { path: 'admin', component: BasicRouterComponent, canActivate: [RoleGuard],
+  { path: 'admin', component: BasicRouterComponent,     // canActivate: [RoleGuard],
     children: [
 
       {path: ':id', component: AdminComponent},
       {path: '', pathMatch: 'full', component: AdminComponent}
     ]
-  }
+  },
+  { path: 'test', component: GenericPopupComponent }
 ];
 
 @NgModule({

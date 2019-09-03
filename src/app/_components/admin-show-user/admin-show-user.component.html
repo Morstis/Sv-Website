@@ -1,0 +1,11 @@
+<mors-generic-popup (closed)="emitCloseToParent()">
+  <div>
+    <h1>User Update</h1>
+    <label>Email:</label>
+    <input type="text" [(ngModel)]="user.email" />
+    <label>Rolle:</label>
+    <input type="text" [(ngModel)]="user.role" />
+    <button type="submit" (click)="updateUser()">Update</button>
+    <p *ngIf="ok">User Update durchgeführt!</p>
+  </div>
+</mors-generic-popup>

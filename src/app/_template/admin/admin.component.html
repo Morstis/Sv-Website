@@ -1,38 +1,32 @@
-<div class="container">
-  <div class="content">
-    <div id="input">
-      <div id="top">
-        <h2>Filter</h2>
-        <input
-          type="text"
-          placeholder="email"
-          (keyup)="onKeyUp($event.target.value)"
-        />
-      </div>
-    </div>
-    <div id="output">
-      <div
-        *ngFor="let user of getUsers()"
-        id="user"
-        (click)="navigate(user.id)"
-      >
-        <div id="left">
-          <img src="assets/avatar.png" />
-        </div>
-        <div id="right">
-          <ol>
-            <li>ID: {{ user.id }}</li>
-            <li>Email: {{ user.email }}</li>
-            <li>Rolle: {{ user.role }}</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-    <mors-admin-show-user
-      [id]="userId"
-      (closed)="closePopup($event)"
-      *ngIf="popup"
-    ></mors-admin-show-user>
+<div id="container">
+  <div id="filter">
+    <input
+      type="text"
+      placeholder="email"
+      (keyup)="onKeyUp($event.target.value)"
+    />
   </div>
+  <div id="output">
+    <div *ngFor="let user of getUsers()" id="user" (click)="navigate(user.id)">
+      <div id="left">
+        <img src="assets/avatar.png" />
+      </div>
+      <div id="right">
+        <ol class="centerH">
+          <li>ID: {{ user.id }}</li>
+          <li>Email: {{ user.email }}</li>
+          <li>
+            Rolle: <span>{{ user.role }}</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <mors-admin-show-user
+    [id]="userId"
+    (closed)="closePopup($event)"
+    *ngIf="popup"
+  ></mors-admin-show-user>
 </div>
+
 <!-- <router-outlet></router-outlet> -->

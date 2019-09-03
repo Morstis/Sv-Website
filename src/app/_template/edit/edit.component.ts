@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WaypointDiv } from 'src/app/_class/waypoint-div';
+import imageCompression from 'browser-image-compression';
 
 @Component({
   selector: 'mors-edit',
@@ -9,18 +10,15 @@ import { WaypointDiv } from 'src/app/_class/waypoint-div';
 export class EditComponent implements OnInit {
   constructor() {}
   boxes: number;
-  prequestion = true;
+  preQuestion = false;
   ungrade: boolean;
   divs: WaypointDiv[] = [] as WaypointDiv[];
+  createPointFor = -1;
 
-  imagePath;
   message: string;
-
-  setFile(event) {
-    console.log(event);
-  }
+  ngOnInit() {}
   setBackground(img, isLast) {
-    if (parseInt(this.calcWidth(isLast), 10) <= 50) {
+    if (this.calcWidth(isLast) < this.calcHeight(isLast)) {
       return `url(${img}) center center / auto 100% no-repeat`;
     }
     return `url(${img}) center center / 100% auto no-repeat`;
@@ -35,21 +33,38 @@ export class EditComponent implements OnInit {
       console.log('Only images are supported.');
       return;
     }
-
-    const reader = new FileReader();
-    this.imagePath = files;
-    reader.readAsDataURL(files[0]);
-    reader.onload = e => {
-      // String | ArrayBuffer != String fix
-      const buffer: any = reader.result;
-      this.divs[i].image = buffer;
+    const options = {
+      maxSizeMB: 1, // (default: Number.POSITIVE_INFINITY)
+      // tslint:disable-next-line: max-line-length
+      maxWidthOrHeight: 1920, // compressedFile will scale down by ratio to a point that width or height is smaller than maxWidthOrHeight (default: undefined)
+      maxIteration: 30 // optional, max number of iteration to compress the image (default: 10)
     };
-  }
+    this.divs[i].load = true;
+    imageCompression(files[0], options)
+      .then(compressedFile => {
+        console.log(
+          `compressedFile size ${compressedFile.size / 1024 / 1024} MB`
+        ); // smaller than maxSizeMB
 
-  ngOnInit() {}
+        const reader = new FileReader();
+        reader.readAsDataURL(files[0]);
+        reader.onload = () => {
+          // String | ArrayBuffer != String fix
+          const buffer: any = reader.result;
+          this.divs[i].image = buffer;
+          this.divs[i].load = false;
+          this.createPointFor = i;
+          console.log(this.createPointFor);
+        };
+        // return uploadToServer(compressedFile); // write your own logic
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
+  }
   continue(value) {
     this.boxes = value;
-    this.prequestion = false;
+    this.preQuestion = false;
     this.generateOverlay();
   }
   generateOverlay() {
@@ -63,21 +78,20 @@ export class EditComponent implements OnInit {
     }
   }
 
-  calcWidth(last): string {
+  calcWidth(last): number {
     if (this.ungrade) {
       if (last) {
-        return '100%';
+        return 100;
       }
     }
-    return '50%';
+    return 50;
   }
-  calcHeight(last): string {
+  calcHeight(last): number {
     if (this.ungrade) {
       if (last) {
         return (
           100 / Math.round(this.divs.length / 2) -
-          100 / Math.round(this.divs.length / 2) / 1.6180339887 +
-          '%'
+          100 / Math.round(this.divs.length / 2) / 1.6180339887
         );
       }
       // Don't ask it works...
@@ -86,11 +100,10 @@ export class EditComponent implements OnInit {
         100 /
           Math.round(this.divs.length / 2) /
           1.6180339887 /
-          (Math.round(this.divs.length / 2) - 1) +
-        '%'
+          (Math.round(this.divs.length / 2) - 1)
       );
     }
 
-    return 100 / (this.divs.length / 2) + '%';
+    return 100 / (this.divs.length / 2);
   }
 }

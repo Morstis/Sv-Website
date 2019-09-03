@@ -20,9 +20,10 @@ import { VerifyEmailComponent } from './_template/verify-email/verify-email.comp
 import { SharedModule } from './shared/shared.module';
 import { ForgotPasswordComponent } from './_template/forgot-password/forgot-password.component';
 import { AdminComponent } from './_template/admin/admin.component';
-import { AdminShowUserComponent } from './_template/admin/admin-show-user/admin-show-user.component';
+import { AdminShowUserComponent } from './_components/admin-show-user/admin-show-user.component';
 import { EditComponent } from './_template/edit/edit.component';
 import { DragAndDropDirective } from './_directive/drag-and-drop.directive';
+import { GenericPopupComponent } from './_components/generic-popup/generic-popup.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { DragAndDropDirective } from './_directive/drag-and-drop.directive';
     AdminComponent,
     AdminShowUserComponent,
     EditComponent,
-    DragAndDropDirective
+    DragAndDropDirective,
+    GenericPopupComponent
   ],
   imports: [
     SharedModule,

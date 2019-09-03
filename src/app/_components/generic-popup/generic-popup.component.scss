@@ -1,0 +1,30 @@
+#blur {
+  backdrop-filter: blur(0.3rem);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+
+  #popup {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.96);
+    z-index: 2;
+    width: 60%;
+    height: 60%;
+    margin: 0 auto;
+    top: 20%;
+    border: 0.1rem grey solid;
+    border-radius: 0.3rem;
+    img {
+      top: 0;
+      width: 2rem;
+      float: right;
+      padding: 0.2rem;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+    }
+  }
+}

@@ -3,6 +3,7 @@ export class WaypointDiv {
   shownTitel: string;
   image: string;
   ungrade: boolean;
+  load = false;
 
   constructor(linkTo, shownTitel, image) {
     this.linkTo = linkTo;

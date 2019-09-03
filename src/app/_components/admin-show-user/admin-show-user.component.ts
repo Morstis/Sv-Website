@@ -12,7 +12,7 @@ export class AdminShowUserComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   @Input() id: number;
-  @Output() closed = new EventEmitter<boolean>();
+  @Output() closed = new EventEmitter();
   user: User = {} as User;
   ok: boolean;
 
@@ -21,9 +21,10 @@ export class AdminShowUserComponent implements OnInit {
       this.user = user;
     });
   }
-  close(): void {
+  emitCloseToParent(): void {
     this.closed.emit(true);
   }
+
   updateUser(): void {
     this.userService.editUser(this.id, this.user).subscribe(response => {
       const res: ApiResponse = response;

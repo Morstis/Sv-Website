@@ -23,6 +23,7 @@ body {
   font-size: 0.7rem;
   padding: 0.2rem;
 }
+
 menu,
 ol,
 ul {
@@ -40,12 +41,11 @@ html {
   font-size: 125%;
 }
 
-.centerHorizontal {
+.centerH {
   margin: 0;
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
-  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 // .info {
