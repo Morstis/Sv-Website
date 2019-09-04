@@ -26,12 +26,5 @@ export class HeaderComponent implements OnInit {
     if (this.auth.getUser().role === 'ADMIN') {
       this.list.push(new HeaderList('Admin', '/admin'));
     }
-
-    // TODO: schöner machen
-    if (this.userService.theme() === 'dark') {
-      this.theme.bgColor = 'black';
-    } else {
-      this.theme.bgColor = '#191919';
-    }
   }
 }

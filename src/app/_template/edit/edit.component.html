@@ -7,3 +7,33 @@
     </div>
   </div>
 </mors-generic-popup>
+
+<div id="box_overlay" scroll="no" *ngIf="!preQuestion">
+  <div
+    *ngFor="let div of divs; last as isLast; let i = index"
+    class="box"
+    [ngStyle]="{
+      width: calcWidth(isLast) + '%',
+      height: calcHeight(isLast) + '%',
+      'background-image': div.load
+        ? 'url(../../../assets/icons/Spinner-1.8s-200px.svg)'
+        : '',
+      background: div.image ? setBackground(div.image, isLast) : '',
+      opacity: div.image ? 1 : 0.3
+    }"
+    (click)="fileInput.click()"
+    [morsDragDrop]="div.image ? false : true"
+    (onFileDropped)="preview($event, i)"
+  >
+    <!-- prettier-ignore -->
+    <h1 class="centerH" *ngIf="div.load ? false : div.image ? false : true">
+      Neuen "Punkt" erstellen
+    </h1>
+    <input
+      hidden
+      type="file"
+      #fileInput
+      (change)="preview($event.target.files, i)"
+    />
+  </div>
+</div>

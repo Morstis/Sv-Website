@@ -1,95 +1,99 @@
-h2 {
-  color: grey;
-  margin-block-start: 1rem;
-  margin-block-end: 0;
-  padding: 1rem;
-  text-align: center;
-  text-decoration: underline;
-  text-decoration-color: rgb(40, 94, 131);
-}
+#container {
+  margin-top: -3rem;
 
-form {
-  margin: 0 20% 0 20%;
-  background-color: white;
-  * {
-    box-sizing: border-box;
-  }
-  label:after {
-    content: "\A";
-    white-space: pre;
+  h2 {
+    color: grey;
+    margin-block-start: 1rem;
+    margin-block-end: 0;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: rgb(40, 94, 131);
   }
 
-  input[type="text"],
-  input[type="password"] {
-    width: 100%;
-    padding: 0.7rem;
-    margin: 0.4rem 0 1.2rem 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-    border-radius: 0.2rem;
-    &:focus {
-      background-color: #ddd;
-      outline: none;
-    }
-    &.ng-touched.ng-invalid {
-      border: 0.2rem red solid;
-    }
-  }
-  hr {
-    margin-bottom: 1.4rem;
-    border-bottom: 0.05rem solid rgb(128, 128, 128);
-  }
-
-  a {
-    color: dodgerblue;
-    text-decoration: none;
-
-    &:link {
-      color: dodgerblue;
-    }
-    &:visited {
-      color: dodgerblue;
-    }
-    &:active {
-      color: dodgerblue;
-    }
-  }
-  .btn {
-    background-color: grey;
-    color: white;
-    padding: 1rem 20px;
-    margin: 1rem 0;
-    border: none;
-    border-radius: 0.2rem;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-    font-size: 90%;
-  }
-  .btn_shadow {
-    &:hover {
-      box-shadow: 0px 8px 16px 0px rgba(10, 10, 10, 0.2);
-    }
-  }
-
-  .valid {
-    background-color: rgba(40, 94, 131, 1);
-    cursor: pointer;
-  }
-  .notValid {
-    background-color: rgba(40, 94, 131, 0.5);
-    cursor: not-allowed;
-  }
-}
-#error {
-  color: red;
-  padding: 0.8rem 0 0 0;
-  text-align: center;
-}
-
-@media only screen and (max-width: 1680px) {
   form {
-    padding: 0 1%;
+    margin: 0 20% 0 20%;
+    background-color: white;
+    * {
+      box-sizing: border-box;
+    }
+    label:after {
+      content: "\A";
+      white-space: pre;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.7rem;
+      margin: 0.4rem 0 1.2rem 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+      border-radius: 0.2rem;
+      &:focus {
+        background-color: #ddd;
+        outline: none;
+      }
+      &.ng-touched.ng-invalid {
+        border: 0.2rem red solid;
+      }
+    }
+    hr {
+      margin-bottom: 1.4rem;
+      border-bottom: 0.05rem solid rgb(128, 128, 128);
+    }
+
+    a {
+      color: dodgerblue;
+      text-decoration: none;
+
+      &:link {
+        color: dodgerblue;
+      }
+      &:visited {
+        color: dodgerblue;
+      }
+      &:active {
+        color: dodgerblue;
+      }
+    }
+    .btn {
+      background-color: grey;
+      color: white;
+      padding: 1rem 20px;
+      margin: 1rem 0;
+      border: none;
+      border-radius: 0.2rem;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+      font-size: 90%;
+    }
+    .btn_shadow {
+      &:hover {
+        box-shadow: 0px 8px 16px 0px rgba(10, 10, 10, 0.2);
+      }
+    }
+
+    .valid {
+      background-color: rgba(40, 94, 131, 1);
+      cursor: pointer;
+    }
+    .notValid {
+      background-color: rgba(40, 94, 131, 0.5);
+      cursor: not-allowed;
+    }
+  }
+  #error {
+    color: red;
+    padding: 0.8rem 0 0 0;
+    text-align: center;
+  }
+
+  @media only screen and (max-width: 1680px) {
+    form {
+      padding: 0 1%;
+    }
   }
 }

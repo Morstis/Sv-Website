@@ -3,6 +3,8 @@ header {
   line-height: 1; //das ist sehr wichtig!! Bewirkt, dass 20px bei Schrift nicht 24px sind.
   position: absolute;
   z-index: 999;
+  margin-top: -3rem;
+  background-color: #191919;
   #container {
     width: 100vw;
     padding: 0;

@@ -1,15 +1,16 @@
-<h2>SV-Account erstellen</h2>
-<form novalidate (ngSubmit)="saveTask(form.value)" #form="ngForm">
-  <div *ngFor="let form of forms">
-    <div>
-      <label *ngIf="form.title; else elseTemplate">{{ form.title }}</label>
-      <!-- prettier-ignore -->
-      <ng-template #elseTemplate>
+<div id="container">
+  <h2>SV-Account erstellen</h2>
+  <form novalidate (ngSubmit)="saveTask(form.value)" #form="ngForm">
+    <div *ngFor="let form of forms">
+      <div>
+        <label *ngIf="form.title; else elseTemplate">{{ form.title }}</label>
+        <!-- prettier-ignore -->
+        <ng-template #elseTemplate>
         <label>{{ form.name | titlecase }}</label>
       </ng-template>
 
-      <!-- prettier-ignore -->
-      <input
+        <!-- prettier-ignore -->
+        <input
         [type]="form.name == 'pw1' ? 'password' : form.name == 'pw2' ? 'password' : 'text'"
         [name]="form.name"
         ngModel
@@ -22,51 +23,52 @@
 
       />
 
-      <mors-show-error
-        *ngIf="form.title; else elseError"
-        [path]="form.name"
-        text="{{ form.title }}"
-      >
-      </mors-show-error>
-
-      <ng-template #elseError>
         <mors-show-error
+          *ngIf="form.title; else elseError"
           [path]="form.name"
-          text="{{ form.name | titlecase }}"
-        ></mors-show-error>
-      </ng-template>
+          text="{{ form.title }}"
+        >
+        </mors-show-error>
+
+        <ng-template #elseError>
+          <mors-show-error
+            [path]="form.name"
+            text="{{ form.name | titlecase }}"
+          ></mors-show-error>
+        </ng-template>
+      </div>
+      <hr *ngIf="form.hr" />
     </div>
-    <hr *ngIf="form.hr" />
-  </div>
 
-  <div>
-    <input
-      type="checkbox"
-      name="datenschutz"
-      id="datenschutz"
-      ngModel
-      required
-    />
-    <label for="datenschutz" class="noselect"
-      >Ich habe die <a href="/">Datenschutzerklärung</a> gelesen und akzeptiere
-      diese hiermit.</label
+    <div>
+      <input
+        type="checkbox"
+        name="datenschutz"
+        id="datenschutz"
+        ngModel
+        required
+      />
+      <label for="datenschutz" class="noselect"
+        >Ich habe die <a href="/">Datenschutzerklärung</a> gelesen und
+        akzeptiere diese hiermit.</label
+      >
+    </div>
+    <div id="error" *ngIf="error">{{ error }}</div>
+
+    <button
+      type="submit"
+      [disabled]="!form.valid"
+      class="btn"
+      [ngClass]="{
+        btn_shadow: form.valid,
+        valid: form.valid,
+        notValid: !form.valid
+      }"
     >
-  </div>
-  <div id="error" *ngIf="error">{{ error }}</div>
-
-  <button
-    type="submit"
-    [disabled]="!form.valid"
-    class="btn"
-    [ngClass]="{
-      btn_shadow: form.valid,
-      valid: form.valid,
-      notValid: !form.valid
-    }"
-  >
-    Speichern
-  </button>
-  <button type="reset" class="btn btn_shadow" routerLink="/login">
-    Abbrechen
-  </button>
-</form>
+      Speichern
+    </button>
+    <button type="reset" class="btn btn_shadow" routerLink="/login">
+      Abbrechen
+    </button>
+  </form>
+</div>

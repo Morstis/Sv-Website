@@ -10,7 +10,7 @@ import imageCompression from 'browser-image-compression';
 export class EditComponent implements OnInit {
   constructor() {}
   boxes: number;
-  preQuestion = false;
+  preQuestion = true;
   ungrade: boolean;
   divs: WaypointDiv[] = [] as WaypointDiv[];
   createPointFor = -1;
