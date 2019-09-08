@@ -3,14 +3,14 @@
   width: 100vw;
   height: 100vh;
   position: absolute;
-  z-index: 1;
+  z-index: 887;
   top: 0;
   left: 0;
 
   #popup {
     position: relative;
     background-color: rgba(255, 255, 255, 0.96);
-    z-index: 2;
+    z-index: 888;
     width: 60%;
     height: 60%;
     margin: 0 auto;
@@ -24,7 +24,7 @@
       padding: 0.2rem;
       cursor: pointer;
       position: relative;
-      z-index: 2;
+      z-index: 888;
     }
   }
 }

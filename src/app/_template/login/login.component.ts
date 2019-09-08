@@ -1,6 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/_service/auth.service';
-import { Observable } from 'rxjs';
 import { User } from 'src/app/_interface/user';
 import { Router } from '@angular/router';
 import { ApiResponse } from 'src/app/_interface/api-response';
@@ -49,7 +48,7 @@ export class LoginComponent implements OnInit {
 
         if (res.res === true) {
           this.auth.setJWT(res.token);
-          this.router.navigateByUrl('/start');
+          window.location.href = '/start'; // Realod to get JWT's ready
         }
 
         if (res.res === false) {

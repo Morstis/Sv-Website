@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: 'verify', component: VerifyEmailComponent },
   // prettier-ignore
 
-  { path: 'admin', component: BasicRouterComponent,     // canActivate: [RoleGuard],
+  { path: 'admin', component: BasicRouterComponent, canActivate: [RoleGuard],
     children: [
 
       {path: ':id', component: AdminComponent},

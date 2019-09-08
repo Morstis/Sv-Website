@@ -4,7 +4,7 @@ import { User } from 'src/app/_interface/user';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'mors-admin',
@@ -18,24 +18,22 @@ export class AdminComponent implements OnInit {
     private location: Location
   ) {
     this.activeRoute.params.subscribe(params => {
-      this.userId = params.id;
       if (params.id !== undefined) {
+        this.userId = params.id;
         this.popup = true;
       }
     });
   }
 
-  users$: any;
-  users: User[];
-  filteredUsers: User[];
+  users$: Observable<User[]>;
+  filteredUsers$: Observable<User[]>;
   userId: number;
   popup = false;
 
   ngOnInit() {
-    this.users$ = this.userService.getAllUsers();
-    this.users$.subscribe(users => {
-      this.users = users;
-    });
+    this.userService.getAllUsers().subscribe();
+
+    this.users$ = this.userService.users$;
   }
 
   navigate(id) {
@@ -46,19 +44,22 @@ export class AdminComponent implements OnInit {
 
   closePopup() {
     this.popup = false;
-    this.users$.subscribe(users => {
-      this.users = users;
-    });
+    this.location.go('admin/');
   }
   onKeyUp(value) {
-    this.filteredUsers = this.users.filter(
-      user => user.email.toLowerCase().indexOf(value.toLowerCase()) > -1
+    this.filteredUsers$ = this.users$.pipe(
+      debounceTime(400),
+      map(x => {
+        return x.filter(
+          user => user.email.toLowerCase().indexOf(value.toLowerCase()) > -1
+        );
+      })
     );
   }
   getUsers() {
-    if (this.filteredUsers !== undefined) {
-      return this.filteredUsers;
+    if (this.filteredUsers$ !== undefined) {
+      return this.filteredUsers$;
     }
-    return this.users;
+    return this.users$;
   }
 }
