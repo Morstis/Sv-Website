@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WaypointDiv } from 'src/app/_class/waypoint-div';
+import { WaypointDiv } from 'src/app/_interface/waypoint-div';
 import imageCompression from 'browser-image-compression';
 
 @Component({
@@ -14,10 +14,14 @@ export class EditComponent implements OnInit {
   ungrade: boolean;
   divs: WaypointDiv[] = [] as WaypointDiv[];
   createPointFor = -1;
-
+  project: string;
   message: string;
   ngOnInit() {}
-  setBackground(img, isLast) {
+
+  setProject(input): void {
+    this.project = input;
+  }
+  setBackground(img, isLast): string {
     if (this.calcWidth(isLast) < this.calcHeight(isLast)) {
       return `url(${img}) center center / auto 100% no-repeat`;
     }
@@ -54,7 +58,6 @@ export class EditComponent implements OnInit {
           this.divs[i].image = buffer;
           this.divs[i].load = false;
           this.createPointFor = i;
-          console.log(this.createPointFor);
         };
         // return uploadToServer(compressedFile); // write your own logic
       })
@@ -62,12 +65,12 @@ export class EditComponent implements OnInit {
         console.log(error.message);
       });
   }
-  continue(value) {
+  continue(value): void {
     this.boxes = value;
     this.preQuestion = false;
     this.generateOverlay();
   }
-  generateOverlay() {
+  generateOverlay(): void {
     for (let i = 0; i < this.boxes; i++) {
       const div: WaypointDiv = {} as WaypointDiv;
       this.divs.push(div);

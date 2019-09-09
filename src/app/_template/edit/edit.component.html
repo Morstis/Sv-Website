@@ -1,9 +1,11 @@
 <mors-generic-popup *ngIf="preQuestion">
-  <div id="preQuestions">
+  <div class="popup">
     <h1>Wie viele Boxen soll der neue "Wegpunkt" haben?</h1>
-    <div id="input">
-      <input type="text" #boxen />
-      <button type="submit" (click)="continue(boxen.value)">Senden</button>
+    <div>
+      <div id="input">
+        <input type="text" #boxen />
+        <button type="submit" (click)="continue(boxen.value)">Senden</button>
+      </div>
     </div>
   </div>
 </mors-generic-popup>
@@ -37,3 +39,32 @@
     />
   </div>
 </div>
+
+<mors-generic-popup
+  *ngIf="
+    project === 'new'
+      ? false
+      : project === 'existing'
+      ? false
+      : createPointFor >= 0
+      ? true
+      : false
+  "
+>
+  <div class="popup">
+    <h1>Informationen</h1>
+    <div id="input" style="margin-top: 10%;">
+      <label>Titel</label>
+      <input type="text" #Titel />
+      <button type="submit" (click)="setProject('existing')">
+        Vorhandenes Projekt
+      </button>
+      <button type="submit" (click)="setProject('new')">Neues Projekt</button>
+    </div>
+  </div>
+</mors-generic-popup>
+<mors-articel
+  *ngIf="project === 'new'"
+  new="true"
+  [image]="divs[createPointFor].image"
+></mors-articel>

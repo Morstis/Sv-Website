@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { WaypointDiv } from 'src/app/_class/waypoint-div';
-import { RouterCheckService } from 'src/app/_service/router-check.service';
+import { WaypointDiv } from 'src/app/_interface/waypoint-div';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,16 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./waypoint.component.scss']
 })
 export class WaypointComponent implements OnInit {
-  constructor(
-    private routerCheck: RouterCheckService,
-    private router: Router
-  ) {}
+  constructor(private router: Router) {}
 
   divs: WaypointDiv[] = [];
   ungrade = false;
 
   ngOnInit() {
-    this.divs = this.routerCheck.checkWaypoint(this.router.url);
+    // this.divs = this.routerCheck.checkWaypoint(this.router.url);
     if (this.divs.length % 2 !== 0) {
       // ungrade
       this.ungrade = true;

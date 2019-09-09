@@ -1,9 +1,25 @@
-<div id="container">
-  <h1>{{ articel.titel }}</h1>
+<div id="container" *ngIf="!new">
+  <h1>{{ articel.titel | async }}</h1>
   <hr />
-  <div id="image" [ngStyle]="{ 'background-image': articel.image }"></div>
+  <div
+    id="image"
+    [ngStyle]="{ 'background-image': articel.image | async }"
+  ></div>
   <div id="text">
-    <p>{{ articel.text }}</p>
+    <p>{{ articel.text | async }}</p>
     <br /><span>Autor: {{ articel.autor }}</span>
+  </div>
+</div>
+
+<div id="container" *ngIf="new">
+  <h1>test</h1>
+  <hr />
+  <div
+    id="image"
+    [ngStyle]="{ 'background-image': 'url(' + image + ')' }"
+  ></div>
+  <div id="text">
+    <p></p>
+    <br /><span></span>
   </div>
 </div>

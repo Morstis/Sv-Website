@@ -5,5 +5,5 @@ export interface ApiResponse {
   error?: string;
   description?: string;
   token?: string;
-  user?: User;
+  return?: any;
 }

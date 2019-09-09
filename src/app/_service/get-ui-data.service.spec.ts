@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RouterCheckService } from './router-check.service';
+import { GetUiDataService } from './get-ui-data.service';
 
-describe('RouterCheckService', () => {
+describe('GetUiDataService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: RouterCheckService = TestBed.get(RouterCheckService);
+    const service: GetUiDataService = TestBed.get(GetUiDataService);
     expect(service).toBeTruthy();
   });
 });

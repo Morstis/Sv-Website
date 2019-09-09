@@ -1,5 +1,12 @@
 #container {
-  margin: 0 25% 0 25%;
+  width: 100%;
+  height: calc(100% - 3rem);
+  background-color: white;
+  // background-color: white center center / 100vh 100vw no-repeat;
+  z-index: 20;
+  position: absolute;
+  margin-top: 3rem;
+  top: 0;
 
   h1 {
     text-align: center;
@@ -7,14 +14,13 @@
     margin-block-start: 0;
     font-size: 140%;
     padding-top: 1rem;
+    margin: 0 25% 0 25%;
   }
   hr {
     border-bottom: 0.06rem lightgray solid;
-    margin: 0.5rem 1rem 0 1rem;
+    margin: 0.5rem calc(25% + 1rem) 0 calc(25% + 1rem);
   }
   #image {
-    margin-top: 1rem;
-    width: 100%;
     background-color: #cccccc;
     height: 15rem;
     background-position: center;
@@ -22,11 +28,12 @@
     background-size: cover;
     position: relative;
     border-radius: 0.15rem;
+    margin: 1rem 25% 0 25%;
   }
   #text {
     text-align: justify;
     text-justify: inter-word;
-    margin-top: 1.5rem;
+    margin: 1.5rem 25% 0 25%;
     span {
       color: grey;
     }

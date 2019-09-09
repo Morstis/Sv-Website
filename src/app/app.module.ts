@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './_template/header/header.component';
 import { WaypointComponent } from './_template/waypoint/waypoint.component';
-import { RouterCheckService } from './_service/router-check.service';
 import { ArticelComponent } from './_template/articel/articel.component';
 import { UserService } from './_service/user.service';
 import { CookieService } from 'ngx-cookie-service';
@@ -51,12 +50,7 @@ import { GenericPopupComponent } from './_components/generic-popup/generic-popup
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [
-    RouterCheckService,
-    UserService,
-    CookieService,
-    NgxImageCompressService
-  ],
+  providers: [UserService, CookieService, NgxImageCompressService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

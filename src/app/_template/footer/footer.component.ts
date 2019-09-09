@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { KeksService } from 'src/app/_service/keks.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'mors-footer',
@@ -8,21 +8,20 @@ import { KeksService } from 'src/app/_service/keks.service';
 })
 export class FooterComponent implements OnInit {
   show = true;
-  constructor(private keks: KeksService) {
-    if (this.keks.getKeks('footer') === 'false') {
+  constructor(private cookie: CookieService) {
+    if (this.cookie.get('footer') === 'false') {
       this.show = false;
     } else {
       this.show = true;
     }
   }
 
-
   ngOnInit() {}
 
   hide() {
     this.show = false;
     try {
-      this.keks.setKeks('footer', 'false');
+      this.cookie.set('footer', 'false');
     } catch (e) {
       console.error(e);
     }
@@ -30,7 +29,7 @@ export class FooterComponent implements OnInit {
   unhide() {
     this.show = true;
     try {
-      this.keks.setKeks('footer', 'true');
+      this.cookie.set('footer', 'true');
     } catch (e) {
       console.error(e);
     }

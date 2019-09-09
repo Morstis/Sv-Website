@@ -4,24 +4,22 @@ import { Observable } from 'rxjs';
 import { User } from '../_interface/user';
 import { ApiResponse } from '../_interface/api-response';
 import * as jwt from 'jsonwebtoken';
+import { BASE_URL } from '../_config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  BASE_URL = 'https://api.sv-hag.de';
-  // BASE_URL = 'http://localhost:3000';
-
   constructor(private http: HttpClient) {}
 
   login(email: string, password?: string): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>(this.BASE_URL + '/auth/login', {
+    return this.http.post<ApiResponse>(BASE_URL + '/auth/login', {
       email,
       password
     });
   }
   verify(id: number, uid: string): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>(this.BASE_URL + '/auth/verify', {
+    return this.http.post<ApiResponse>(BASE_URL + '/auth/verify', {
       id,
       uid
     });
@@ -53,6 +51,6 @@ export class AuthService {
   }
 
   register(user): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>(this.BASE_URL + '/user', user);
+    return this.http.post<ApiResponse>(BASE_URL + '/user', user);
   }
 }
