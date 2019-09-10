@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../_interface/user';
 import { ApiResponse } from '../_interface/api-response';
@@ -11,6 +11,8 @@ import { BASE_URL } from '../_config';
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
+
+  options = { headers: new HttpHeaders({ auth: this.getJWT() }) };
 
   login(email: string, password?: string): Observable<ApiResponse> {
     return this.http.post<ApiResponse>(BASE_URL + '/auth/login', {

@@ -21,19 +21,17 @@ export class UserService {
     this.users$ = this.store.items$;
   }
 
-  private options = { headers: new HttpHeaders({ auth: this.auth.getJWT() }) };
-
   users$: Observable<User[]>;
 
   getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(BASE_URL + '/user', this.options).pipe(
+    return this.http.get<User[]>(BASE_URL + '/user', this.auth.options).pipe(
       tap(user => {
         this.store.dispach({ type: LOAD, data: user });
       })
     );
   }
   getOneUser(id): Observable<User> {
-    return this.http.get<User>(BASE_URL + '/user/' + id, this.options);
+    return this.http.get<User>(BASE_URL + '/user/' + id, this.auth.options);
   }
   editUser(id, user): Observable<ApiResponse> {
     return this.http
@@ -43,7 +41,7 @@ export class UserService {
           email: user.email,
           role: user.role
         },
-        this.options
+        this.auth.options
       )
       .pipe(
         tap(userStream => {

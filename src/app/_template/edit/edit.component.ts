@@ -51,7 +51,7 @@ export class EditComponent implements OnInit {
         ); // smaller than maxSizeMB
 
         const reader = new FileReader();
-        reader.readAsDataURL(files[0]);
+        reader.readAsDataURL(compressedFile);
         reader.onload = () => {
           // String | ArrayBuffer != String fix
           const buffer: any = reader.result;

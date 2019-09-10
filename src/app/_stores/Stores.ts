@@ -8,6 +8,12 @@ import { WaypointDiv } from '../_interface/waypoint-div';
   providedIn: 'root'
 })
 export class UserStore extends Store<User> {}
+@Injectable({
+  providedIn: 'root'
+})
 export class ArticelStore extends Store<Articel> {}
+@Injectable({
+  providedIn: 'root'
+})
 export class WaypointStore extends Store<WaypointDiv> {}
 export * from './generic-store.service';

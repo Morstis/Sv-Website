@@ -1,6 +1,6 @@
 export class Articel {
-  id: number;
-  titel: string;
+  id?: number;
+  title: string;
   text: string;
   autor: string;
   image: string;

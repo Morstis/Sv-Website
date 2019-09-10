@@ -1,25 +1,25 @@
 <div id="container" *ngIf="!new">
-  <h1>{{ articel.titel | async }}</h1>
+  <h1>{{ articel.title }}</h1>
   <hr />
-  <div
-    id="image"
-    [ngStyle]="{ 'background-image': articel.image | async }"
-  ></div>
+  <div id="image" [ngStyle]="{ 'background-image': articel.image }"></div>
   <div id="text">
-    <p>{{ articel.text | async }}</p>
+    <p>{{ articel.text }}</p>
     <br /><span>Autor: {{ articel.autor }}</span>
   </div>
 </div>
 
 <div id="container" *ngIf="new">
-  <h1>test</h1>
+  <h1 contentEditable="true" #heading></h1>
   <hr />
   <div
     id="image"
     [ngStyle]="{ 'background-image': 'url(' + image + ')' }"
   ></div>
-  <div id="text">
-    <p></p>
-    <br /><span></span>
+  <div id="text" (click)="text.focus()">
+    <p contentEditable="true" #text></p>
+    <br /><span>Autor: {{ user.firstName + " " + user.name }}</span>
   </div>
+  <button type="submit" (click)="upload(text.innerText, heading.innerText)">
+    Hochladen
+  </button>
 </div>
