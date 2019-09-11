@@ -1,4 +1,4 @@
-<mors-generic-popup *ngIf="preQuestion">
+<mors-generic-popup *ngIf="preQuestion" (closed)="close($event)">
   <div class="popup">
     <h1>Wie viele Boxen soll der neue "Wegpunkt" haben?</h1>
     <div>
@@ -28,8 +28,8 @@
     (onFileDropped)="preview($event, i)"
   >
     <!-- prettier-ignore -->
-    <h1 class="centerH" *ngIf="div.load ? false : div.image ? false : true">
-      Neuen "Punkt" erstellen
+    <h1 class="centerH" *ngIf="div.load ? false : true">
+      {{div.image ? div.shownTitle : 'Neuen "Punkt" erstellen'}}
     </h1>
     <input
       hidden
@@ -41,6 +41,7 @@
 </div>
 
 <mors-generic-popup
+  (closed)="createPointFor = -1"
   *ngIf="
     project === 'new'
       ? false
@@ -55,16 +56,32 @@
     <h1>Informationen</h1>
     <div id="input" style="margin-top: 10%;">
       <label>Titel</label>
-      <input type="text" #title />
-      <button type="submit" (click)="setProject('existing')">
+      <input type="text" #title required />
+      <button type="submit" (click)="setProject('existing', title.value)">
         Vorhandenes Projekt
       </button>
-      <button type="submit" (click)="setProject('new')">Neues Projekt</button>
+      <button type="submit" (click)="setProject('new', title.value)">
+        Neues Projekt
+      </button>
     </div>
   </div>
 </mors-generic-popup>
+<mors-show-all-projects
+  *ngIf="project === 'existing'"
+  (selected)="goOn($event)"
+>
+</mors-show-all-projects>
 <mors-articel
   *ngIf="project === 'new'"
   new="true"
   [image]="divs[createPointFor].image"
+  (finished)="goOn($event)"
 ></mors-articel>
+
+<button
+  *ngIf="project === 'new' ? false : project === 'existing' ? false : true"
+  type="submit"
+  (click)="upload(text.innerText, heading.innerText)"
+>
+  Hochladen
+</button>

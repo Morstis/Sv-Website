@@ -22,4 +22,5 @@
   <button type="submit" (click)="upload(text.innerText, heading.innerText)">
     Hochladen
   </button>
+  <p *ngIf="error" id="error">Der Titel wird bereits verwendet!</p>
 </div>

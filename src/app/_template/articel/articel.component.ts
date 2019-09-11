@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Articel } from 'src/app/_interface/articel';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/_service/auth.service';
 import { User } from 'src/app/_interface/user';
 import { GetUiDataService } from 'src/app/_service/get-ui-data.service';
@@ -23,7 +22,9 @@ export class ArticelComponent implements OnInit {
   articel: Articel = {} as Articel;
   @Input() new = false;
   @Input() image?;
+  @Output() finished = new EventEmitter();
   user: User;
+  error = false;
 
   ngOnInit() {
     if (!this.new) {
@@ -41,9 +42,6 @@ export class ArticelComponent implements OnInit {
           console.log(e);
         }
       });
-    } else {
-      // console.log(this.image);
-      console.log('nix');
     }
   }
 
@@ -55,7 +53,14 @@ export class ArticelComponent implements OnInit {
       image: this.image
     };
     this.getUiData.setArticel(articel).subscribe(res => {
-      console.log(res);
+      if (res.res === true) {
+        console.log('%cArticel gespeichert', 'color: green;');
+        this.finished.emit(articel.title);
+      } else if (res.res === false && res.error === 'title already in use') {
+        this.error = true;
+      } else {
+        console.log(res);
+      }
     });
   }
 }

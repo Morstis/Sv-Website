@@ -12,4 +12,12 @@
     <h1 class="centerH">{{ div.shownTitle }}</h1>
   </div>
 </div>
-<mors-edit></mors-edit>
+<button
+  id="showEdit"
+  type="submit"
+  *ngIf="editable === true"
+  (click)="editable = 'edit'"
+>
+  Neuen Wegpunkt erstellen
+</button>
+<mors-edit *ngIf="editable === 'edit'" (closed)="editable = true"></mors-edit>

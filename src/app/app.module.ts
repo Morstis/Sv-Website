@@ -23,6 +23,7 @@ import { AdminShowUserComponent } from './_components/admin-show-user/admin-show
 import { EditComponent } from './_template/edit/edit.component';
 import { DragAndDropDirective } from './_directive/drag-and-drop.directive';
 import { GenericPopupComponent } from './_components/generic-popup/generic-popup.component';
+import { ShowAllProjectsComponent } from './_components/show-all-projects/show-all-projects.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { GenericPopupComponent } from './_components/generic-popup/generic-popup
     AdminShowUserComponent,
     EditComponent,
     DragAndDropDirective,
-    GenericPopupComponent
+    GenericPopupComponent,
+    ShowAllProjectsComponent
   ],
   imports: [
     SharedModule,

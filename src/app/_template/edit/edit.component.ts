@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { WaypointDiv } from 'src/app/_interface/waypoint-div';
 import imageCompression from 'browser-image-compression';
+import { GetUiDataService } from 'src/app/_service/get-ui-data.service';
 
 @Component({
   selector: 'mors-edit',
@@ -8,7 +9,7 @@ import imageCompression from 'browser-image-compression';
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
-  constructor() {}
+  constructor(private getUiData: GetUiDataService) {}
   boxes: number;
   preQuestion = true;
   ungrade: boolean;
@@ -16,10 +17,19 @@ export class EditComponent implements OnInit {
   createPointFor = -1;
   project: string;
   message: string;
-  ngOnInit() {}
+  @Output() closed = new EventEmitter();
 
-  setProject(input): void {
+  ngOnInit() {}
+  close(event) {
+    if (event) {
+      this.preQuestion = false;
+      this.closed.emit();
+    }
+  }
+
+  setProject(input, title): void {
     this.project = input;
+    this.divs[this.createPointFor].shownTitle = title;
   }
   setBackground(img, isLast): string {
     if (this.calcWidth(isLast) < this.calcHeight(isLast)) {
@@ -69,6 +79,12 @@ export class EditComponent implements OnInit {
     this.boxes = value;
     this.preQuestion = false;
     this.generateOverlay();
+  }
+  goOn(title) {
+    if (title) {
+      this.project = '';
+      this.createPointFor = -1;
+    }
   }
   generateOverlay(): void {
     for (let i = 0; i < this.boxes; i++) {

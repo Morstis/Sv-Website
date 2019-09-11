@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { WaypointDiv } from 'src/app/_interface/waypoint-div';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/_service/auth.service';
 
 @Component({
   selector: 'mors-waypoint',
@@ -8,10 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./waypoint.component.scss']
 })
 export class WaypointComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private auth: AuthService) {}
 
   divs: WaypointDiv[] = [];
   ungrade = false;
+  editable: any = false;
 
   ngOnInit() {
     // this.divs = this.routerCheck.checkWaypoint(this.router.url);
@@ -19,7 +21,14 @@ export class WaypointComponent implements OnInit {
       // ungrade
       this.ungrade = true;
     }
+    if (
+      this.auth.getUser().role === 'SV' ||
+      this.auth.getUser().role === 'ADMIN'
+    ) {
+      this.editable = true;
+    }
   }
+
   calcWidth(last) {
     if (this.ungrade) {
       if (last) {

@@ -1,0 +1,26 @@
+<div id="container">
+  <div id="filter">
+    <input
+      type="text"
+      placeholder="Titel"
+      (keyup)="onKeyUp($event.target.value)"
+    />
+  </div>
+  <div id="output">
+    <div
+      *ngFor="let articel of getArticel() | async"
+      id="articel"
+      (click)="select(articel.title)"
+    >
+      <div id="left">
+        <img src="articel.image" />
+      </div>
+      <div id="right">
+        <ol class="centerH">
+          <li>Titel: {{ articel.title }}</li>
+          <li>Autor: {{ articel.autor }}</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>

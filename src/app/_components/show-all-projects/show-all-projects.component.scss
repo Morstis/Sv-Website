@@ -1,0 +1,60 @@
+#container {
+  width: 100%;
+  height: calc(100% - 3rem);
+  background-color: white;
+  z-index: 20;
+  position: absolute;
+  margin-top: 3rem;
+  top: 0;
+  padding-left: 7.5%;
+
+  #filter {
+    padding: 2rem 0 1rem;
+    input[type="text"] {
+      position: relative;
+      min-width: 6rem;
+      border: 0.05rem solid rgb(128, 128, 128);
+      border-radius: 0.4rem;
+      outline: none;
+      font-size: 1rem;
+      background-color: white !important;
+      padding: 0.7rem;
+    }
+    input:-webkit-autofill {
+      background-color: white !important;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+
+  #output {
+    width: 85%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 2rem;
+    grid-column-gap: 1.7rem;
+
+    #articel {
+      border: 0.05rem solid rgb(128, 128, 128);
+      display: grid;
+      grid-template-columns: 3fr 7fr;
+      cursor: pointer;
+
+      #left {
+        img {
+          padding: 1rem;
+          width: 5rem;
+        }
+      }
+      #right {
+        ol {
+          list-style-type: none;
+          text-align: left;
+          font-size: 1.2rem;
+        }
+        span {
+          color: orange;
+        }
+      }
+    }
+  }
+}
