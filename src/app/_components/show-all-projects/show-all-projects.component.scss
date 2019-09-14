@@ -38,14 +38,18 @@
       display: grid;
       grid-template-columns: 3fr 7fr;
       cursor: pointer;
+      padding: 1rem;
 
       #left {
-        img {
-          padding: 1rem;
-          width: 5rem;
-        }
+        padding: 1rem;
+        width: 5rem;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
       }
       #right {
+        padding-left: 1rem;
         ol {
           list-style-type: none;
           text-align: left;

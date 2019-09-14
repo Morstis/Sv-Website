@@ -19,8 +19,9 @@ footer {
     width: 100vw;
     z-index: 998;
     #liste {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
       //   padding: 0 20rem 0 20rem;
       div {
         padding: 1rem 0 1rem 0;

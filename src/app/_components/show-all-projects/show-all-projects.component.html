@@ -12,9 +12,7 @@
       id="articel"
       (click)="select(articel.title)"
     >
-      <div id="left">
-        <img src="articel.image" />
-      </div>
+      <div id="left" [ngStyle]="{ 'background-image': articel.image }"></div>
       <div id="right">
         <ol class="centerH">
           <li>Titel: {{ articel.title }}</li>

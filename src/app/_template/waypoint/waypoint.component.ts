@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { WaypointDiv } from 'src/app/_interface/waypoint-div';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/_service/auth.service';
+import { GetUiDataService } from 'src/app/_service/get-ui-data.service';
 
 @Component({
   selector: 'mors-waypoint',
@@ -9,13 +10,20 @@ import { AuthService } from 'src/app/_service/auth.service';
   styleUrls: ['./waypoint.component.scss']
 })
 export class WaypointComponent implements OnInit {
-  constructor(private router: Router, private auth: AuthService) {}
+  constructor(
+    private router: Router,
+    private auth: AuthService,
+    private getUiData: GetUiDataService
+  ) {}
 
   divs: WaypointDiv[] = [];
   ungrade = false;
   editable: any = false;
 
   ngOnInit() {
+    this.getUiData.getWaypointByURL(this.router.url).subscribe(res => {
+      this.divs = res.sort((a, b) => a.place - b.place);
+    });
     // this.divs = this.routerCheck.checkWaypoint(this.router.url);
     if (this.divs.length % 2 !== 0) {
       // ungrade

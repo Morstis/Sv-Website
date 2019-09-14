@@ -55,14 +55,33 @@
   <div class="popup">
     <h1>Informationen</h1>
     <div id="input" style="margin-top: 10%;">
-      <label>Titel</label>
-      <input type="text" #title required />
-      <button type="submit" (click)="setProject('existing', title.value)">
-        Vorhandenes Projekt
-      </button>
-      <button type="submit" (click)="setProject('new', title.value)">
-        Neues Projekt
-      </button>
+      <form novalidate ngSubmit #form="ngForm">
+        <label>Titel</label>
+        <input type="text" #title name="title" ngModel required />
+        <button
+          type="submit"
+          [disabled]="!form.valid"
+          [ngClass]="{
+            btn_shadow: form.valid,
+            valid: form.valid,
+            notValid: !form.valid
+          }"
+          (click)="setProject('existing', title.value)"
+        >
+          Vorhandenes Projekt
+        </button>
+        <button
+          type="submit"
+          [disabled]="!form.valid"
+          [ngClass]="{
+            valid: form.valid,
+            notValid: !form.valid
+          }"
+          (click)="setProject('new', title.value)"
+        >
+          Neues Projekt
+        </button>
+      </form>
     </div>
   </div>
 </mors-generic-popup>
@@ -78,10 +97,6 @@
   (finished)="goOn($event)"
 ></mors-articel>
 
-<button
-  *ngIf="project === 'new' ? false : project === 'existing' ? false : true"
-  type="submit"
-  (click)="upload(text.innerText, heading.innerText)"
->
+<button *ngIf="uploadReady" type="submit" (click)="upload()">
   Hochladen
 </button>

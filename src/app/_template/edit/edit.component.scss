@@ -81,7 +81,7 @@
 }
 button {
   position: relative;
-  margin-top: -8%;
+  margin-top: -8rem;
   z-index: 20;
   background-color: rgba(40, 94, 131, 1);
   color: white;
@@ -97,4 +97,13 @@ button {
   &:hover {
     box-shadow: 0px 8px 16px 0px rgba(10, 10, 10, 0.2);
   }
+}
+
+.valid {
+  background-color: rgba(40, 94, 131, 1);
+  cursor: pointer;
+}
+.notValid {
+  background-color: rgba(40, 94, 131, 0.5) !important;
+  cursor: not-allowed !important;
 }

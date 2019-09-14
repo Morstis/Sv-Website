@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { WaypointDiv } from 'src/app/_interface/waypoint-div';
 import imageCompression from 'browser-image-compression';
 import { GetUiDataService } from 'src/app/_service/get-ui-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'mors-edit',
@@ -9,7 +10,7 @@ import { GetUiDataService } from 'src/app/_service/get-ui-data.service';
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
-  constructor(private getUiData: GetUiDataService) {}
+  constructor(private getUiData: GetUiDataService, private router: Router) {}
   boxes: number;
   preQuestion = true;
   ungrade: boolean;
@@ -17,7 +18,14 @@ export class EditComponent implements OnInit {
   createPointFor = -1;
   project: string;
   message: string;
+  uploadReady = false;
   @Output() closed = new EventEmitter();
+  /* Hallo armer Programmierer, der sich das hier angucken muss. Entschuldigung,
+  das der Code so hässlich geworden ist, möglicherweise sollte ich ihn überarbeiten.
+  Aber da der Text hier noch steht, habe ich das anscheinend noch nicht gemacht.
+  Das wichtigste ist, dass es funktioniert. Anzumerken ist ausßerdem, das die meiste Logik leider in html passiert. Ja ich weiß...
+  Leider ist das UI nicht einmal Benutzerfreundlich.
+  */
 
   ngOnInit() {}
   close(event) {
@@ -25,6 +33,13 @@ export class EditComponent implements OnInit {
       this.preQuestion = false;
       this.closed.emit();
     }
+  }
+  upload() {
+    // no need to upload the image, becouse it is equal to the articel image.
+    this.divs.map(i => (i.image = ''));
+    this.getUiData.uploadWaypoint(this.divs).subscribe(res => {
+      this.router.navigateByUrl(this.router.url);
+    });
   }
 
   setProject(input, title): void {
@@ -83,7 +98,17 @@ export class EditComponent implements OnInit {
   goOn(title) {
     if (title) {
       this.project = '';
+      this.divs[this.createPointFor].linkTo = title;
+      this.divs[this.createPointFor].place = this.createPointFor;
+      this.divs[this.createPointFor].refereToURL = this.router.url;
+
       this.createPointFor = -1;
+      for (let i = 0; i < this.boxes; i++) {
+        if (this.divs[i].shownTitle === undefined) {
+          return;
+        }
+      }
+      this.uploadReady = true;
     }
   }
   generateOverlay(): void {

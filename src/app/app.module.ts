@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './_template/header/header.component';
 import { WaypointComponent } from './_template/waypoint/waypoint.component';
@@ -10,8 +9,6 @@ import { UserService } from './_service/user.service';
 import { CookieService } from 'ngx-cookie-service';
 import { FooterComponent } from './_template/footer/footer.component';
 import { RegisterComponent } from './_template/register/register.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { BasicRouterComponent } from './_components/basicRouter.component';
 import { LoginComponent } from './_template/login/login.component';
@@ -44,14 +41,7 @@ import { ShowAllProjectsComponent } from './_components/show-all-projects/show-a
     GenericPopupComponent,
     ShowAllProjectsComponent
   ],
-  imports: [
-    SharedModule,
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ],
+  imports: [SharedModule, BrowserModule],
   providers: [UserService, CookieService, NgxImageCompressService],
   bootstrap: [AppComponent]
 })

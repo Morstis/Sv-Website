@@ -55,4 +55,31 @@ export class GetUiDataService {
       })
     );
   }
+  uploadWaypoint(waypoint: WaypointDiv[]): Observable<ApiResponse> {
+    const waypointObj = { ...waypoint };
+
+    return this.http
+      .post<ApiResponse>(
+        BASE_URL + '/waypoints',
+        { waypointObj },
+        this.auth.options
+      )
+      .pipe(
+        tap(response => {
+          const waypoints: WaypointDiv[] = Object.values(response.return);
+          // console.log(waypoints);
+          this.waypointStore.dispach({ type: ADD, data: waypoints });
+        })
+      );
+  }
+  getWaypointByURL(url): Observable<WaypointDiv[]> {
+    return this.http
+      .get<WaypointDiv[]>(BASE_URL + '/waypoints' + url, this.auth.options)
+      .pipe(
+        tap(response => {
+          const waypoint: WaypointDiv[] = response;
+          this.waypointStore.dispach({ type: ADD, data: waypoint });
+        })
+      );
+  }
 }

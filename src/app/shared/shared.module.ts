@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 // Form Directives
@@ -9,6 +9,7 @@ import { EmailValidationDirective } from '../_directive/validation/email-validat
 import { KlasseValidationDirective } from '../_directive/validation/klasse-validation.directive';
 import { CheckEqualInputWithDirective } from '../_directive/validation/check-equal-input-with.directive';
 import { XssDirective } from '../_directive/validation/xss.directive';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,10 @@ import { XssDirective } from '../_directive/validation/xss.directive';
     XssDirective,
     CheckEqualInputWithDirective,
     FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ]
 })
