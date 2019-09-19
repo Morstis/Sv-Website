@@ -1,0 +1,16 @@
+<div id="container">
+  <h2>Nachhilfe geben</h2>
+  <hr />
+  <form novalidate (ngSubmit)="save(form.value)" #form></form>
+
+  <div id="faecher">
+    <div
+      class="fach"
+      *ngFor="let fach of faecher"
+      (click)="setFach(fach)"
+      [ngClass]="{ active: activeFaecher.includes(fach) }"
+    >
+      {{ fach }}
+    </div>
+  </div>
+</div>

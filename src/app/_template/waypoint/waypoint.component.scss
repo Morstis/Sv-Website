@@ -3,11 +3,11 @@
   flex-flow: row wrap;
   position: relative;
   z-index: 0;
-  // grid-template-columns: 1fr 1fr;
   -ms-overflow-style: none;
   height: calc(100vh - 3rem);
 
   .box {
+    flex-grow: 1;
     position: relative;
     -webkit-transition: 0.5s ease-in-out;
     -moz-transition: 0.5s ease-in-out;
@@ -17,8 +17,8 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    width: 50%;
-    height: 50%;
+    // width: 50%;
+    // height: 50%;
     margin: auto;
     &:hover {
       transform: scaleX(1.02);

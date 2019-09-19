@@ -22,9 +22,12 @@ const routes: Routes = [
         { path: ':projekt', component: ArticelComponent }
       ]
   },
-  // prettier-ignore
+
   {
-    path: 'nachhilfe', component: WaypointComponent, canActivate: [LoginGuard]
+    path: 'nachhilfe',
+    canActivate: [LoginGuard],
+    loadChildren: () =>
+      import('./nachhilfe/nachhilfe.module').then(module => module.NachhilfeModule)
   },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -37,8 +40,7 @@ const routes: Routes = [
       {path: ':id', component: AdminComponent},
       {path: '', pathMatch: 'full', component: AdminComponent}
     ]
-  },
-  { path: 'test', component: GenericPopupComponent }
+  }
 ];
 
 @NgModule({

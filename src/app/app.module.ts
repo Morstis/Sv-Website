@@ -21,6 +21,7 @@ import { EditComponent } from './_template/edit/edit.component';
 import { DragAndDropDirective } from './_directive/drag-and-drop.directive';
 import { GenericPopupComponent } from './_components/generic-popup/generic-popup.component';
 import { ShowAllProjectsComponent } from './_components/show-all-projects/show-all-projects.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { ShowAllProjectsComponent } from './_components/show-all-projects/show-a
     GenericPopupComponent,
     ShowAllProjectsComponent
   ],
-  imports: [SharedModule, BrowserModule],
+  imports: [BrowserModule, SharedModule, AppRoutingModule],
   providers: [UserService, CookieService, NgxImageCompressService],
   bootstrap: [AppComponent]
 })

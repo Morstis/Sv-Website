@@ -13,24 +13,16 @@ import { HttpClient } from '@angular/common/http';
   ]
 })
 export class KlasseValidationDirective implements Validator {
-  @Input('morsKlasseValidation') options: any;
   constructor(private http: HttpClient) {}
   klassen: string[];
   validate(c: FormControl): { [key: string]: any } {
-    // testet, ob das Directive gesetzt werden soll
-    if (!this.options) {
-      return;
-    }
-
     // prüft, ob die value gesetzt oder leer ist
     if (!c.value || c.value === '') {
       return null;
     } else {
       // http request zu opossumts.net, um da die Klassenliste zu holen
       this.http
-        .get<string[]>(
-          'https://api.opossum.media/public/mobileapps/hag/KlassenListe.php'
-        )
+        .get<string[]>('https://api.opossum.media/public/mobileapps/hag/KlassenListe.php')
         .subscribe(klassen => {
           this.klassen = klassen;
         });

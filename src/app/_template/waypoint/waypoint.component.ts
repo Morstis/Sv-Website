@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WaypointDiv } from 'src/app/_interface/waypoint-div';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/_service/auth.service';
@@ -23,16 +23,12 @@ export class WaypointComponent implements OnInit {
   ngOnInit() {
     this.getUiData.getWaypointByURL(this.router.url).subscribe(res => {
       this.divs = res.sort((a, b) => a.place - b.place);
+
+      if (this.divs.length % 2 !== 0) {
+        this.ungrade = true;
+      }
     });
-    // this.divs = this.routerCheck.checkWaypoint(this.router.url);
-    if (this.divs.length % 2 !== 0) {
-      // ungrade
-      this.ungrade = true;
-    }
-    if (
-      this.auth.getUser().role === 'SV' ||
-      this.auth.getUser().role === 'ADMIN'
-    ) {
+    if (this.auth.getUser().role === 'SV' || this.auth.getUser().role === 'ADMIN') {
       this.editable = true;
     }
   }
@@ -46,6 +42,8 @@ export class WaypointComponent implements OnInit {
     return '50%';
   }
   calcHeight(last) {
+    // console.log(last);
+
     if (this.ungrade) {
       if (last) {
         return (

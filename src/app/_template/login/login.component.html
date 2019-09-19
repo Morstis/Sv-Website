@@ -1,26 +1,18 @@
 <img id="logo" src="assets/icons/SVLogo_black.svg" />
 
 <div id="container">
-  <h1>
-    Bei der <span style="color: rgb(40, 94, 131);">Sv-Website</span> anmelden
-  </h1>
+  <h1>Bei der <span style="color: rgb(40, 94, 131);">Sv-Website</span> anmelden</h1>
 
-  <div
-    id="input_with_icon"
-    [ngStyle]="{ 'border-color': error ? 'red' : 'grey' }"
-  >
+  <div id="input_with_icon" [ngStyle]="{ 'border-color': error ? 'red' : 'grey' }">
     <input
       [type]="check == 1 ? 'email' : 'password'"
       [placeholder]="check == 1 ? 'ac.count@hag-iserv.de' : 'Passwort'"
       #input
       (keyup.enter)="forward(input.value)"
       autofocus
+      autocomplete="current-password"
     />
-    <img
-      id="arrow"
-      (click)="forward(input.value)"
-      src="assets/icons/login_arrow_right.svg"
-    />
+    <img id="arrow" (click)="forward(input.value)" src="assets/icons/login_arrow_right.svg" />
   </div>
   <div id="error" *ngIf="error">
     {{ errorMessage }}
@@ -28,13 +20,11 @@
   <hr />
   <div id="bottom">
     <p>
-      {{ check == 1 ? " SV-Account " : "Passwort " }}
+      {{ check == 1 ? ' SV-Account ' : 'Passwort ' }}
       <a [routerLink]="check == 1 ? '/register' : '/start'">{{
-        check == 1 ? "erstellen..." : "vergessen..."
+        check == 1 ? 'erstellen...' : 'vergessen...'
       }}</a>
     </p>
-    <a id="cancel" (click)="backward()">{{
-      check == 1 ? "Abbrechen" : "Zurück"
-    }}</a>
+    <a id="cancel" (click)="backward()">{{ check == 1 ? 'Abbrechen' : 'Zurück' }}</a>
   </div>
 </div>

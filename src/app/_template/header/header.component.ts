@@ -18,8 +18,8 @@ export class HeaderComponent implements OnInit {
   list: HeaderList[] = [
     new HeaderList('Aktuelles', 'start'),
     new HeaderList('Projekte', 'projekte'),
-    new HeaderList('Nachhilfe', 'nachhilfe'),
-    new HeaderList('Über uns', '')
+    new HeaderList('Nachhilfe', 'nachhilfe')
+    // new HeaderList('Über uns', '')
   ];
 
   ngOnInit() {

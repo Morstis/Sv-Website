@@ -12,13 +12,7 @@ import { NG_VALIDATORS, FormControl } from '@angular/forms';
   ]
 })
 export class EmailValidationDirective {
-  @Input('morsEmailValidation') options: any;
-
   validate(c: FormControl): { [key: string]: any } {
-    if (!this.options) {
-      return;
-    }
-
     const check: RegExp = new RegExp('[a-z]+.[a-z]+@hag-iserv.de');
     if (!c.value || c.value === '' || check.test(c.value)) {
       return null;

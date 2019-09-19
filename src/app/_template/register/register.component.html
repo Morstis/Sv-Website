@@ -1,56 +1,67 @@
 <div id="container">
   <h2>SV-Account erstellen</h2>
   <form novalidate (ngSubmit)="saveTask(form.value)" #form="ngForm">
-    <div *ngFor="let form of forms">
-      <div>
-        <label *ngIf="form.title; else elseTemplate">{{ form.title }}</label>
-        <!-- prettier-ignore -->
-        <ng-template #elseTemplate>
-        <label>{{ form.name | titlecase }}</label>
-      </ng-template>
-
-        <!-- prettier-ignore -->
-        <input
-        [type]="form.name == 'pw1' ? 'password' : form.name == 'pw2' ? 'password' : 'text'"
-        [name]="form.name"
+    <div>
+      <label>Vorname</label>
+      <input type="text" name="vorname" ngModel required morsXss />
+      <mors-show-error path="vorname" text="Vorname"> </mors-show-error>
+      <label>Nachname</label>
+      <input type="text" name="nachname" ngModel required morsXss />
+      <mors-show-error path="nachname" text="Nachname"> </mors-show-error>
+      <hr />
+      <label>Klasse</label>
+      <input
+        type="text"
+        name="klasse"
         ngModel
         required
-        [morsEmailValidation]="form.name == 'email' ? true : null"
-        [morsKlasseValidation]="form.name == 'klasse' ? true : null"
-        [morsCheckEqualInputWith]="form.name == 'pw2' ? 'pw1' : null"
-        [minlength]="form.name == 'pw1' ? 8 : form.name == 'pw2'? 8 : form.name == 'klasse'? 2 : 4"
         morsXss
-
+        morsKlasseValidation
+        minlength="2"
       />
-
-        <mors-show-error
-          *ngIf="form.title; else elseError"
-          [path]="form.name"
-          text="{{ form.title }}"
-        >
-        </mors-show-error>
-
-        <ng-template #elseError>
-          <mors-show-error
-            [path]="form.name"
-            text="{{ form.name | titlecase }}"
-          ></mors-show-error>
-        </ng-template>
-      </div>
-      <hr *ngIf="form.hr" />
+      <mors-show-error path="klasse" text="Klasse"> </mors-show-error>
+      <label>Email</label>
+      <input
+        type="email"
+        name="email"
+        ngModel
+        required
+        autocomplete="username"
+        morsXss
+        morsEmailValidation
+      />
+      <mors-show-error path="email" text="Email"> </mors-show-error>
+      <label>Passwort (nicht Iserv)</label>
+      <input
+        type="password"
+        name="passwort"
+        ngModel
+        required
+        autocomplete="new-password"
+        morsXss
+        minlength="8"
+      />
+      <mors-show-error path="passwort" text="Passwort (nicht Iserv)"> </mors-show-error>
+      <label>Passwort wiederholen</label>
+      <input
+        type="password"
+        name="passwort2"
+        ngModel
+        required
+        autocomplete="new-password"
+        morsCheckEqualInputWith="passwort"
+        morsXss
+        minlength="8"
+      />
+      <mors-show-error path="passwort2" text="Passwort wiederholen"> </mors-show-error>
+      <hr />
     </div>
 
     <div>
-      <input
-        type="checkbox"
-        name="datenschutz"
-        id="datenschutz"
-        ngModel
-        required
-      />
+      <input type="checkbox" name="datenschutz" id="datenschutz" ngModel required />
       <label for="datenschutz" class="noselect"
-        >Ich habe die <a href="/">Datenschutzerklärung</a> gelesen und
-        akzeptiere diese hiermit.</label
+        >Ich habe die <a href="/">Datenschutzerklärung</a> gelesen und akzeptiere diese
+        hiermit.</label
       >
     </div>
     <div id="error" *ngIf="error">{{ error }}</div>

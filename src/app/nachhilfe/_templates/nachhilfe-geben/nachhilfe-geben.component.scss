@@ -1,0 +1,43 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+@mixin noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+#container {
+  margin: 0 30% 0 30%;
+  h2 {
+    text-align: center;
+    padding-top: 2rem;
+    margin-block-end: 1rem;
+  }
+
+  #faecher {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .fach {
+      width: 20%;
+      padding: 1rem;
+      margin: 2.5%;
+      border: 0.05rem black solid;
+      @include noselect;
+      &:hover {
+        transform: scale(1.02);
+        cursor: pointer;
+      }
+    }
+    .active {
+      background-color: green;
+    }
+  }
+}

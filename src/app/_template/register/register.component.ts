@@ -15,14 +15,6 @@ export class RegisterComponent implements OnInit {
   user: User = {} as User;
   error: string;
 
-  forms: object[] = [
-    { name: 'vorname' },
-    { name: 'nachname', hr: true },
-    { name: 'klasse' },
-    { name: 'email' },
-    { name: 'pw1', title: 'Passwort (nicht Iserv)' },
-    { name: 'pw2', title: 'Passwort wiederholen', hr: true }
-  ];
   ngOnInit() {}
 
   saveTask(user) {
@@ -30,7 +22,7 @@ export class RegisterComponent implements OnInit {
     this.user.name = user.nachname;
     this.user.klasse = user.klasse.toUpperCase();
     this.user.email = user.email;
-    this.user.password = user.pw1;
+    this.user.password = user.passwort;
 
     this.auth.register(this.user).subscribe(response => {
       const res: ApiResponse = response;

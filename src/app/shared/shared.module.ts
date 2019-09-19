@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,7 +9,6 @@ import { EmailValidationDirective } from '../_directive/validation/email-validat
 import { KlasseValidationDirective } from '../_directive/validation/klasse-validation.directive';
 import { CheckEqualInputWithDirective } from '../_directive/validation/check-equal-input-with.directive';
 import { XssDirective } from '../_directive/validation/xss.directive';
-import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,7 @@ import { AppRoutingModule } from '../app-routing.module';
     XssDirective,
     CheckEqualInputWithDirective
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   exports: [
     CommonModule,
     ShowErrorComponent,
@@ -29,8 +28,6 @@ import { AppRoutingModule } from '../app-routing.module';
     CheckEqualInputWithDirective,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule,
-    FormsModule,
     ReactiveFormsModule,
     HttpClientModule
   ]
