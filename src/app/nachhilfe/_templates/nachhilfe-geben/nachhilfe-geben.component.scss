@@ -27,17 +27,47 @@
     justify-content: space-between;
     .fach {
       width: 20%;
-      padding: 1rem;
+      padding: 1rem 0 1rem 0;
+      text-align: center;
       margin: 2.5%;
       border: 0.05rem black solid;
       @include noselect;
       &:hover {
         transform: scale(1.02);
+        box-shadow: 0px 8px 16px 0px rgba(10, 10, 10, 0.2);
         cursor: pointer;
       }
     }
     .active {
-      background-color: green;
+      box-shadow: 0 0 0 0.2rem green inset !important;
+      padding: -0.2rem;
     }
+  }
+  input[type='number'],
+  textarea {
+    width: 100%;
+    padding: 0.7rem;
+    margin: 0.4rem 0 1.2rem 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    border-radius: 0.2rem;
+    resize: none;
+
+    &:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+    &.ng-touched.ng-invalid {
+      box-shadow: 0 0 0 0.2rem red inset;
+    }
+  }
+  .valid {
+    background-color: rgba(40, 94, 131, 1);
+    cursor: pointer;
+  }
+  .notValid {
+    background-color: rgba(40, 94, 131, 0.5);
+    cursor: not-allowed;
   }
 }

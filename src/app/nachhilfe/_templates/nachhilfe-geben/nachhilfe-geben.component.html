@@ -1,16 +1,44 @@
 <div id="container">
   <h2>Nachhilfe geben</h2>
   <hr />
-  <form novalidate (ngSubmit)="save(form.value)" #form></form>
-
-  <div id="faecher">
-    <div
-      class="fach"
-      *ngFor="let fach of faecher"
-      (click)="setFach(fach)"
-      [ngClass]="{ active: activeFaecher.includes(fach) }"
-    >
-      {{ fach }}
+  <form novalidate (ngSubmit)="save(form.value)" #form="ngForm">
+    <div id="faecher">
+      <div
+        class="fach"
+        *ngFor="let fach of faecher"
+        (click)="setFach(fach)"
+        [ngClass]="{ active: activeFaecher.includes(fach) }"
+      >
+        {{ fach }}
+      </div>
     </div>
-  </div>
+    <br />
+    <label>Jahrgang <input type="number" name="jg1" ngModel required pattern="[5-9]" /> </label>
+    <label
+      >bis Jahrgang
+      <input type="number" name="jg2" ngModel required />
+    </label>
+    <label
+      >Infos
+      <textarea
+        name="description"
+        cols="30"
+        rows="10"
+        placeholder="Beschreibung"
+        ngModel
+        morsXss
+      ></textarea
+    ></label>
+    <button
+      type="submit"
+      class="btn"
+      [disabled]="!form.valid ? true : activeFaecher.length >= 1 ? false : true"
+      [ngClass]="{
+        valid: form.valid ? (activeFaecher.length >= 1 ? true : false) : false,
+        notValid: !form.valid ? true : activeFaecher.length >= 1 ? false : true
+      }"
+    >
+      Hochladen
+    </button>
+  </form>
 </div>

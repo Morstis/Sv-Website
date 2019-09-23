@@ -37,7 +37,7 @@
         outline: none;
       }
       &.ng-touched.ng-invalid {
-        border: 0.2rem red solid;
+        box-shadow: 0 0 0 0.2rem red inset !important;
       }
     }
     hr {

@@ -25,7 +25,7 @@ export class NachhilfeGebenComponent implements OnInit {
 
   ngOnInit() {}
   save(input) {
-    console.log(input);
+    console.log(input, this.activeFaecher.length);
   }
   setFach(fach) {
     if (this.activeFaecher.includes(fach)) {
@@ -33,7 +33,7 @@ export class NachhilfeGebenComponent implements OnInit {
         return item !== fach;
       });
     } else {
-      this.activeFaecher.push(fach);
+      this.activeFaecher = [...this.activeFaecher, fach];
     }
   }
 }

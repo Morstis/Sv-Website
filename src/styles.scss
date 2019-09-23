@@ -27,7 +27,7 @@ ul {
 body {
   background-color: white;
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   touch-action: manipulation;
   overflow-x: hidden;
 }
@@ -56,7 +56,8 @@ html {
 h1 {
   font-size: 2rem;
 }
-.noselect {
+
+@mixin noselect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
@@ -64,6 +65,24 @@ h1 {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+}
+.btn {
+  position: relative;
+  float: right;
+  bottom: 0;
+  z-index: 20;
+  background-color: rgba(40, 94, 131, 1);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  opacity: 0.9;
+  font-size: 90%;
+
+  &:hover {
+    box-shadow: 0px 8px 16px 0px rgba(10, 10, 10, 0.2);
+  }
 }
 @media only screen and (max-width: 1680px) {
   html {
