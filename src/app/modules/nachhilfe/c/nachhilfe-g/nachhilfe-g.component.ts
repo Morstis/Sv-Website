@@ -16,6 +16,8 @@ import { AuthService } from 'src/app/modules/auth/s/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Message } from 'src/app/modules/shared/classes/message.class';
 import { User } from 'src/app/modules/shared/i/user';
+import { AngularFireFunctions } from '@angular/fire/functions';
+import { LoaderService } from '../../../shared/s/loader.service';
 
 @Component({
   selector: 'lw-nachhilfe-g',
@@ -26,7 +28,8 @@ export class NachhilfeGComponent implements OnInit, OnDestroy {
   constructor(
     private nachhilfeService: NachhilfeService,
     private auth: AuthService,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private loaderService: LoaderService
   ) {}
 
   /*  Ich verwende Template driven form anstatt reactive Forms, um die Buttonwahl der Fächer zu realisieren.
@@ -61,6 +64,7 @@ export class NachhilfeGComponent implements OnInit, OnDestroy {
                   .getOneByKey(this.user.key)
                   .pipe(take(1))
                   .subscribe((data) => {
+                    this.loaderService.hide();
                     this.activeFaecher = data.faecher;
                     this.infoWow = data.info || '';
                   });
