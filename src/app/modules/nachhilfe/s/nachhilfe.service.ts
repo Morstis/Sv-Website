@@ -15,7 +15,6 @@ import { LoaderService } from '../../shared/s/loader.service';
 })
 export class NachhilfeService extends GenericService<NachhilfeUser> {
   constructor(
-    private http: HttpClient,
     protected db: AngularFirestore,
     protected snackBar: MatSnackBar,
     private fireFunction: AngularFireFunctions,
@@ -39,69 +38,72 @@ export class NachhilfeService extends GenericService<NachhilfeUser> {
   }
 
   // Only for admin usage. Does not display in the UI
-  setFeacher() {
+  setFaecher(faecher: string[]) {
     return this.dbRef.set({
-      faecher: [
-        'biologie',
-        'chemie',
-        'deutsch',
-        'englisch',
-        'erdkunde',
-        'französisch',
-        'geschichte',
-        'latein',
-        'mathe',
-        'politik',
-        'physik',
-        'spanisch',
-      ],
+      faecher,
     });
   }
-  /*  dynamische Jahrgangerkennung. Das Script holt die Rohdaten von der Api und bearbeitet dann das Observable.
-      Referenzen: https://www.learnrxjs.io/
-  */
+
   getClasses(): Observable<string[]> {
-    this.loaderService.show();
-
-    return this.fireFunction
-      .httpsCallable('getOnlyKlassen')(null)
-
+    return this.db
+      .doc('/modules/admin')
+      .valueChanges()
+      .pipe(map((x: { klassen: string[] }) => x.klassen))
       .pipe(
-        mergeMap((x) =>
-          Object.values(x)
-
-            /*  Der Filter wird benötigt um mögliche null returns vom str.match() auszuschließen.
-              RegEx Referenz: https://regex101.com/
-              */
-            .filter(
-              (y: string) =>
-                y.match(/Q[0-9]|E[0-9]|[0-9][0-9]|[0-9]/gi) !== null
-            )
-            // Es werden die Buchstaben raussortiert
-            .map((y: string) => y.match(/Q[0-9]|E[0-9]|[0-9][0-9]|[0-9]/gi))
-        ),
-        // Die Zahlen werden gruppiert
-        groupBy((x) => x[0]),
-        map((group) => group.key),
-        toArray(),
-        // Zu letzt wird das String Array umgedreht
-        map((x: string[]) => x.reverse())
-      )
-      .pipe(
-        map((x: string[]) => {
-          if (x.length < 1) {
-            throwError(
-              'Firebase hat ein leeres Array returned. Das ist ein sehr großes Problem! Verständige den Entwickler.'
-            );
-          }
-          return x;
-        }),
         catchError((err) =>
           this.handleError(
             err,
-            'Es ist ein unerwarteter Fehler beim holen der Klassen ist aufgetreten!'
+            'Es ist ein unerwarteter Fehler beim bekommen der Klassen aufgetreten!'
           )
         )
       );
   }
+
+  /*  dynamische Jahrgangerkennung. Das Script holt die Rohdaten von der Api und bearbeitet dann das Observable.
+      Referenzen: https://www.learnrxjs.io/
+  */
+  // getClasses(): Observable<string[]> {
+  //   this.loaderService.show();
+
+  //   return this.fireFunction
+  //     .httpsCallable('getOnlyKlassen')(null)
+
+  //     .pipe(
+  //       mergeMap((x) =>
+  //         Object.values(x)
+
+  //           /*  Der Filter wird benötigt um mögliche null returns vom str.match() auszuschließen.
+  //             RegEx Referenz: https://regex101.com/
+  //             */
+  //           .filter(
+  //             (y: string) =>
+  //               y.match(/Q[0-9]|E[0-9]|[0-9][0-9]|[0-9]/gi) !== null
+  //           )
+  //           // Es werden die Buchstaben raussortiert
+  //           .map((y: string) => y.match(/Q[0-9]|E[0-9]|[0-9][0-9]|[0-9]/gi))
+  //       ),
+  //       // Die Zahlen werden gruppiert
+  //       groupBy((x) => x[0]),
+  //       map((group) => group.key),
+  //       toArray(),
+  //       // Zu letzt wird das String Array umgedreht
+  //       map((x: string[]) => x.reverse())
+  //     )
+  //     .pipe(
+  //       map((x: string[]) => {
+  //         if (x.length < 1) {
+  //           throwError(
+  //             'Firebase hat ein leeres Array returned. Das ist ein sehr großes Problem! Verständige den Entwickler.'
+  //           );
+  //         }
+  //         return x;
+  //       }),
+  //       catchError((err) =>
+  //         this.handleError(
+  //           err,
+  //           'Es ist ein unerwarteter Fehler beim holen der Klassen ist aufgetreten!'
+  //         )
+  //       )
+  //     );
+  // }
 }

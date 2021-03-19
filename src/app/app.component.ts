@@ -19,11 +19,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     /**
-    * Relink to /willkommen on enter and not on refresh 
-      Alles andere ist einfach nur Spaghetti Code. Viel Spaß. Basically speichert er den momentanen
-      Route State und redirected dann zu ihm. (Die Logic dafür passiert natürlich in der Greetings
-      component, da ich grade keine Lust habe das schön ztu machen)
-    */
+     * Relink to /willkommen on enter and not on refresh
+     * Alles andere ist einfach nur Spaghetti Code. Viel Spaß.
+     * Basically speichert er den momentanen
+     * Route State und redirected dann zu ihm.
+     * (Die Logic dafür passiert natürlich in der Greetings
+     * component, da ich grade keine Lust habe das schön zu machen)
+     */
     this.settingsService
       .willkommen()
       .pipe(take(1))

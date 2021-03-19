@@ -10,6 +10,12 @@ const routes: Routes = [
     component: AppBodyComponent,
     children: [
       { path: 'settings', component: SettingsComponent },
+      {
+        path: 'admin',
+        // ...canActivate(() => redirectUnauthorizedTo(['/auth/login'])),
+        loadChildren: () =>
+          import('../../modules/admin/admin.module').then((m) => m.AdminModule),
+      },
 
       {
         path: 'nachhilfe',

@@ -25,6 +25,8 @@ export class GenericService<T> extends Message {
   public upload(data: T): void {
     data = { ...data, creationDate: new Date() };
 
+    console.log(this.endpoint.dbRef, this.endpoint.collRef);
+
     this.dbRef
       .collection<T>(this.endpoint.collRef)
       .add(data)

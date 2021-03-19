@@ -10,6 +10,7 @@ import {
   take,
   catchError,
   skip,
+  tap,
 } from 'rxjs/operators';
 import { NachhilfeService } from '../../s/nachhilfe.service';
 import { AuthService } from 'src/app/modules/auth/s/auth.service';
@@ -32,17 +33,40 @@ export class NachhilfeGComponent implements OnInit, OnDestroy {
     private loaderService: LoaderService
   ) {}
 
-  /*  Ich verwende Template driven form anstatt reactive Forms, um die Buttonwahl der Fächer zu realisieren.
-      ansonsten hatte ich die Fächerabfrage außerhalb der form realisieren müssen. Dadurch wäre die Validierung schwieriger geworden.
-      Und weil ich dumm bin.
-      */
+  /*Ich verwende Template driven form anstatt reactive Forms, um die Buttonwahl der Fächer zu realisieren.
+    Ansonsten hatte ich die Fächerabfrage außerhalb der form realisieren müssen. Dadurch wäre die Validierung schwieriger geworden.
+    Und weil ich dumm bin.
+  */
 
   faecher$: Observable<string[]> = this.nachhilfeService.getFaecher();
   activeFaecher: string[] = [];
   jg1: string;
   jg2: string;
 
-  classes$: Observable<string[]> = this.nachhilfeService.getClasses();
+  classes$: Observable<string[]> = this.nachhilfeService
+    .getClasses()
+    .pipe(
+      map((x) => {
+        return x
+          .map((z) => z.match(/(Q|E)?\d+/i)[0])
+          .reduce((a, b) => {
+            if (a.indexOf(b) < 0) {
+              a.push(b);
+            }
+            return a;
+          }, []);
+      })
+    )
+    .pipe(
+      map((x: string[]) => {
+        if (x.length < 1) {
+          throwError(
+            'Firebase hat ein leeres Array returned. Das ist ein sehr großes Problem! Verständige den Entwickler.'
+          );
+        }
+        return x;
+      })
+    );
 
   user$ = this.auth.user$;
   user: User;

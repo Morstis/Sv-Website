@@ -1,0 +1,74 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 3rem;
+  position: relative;
+  .elem {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+
+    gap: 1rem;
+    h2 {
+      grid-area: 1 / 1 / span 1 / span end;
+      margin: 0;
+    }
+  }
+  mat-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .send {
+      padding: 0.5rem 2rem 0.5rem 2rem;
+      color: white;
+      // position: absolute;
+      margin: auto 0 0 auto;
+    }
+    .overview {
+      width: 100%;
+      display: grid;
+      padding: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(5rem, 7rem));
+      gap: 1rem;
+      mat-card {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 0.5rem;
+        * {
+          margin: auto;
+        }
+      }
+      #close {
+        color: red;
+        cursor: pointer;
+      }
+    }
+
+    #add {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: 1fr;
+      gap: 1rem;
+      & > * {
+        margin: auto;
+      }
+
+      mat-icon {
+        color: white;
+      }
+    }
+    mat-form-field {
+      width: 100%;
+    }
+  }
+}
+@media only screen and (max-width: 650px) {
+  .elem {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto 1fr 1fr !important;
+    h2 {
+      grid-area: initial !important;
+    }
+  }
+}

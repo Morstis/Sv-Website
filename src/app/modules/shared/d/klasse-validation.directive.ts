@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { LoaderService } from '../s/loader.service';
+import { NachhilfeService } from '../../nachhilfe/s/nachhilfe.service';
 
 @Directive({
   selector: '[lwKlasseValidation]',
@@ -19,12 +20,14 @@ import { LoaderService } from '../s/loader.service';
 export class KlasseValidationDirective implements Validator {
   constructor(
     private fireFunction: AngularFireFunctions,
-    loaderService: LoaderService
+    private loaderService: LoaderService,
+    private nachhilfe: NachhilfeService
   ) {
-    this.fireFunction
-      .httpsCallable('getOnlyKlassen')(null)
-      .pipe(take(1))
-      .subscribe((res) => (this.klassen = res));
+    // this.fireFunction
+    //   .httpsCallable('getOnlyKlassen')(null)
+    //   .pipe(take(1))
+    //   .subscribe((res) => (this.klassen = res));
+    this.nachhilfe.getClasses().subscribe((res) => (this.klassen = res));
   }
   klassen: string[];
 

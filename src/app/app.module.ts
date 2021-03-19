@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { emulators } from './FireEmulators';
 import { SharedModule } from './modules/shared/shared.module';
 import { WillkommenModule } from './modules/willkommen/willkommen.module';
 
@@ -21,12 +22,7 @@ import { WillkommenModule } from './modules/willkommen/willkommen.module';
     WillkommenModule,
     AppRoutingModule,
   ],
-  providers: [
-    AngularFireAuthGuard,
-    // environment.production
-    //   ? undefined
-    //   : { provide: ORIGIN, useValue: 'http://localhost:5001' },
-  ],
+  providers: [AngularFireAuthGuard, ...emulators()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

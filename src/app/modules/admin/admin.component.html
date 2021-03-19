@@ -1,0 +1,90 @@
+<h1>Admin Interface</h1>
+<div class="layout">
+  <div class="klassen elem">
+    <h2>Klassen</h2>
+    <mat-card>
+      <h3>Iserv Table Code</h3>
+      <mat-form-field>
+        <mat-label>Hier den Code einfügen</mat-label>
+        <textarea matInput rows="20" #textarea></textarea>
+      </mat-form-field>
+      <button
+        class="send"
+        mat-raised-button
+        (click)="sendHTML(textarea.value)"
+        color="accent"
+      >
+        senden
+      </button>
+    </mat-card>
+    <mat-card>
+      <h3>von Hand</h3>
+
+      <div id="add">
+        <mat-form-field>
+          <input
+            matInput
+            [(ngModel)]="klasseI"
+            placeholder="Klassenname"
+            #klasseInput
+            (keyup.enter)="add(klasseInput.value)"
+          />
+        </mat-form-field>
+        <button mat-mini-fab (click)="add(klasseInput.value)">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+      <div class="overview">
+        <mat-card *ngFor="let k of klasse; let i = index"
+          ><span>{{ k }}</span>
+          <mat-icon id="close" (click)="del(i)">close</mat-icon></mat-card
+        >
+      </div>
+      <button
+        (click)="sendManuel()"
+        class="send"
+        mat-raised-button
+        color="accent"
+      >
+        senden
+      </button>
+    </mat-card>
+  </div>
+  <div class="faecher elem">
+    <h2>Fächer</h2>
+
+    <mat-card>
+      <div class="faecher"></div>
+      <h3>Fächer hinzufügen / updaten</h3>
+
+      <div id="add">
+        <mat-form-field>
+          <input
+            matInput
+            [(ngModel)]="faecherI"
+            placeholder="Fach"
+            #fachInput
+            (keyup.enter)="addF(fachInput.value)"
+          />
+        </mat-form-field>
+        <button mat-mini-fab (click)="addF(fachInput.value)">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+      <div class="overview">
+        <mat-card *ngFor="let k of faecher; let i = index"
+          ><span>{{ k }}</span>
+          <mat-icon id="close" (click)="delF(i)">close</mat-icon></mat-card
+        >
+      </div>
+      <button
+        (click)="setFaecher()"
+        class="send"
+        mat-raised-button
+        color="accent"
+      >
+        senden
+      </button>
+    </mat-card>
+  </div>
+</div>
