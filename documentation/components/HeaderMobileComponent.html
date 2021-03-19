@@ -8,29 +8,614 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	    <link rel="stylesheet" href="../styles/style.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
             <a href="../" class="navbar-brand">sv-website documentation</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="../">sv-website documentation</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a href="../" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a 
+                                        
+                                         href="../overview.html" 
+                                         href="../overview.html" 
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./modules.html" >
+                            <span class="fa fa-archive"></span>
+                            <span>Modules</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            ></span>
+                        </a>
+                        <ul class="links collapse in"
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="../modules/AdminModule.html" >AdminModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/AppBodyModule.html" >AppBodyModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/AppModule.html" >AppModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/AuthModule.html" >AuthModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/GreetingModule.html" >GreetingModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/HomeModule.html" >HomeModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/HomeRoutingModule.html" >HomeRoutingModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/MaterialModule.html" >MaterialModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/NachhilfeGModule.html" >NachhilfeGModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/NachhilfeModule.html" >NachhilfeModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/NachhilfeNModule.html" >NachhilfeNModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/NachhilfeWModule.html" >NachhilfeWModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/SharedModule.html" >SharedModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/WillkommenModule.html" >WillkommenModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-components-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="../components/AdminComponent.html" >AdminComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/AppBodyComponent.html" >AppBodyComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/AppComponent.html" >AppComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/DatenschutzComponent.html" >DatenschutzComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/GenericSnackbarComponent.html" >GenericSnackbarComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/GreetingComponent.html" >GreetingComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/HeaderComponent.html" >HeaderComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/HeaderMobileComponent.html"  class="active" >HeaderMobileComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/HomeComponent.html" >HomeComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/ImpressumComponent.html" >ImpressumComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/LoaderComponent.html" >LoaderComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/LoginComponent.html" >LoginComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/NachhilfeDiagComponent.html" >NachhilfeDiagComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/NachhilfeGComponent.html" >NachhilfeGComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/NachhilfeNComponent.html" >NachhilfeNComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/NachhilfeWComponent.html" >NachhilfeWComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/RegisterComponent.html" >RegisterComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/SettingsComponent.html" >SettingsComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-code"></span>
+                            <span>Directives</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-directives-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-directives-links"
+                            >
+                                <li class="link">
+                                    <a href="../directives/CompareWithDirective.html" >CompareWithDirective</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../directives/EmailValidationDirective.html" >EmailValidationDirective</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../directives/KlasseValidationDirective.html" >KlasseValidationDirective</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-classes-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="../classes/AdditionUserInfo.html" >AdditionUserInfo</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/AppPage.html" >AppPage</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/GenericService.html" >GenericService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/Klasse.html" >Klasse</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/Message.html" >Message</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/User.html" >User</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../routes.html" ><span class="fa fa-code-fork"></span>Routes</a>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-injectables-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="../injectables/AdminService.html" >AdminService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/AuthService.html" >AuthService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/LoaderInterceptor.html" >LoaderInterceptor</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/LoaderService.html" >LoaderService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/NachhilfeService.html" >NachhilfeService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/SettingsService.html" >SettingsService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/WillkommenService.html" >WillkommenService</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-interfaces-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="../interfaces/Endpoint.html" >Endpoint</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/NachhilfeUser.html" >NachhilfeUser</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/Settings.html" >Settings</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/allKlassen.html" >allKlassen</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+                    <li class="divider"></li>
+                    <li class="copyright">
+                            Documentation generated using <a href="https://compodoc.github.io/compodoc/" target="_blank">
+                                        <img src="..//images/compodoc-vectorise.svg" class="img-responsive">
+                            </a>
+                    </li>
+            
+                </ul>
+            
+            </nav>
         </div>
 
         <div class="container-fluid main">
            <div class="row main">
                <div class="hidden-xs menu">
-                   <compodoc-menu mode="normal"></compodoc-menu>
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="../">sv-website documentation</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a href="../" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a 
+                                               
+                                                href="../overview.html" 
+                                                href="../overview.html" 
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./modules.html" >
+                                   <span class="fa fa-archive"></span>
+                                   <span>Modules</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   ></span>
+                               </a>
+                               <ul class="links collapse in"
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="../modules/AdminModule.html" >AdminModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/AppBodyModule.html" >AppBodyModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/AppModule.html" >AppModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/AuthModule.html" >AuthModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/GreetingModule.html" >GreetingModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/HomeModule.html" >HomeModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/HomeRoutingModule.html" >HomeRoutingModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/MaterialModule.html" >MaterialModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/NachhilfeGModule.html" >NachhilfeGModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/NachhilfeModule.html" >NachhilfeModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/NachhilfeNModule.html" >NachhilfeNModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/NachhilfeWModule.html" >NachhilfeWModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/SharedModule.html" >SharedModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/WillkommenModule.html" >WillkommenModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#components-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="../components/AdminComponent.html" >AdminComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/AppBodyComponent.html" >AppBodyComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/AppComponent.html" >AppComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/DatenschutzComponent.html" >DatenschutzComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/GenericSnackbarComponent.html" >GenericSnackbarComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/GreetingComponent.html" >GreetingComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/HeaderComponent.html" >HeaderComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/HeaderMobileComponent.html"  class="active" >HeaderMobileComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/HomeComponent.html" >HomeComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/ImpressumComponent.html" >ImpressumComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/LoaderComponent.html" >LoaderComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/LoginComponent.html" >LoginComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/NachhilfeDiagComponent.html" >NachhilfeDiagComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/NachhilfeGComponent.html" >NachhilfeGComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/NachhilfeNComponent.html" >NachhilfeNComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/NachhilfeWComponent.html" >NachhilfeWComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/RegisterComponent.html" >RegisterComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/SettingsComponent.html" >SettingsComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-code"></span>
+                                   <span>Directives</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#directives-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="directives-links"
+                   >
+                                       <li class="link">
+                                           <a href="../directives/CompareWithDirective.html" >CompareWithDirective</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../directives/EmailValidationDirective.html" >EmailValidationDirective</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../directives/KlasseValidationDirective.html" >KlasseValidationDirective</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#classes-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="../classes/AdditionUserInfo.html" >AdditionUserInfo</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/AppPage.html" >AppPage</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/GenericService.html" >GenericService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/Klasse.html" >Klasse</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/Message.html" >Message</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/User.html" >User</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../routes.html" ><span class="fa fa-code-fork"></span>Routes</a>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#injectables-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="../injectables/AdminService.html" >AdminService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/AuthService.html" >AuthService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/LoaderInterceptor.html" >LoaderInterceptor</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/LoaderService.html" >LoaderService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/NachhilfeService.html" >NachhilfeService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/SettingsService.html" >SettingsService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/WillkommenService.html" >WillkommenService</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#interfaces-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interfaces/Endpoint.html" >Endpoint</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/NachhilfeUser.html" >NachhilfeUser</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/Settings.html" >Settings</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/allKlassen.html" >allKlassen</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                           <li class="copyright">
+                                   Documentation generated using <a href="https://compodoc.github.io/compodoc/" target="_blank">
+                                               <img src="..//images/compodoc-vectorise.svg" class="img-responsive">
+                                   </a>
+                           </li>
+                   
+                       </ul>
+                   
+                   </nav>
                </div>
-               <!-- START CONTENT -->
                <div class="content component">
                    <div class="content-data">
-
-
 
 
 <ol class="breadcrumb">
@@ -38,26 +623,18 @@
   <li>HeaderMobileComponent</li>
 </ol>
 
-<ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
-        </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
-            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
-        </li>
-</ul>
 
-<div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
+        </li>
+        <li>
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane fade active in" id="infos"><p class="comment">
     <h3>File</h3>
 </p>
 <p class="comment">
@@ -66,18 +643,11 @@
 
 
 
-    <p class="comment">
-        <h3>Implements</h3>
-    </p>
-    <p class="comment">
-                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-    </p>
-
-
 <section>
     <h3>Metadata</h3>
     <table class="table table-sm table-hover">
         <tbody>
+
 
 
 
@@ -96,288 +666,101 @@
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./header-mobile.component.scss</code></td>
+                <td class="col-md-9"><code>header-mobile.component.scss</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./header-mobile.component.html</code></td>
+                <td class="col-md-9"><code>header-mobile.component.html</code></td>
             </tr>
-
-
-
-
-
-
 
 
         </tbody>
     </table>
 </section>
 
-    <section>
-    <h3 id="index">Index</h3>
-    <table class="table table-sm table-bordered index-table">
-        <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#isLoading$">isLoading$</a>
-                            </li>
-                            <li>
-                                <a href="#user$">user$</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#logout">logout</a>
-                            </li>
-                            <li>
-                                <a href="#ngOnInit">ngOnInit</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-
-
-
-
-        </tbody>
-    </table>
-</section>
-
-    <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(auth: <a href="../injectables/AuthService.html">AuthService</a>, loaderService: <a href="../injectables/LoaderService.html">LoaderService</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/modules/app-body/c/header-mobile/header-mobile.component.ts:12</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>auth</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>loaderService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/LoaderService.html" target="_self" >LoaderService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-
-
-
 
 
     <section>
-    
-    <h3 id="methods">
-        Methods
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="logout"></a>
-                    <span class="name">
-                        <b>
-                            logout
-                        </b>
-                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>logout()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">src/app/modules/app-body/c/header-mobile/header-mobile.component.ts:20</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="ngOnInit"></a>
-                    <span class="name">
-                        <b>
-                            ngOnInit
-                        </b>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>ngOnInit()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/modules/app-body/c/header-mobile/header-mobile.component.ts:19</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
-    <section>
-    
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="isLoading$"></a>
-                        <span class="name">
-                            <b>
-                            isLoading$</b>
-                            <a href="#isLoading$"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
+        <h3 id="constructor">Constructor</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>this.loaderService.state()</code>
+                            <code>constructor(auth: any, loaderService: any)</code>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/modules/app-body/c/header-mobile/header-mobile.component.ts:11</a></div>
-                            </td>
-                        </tr>
+    
+                </tbody>
+            </table>
+    </section>
 
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="user$"></a>
-                        <span class="name">
-                            <b>
-                            user$</b>
-                            <a href="#user$"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
+    <section>
+        <h3 id="methods">Methods</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>this.auth.user$</code>
+                            <b> logout</b>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/modules/app-body/c/header-mobile/header-mobile.component.ts:12</a></div>
-                            </td>
-                        </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>logout()</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
 
-
-            </tbody>
-        </table>
-</section>
-
+    <section>
+        <h3 id="inputs">Properties</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> isLoading$</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>isLoading$:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> user$</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>user$:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
 </div>
-
-
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <div class="tab-pane fade tab-source-code" id="source">
+            <pre><code class="hljs javascript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { AuthService } from &#x27;src/app/modules/auth/s/auth.service&#x27;;
 import { LoaderService } from &#x27;src/app/modules/shared/s/loader.service&#x27;;
 
@@ -403,204 +786,21 @@ export class HeaderMobileComponent implements OnInit {
   }
 }
 </code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;mat-sidenav-container&gt;
-  &lt;mat-sidenav #sidenav mode&#x3D;&quot;over&quot;&gt;
-    &lt;mat-nav-list role&#x3D;&quot;navigation&quot;&gt;
-      &lt;!-- &lt;a
-        mat-list-item
-        [routerLink]&#x3D;&quot;[&#x27;/&#x27;]&quot;
-        routerLinkActive&#x3D;&quot;router-link-active&quot;
-      &gt;
-        &lt;mat-icon&gt;home&lt;/mat-icon&gt; Home
-      &lt;/a&gt; --&gt;
-
-      &lt;!-- &lt;a
-        mat-list-item
-        [routerLink]&#x3D;&quot;[&#x27;/projekte&#x27;]&quot;
-        routerLinkActive&#x3D;&quot;router-link-active&quot;
-      &gt;
-        &lt;mat-icon svgIcon&#x3D;&quot;projekte&quot;&gt;&lt;/mat-icon&gt; Projekte
-      &lt;/a&gt; --&gt;
-      &lt;a
-        mat-list-item
-        [routerLink]&#x3D;&quot;[&#x27;/nachhilfe/geben&#x27;]&quot;
-        routerLinkActive&#x3D;&quot;router-link-active&quot;
-      &gt;
-        &lt;mat-icon svgIcon&#x3D;&quot;nachhilfe_g&quot;&gt;&lt;/mat-icon&gt;Nachhilfe geben
-      &lt;/a&gt;
-      &lt;a
-        mat-list-item
-        [routerLink]&#x3D;&quot;[&#x27;/nachhilfe/nehmen&#x27;]&quot;
-        routerLinkActive&#x3D;&quot;router-link-active&quot;
-      &gt;
-        &lt;mat-icon svgIcon&#x3D;&quot;nachhilfe_n&quot;&gt;&lt;/mat-icon&gt; Nachhilfe nehmen
-      &lt;/a&gt;
-      &lt;!-- &lt;a
-        mat-list-item
-        [routerLink]&#x3D;&quot;[&#x27;/ueber_uns&#x27;]&quot;
-        routerLinkActive&#x3D;&quot;router-link-active&quot;
-      &gt;
-        Über uns
-      &lt;/a&gt; --&gt;
-      &lt;div&gt;
-        &lt;a
-          mat-list-item
-          [routerLink]&#x3D;&quot;[&#x27;/login&#x27;]&quot;
-          routerLinkActive&#x3D;&quot;router-link-active&quot;
-          *ngIf&#x3D;&quot;(user$ | async) &#x3D;&#x3D;&#x3D; null&quot;
-        &gt;
-          &lt;mat-icon&gt;perm_identity&lt;/mat-icon&gt; Anmelden
-        &lt;/a&gt;
-
-        &lt;a mat-list-item *ngIf&#x3D;&quot;(user$ | async) !&#x3D;&#x3D; null&quot;&gt;
-          &lt;mat-icon&gt;perm_identity&lt;/mat-icon&gt;
-          {{ (user$ | async)?.vorname + &quot; &quot; + (user$ | async)?.nachname }}
-        &lt;/a&gt;
-
-        &lt;a
-          mat-list-item
-          [routerLink]&#x3D;&quot;[&#x27;/settings&#x27;]&quot;
-          routerLinkActive&#x3D;&quot;router-link-active&quot;
-        &gt;
-          &lt;mat-icon&gt;settings&lt;/mat-icon&gt; Einstellungen
-        &lt;/a&gt;
-        &lt;a mat-list-item (click)&#x3D;&quot;logout()&quot;&gt;
-          &lt;mat-icon&gt;close&lt;/mat-icon&gt; Abmelden
-        &lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/mat-nav-list&gt;
-  &lt;/mat-sidenav&gt;
-  &lt;mat-sidenav-content&gt;
-    &lt;mat-toolbar color&#x3D;&quot;primary&quot; class&#x3D;&quot;mat-elevation-z4&quot;&gt;
-      &lt;button mat-icon-button (click)&#x3D;&quot;sidenav.toggle()&quot;&gt;
-        &lt;mat-icon&gt;menu&lt;/mat-icon&gt;
-      &lt;/button&gt;
-      &lt;h1&gt;Sv-Website&lt;/h1&gt;
-    &lt;/mat-toolbar&gt;
-    &lt;main&gt;
-      &lt;lw-loader *ngIf&#x3D;&quot;isLoading$ | async&quot;&gt;&lt;/lw-loader&gt;
-      &lt;ng-content *ngIf&#x3D;&quot;!(isLoading$ | async)&quot;&gt;&lt;/ng-content&gt;
-    &lt;/main&gt;
-  &lt;/mat-sidenav-content&gt;
-&lt;/mat-sidenav-container&gt;
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./header-mobile.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">::ng-deep .mat-drawer-container {
-  background-color: inherit !important;
-}
-mat-sidenav-content {
-  display: grid;
-  grid-template-columns: 1fr;
-  // Keine Ahnung warum, aber es funktioniert irgendwie
-  grid-template-rows: minmax(56px, max-content) 1fr;
-  height: 100vh;
-
-  mat-toolbar {
-    position: fixed;
-    z-index: 1;
-    grid-area: 1/1;
-  }
-  main {
-    flex-grow: 1;
-    flex-shrink: 1;
-    overflow: auto;
-    overflow-x: hidden;
-    width: 100%;
-    grid-area: 2/1;
-    padding: 1rem;
-  }
-}
-mat-sidenav {
-  height: 100vh;
-  position: fixed;
-  mat-icon {
-    margin-right: 0.7rem;
-  }
-  width: 65%;
-  min-width: 250px;
-  max-width: 350px;
-  &amp; mat-nav-list {
-    display: flex !important;
-    flex-direction: column;
-    height: 100%;
-    &amp; div {
-      margin: auto 0 0 0;
-      &amp; a:last-child:hover {
-        background-color: red;
-      }
-    }
-  }
-}
-
-h1 {
-  color: white;
-}
-.router-link-active {
-  font-weight: bold;
-  color: var(--primary-color) !important;
-  /* TODO: Change manually */
-  background-color: rgba(#3385cc, 0.12) !important;
-}
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-tree">
-        <div id="tree-container"></div>
-        <div class="tree-legend">
-            <div class="title">
-                <b>Legend</b>
-            </div>
-            <div>
-                <div class="color htmlelement"></div><span>Html element</span>
-            </div>
-            <div>
-                <div class="color component"></div><span>Component</span>
-            </div>
-            <div>
-                <div class="color directive"></div><span>Html element with directive</span>
-            </div>
         </div>
     </div>
 
-    
-</div>
-
-<script src="../js/libs/vis.min.js"></script>
-<script src="../js/libs/htmlparser.js"></script>
-<script src="../js/libs/deep-iterator.js"></script>
-<script>
-        var COMPONENT_TEMPLATE = '<div><mat-sidenav-container>  <mat-sidenav #sidenav mode="over">    <mat-nav-list role="navigation">      <!-- <a        mat-list-item        [routerLink]="[\'/\']"        routerLinkActive="router-link-active"      >        <mat-icon>home</mat-icon> Home      </a> -->      <!-- <a        mat-list-item        [routerLink]="[\'/projekte\']"        routerLinkActive="router-link-active"      >        <mat-icon svgIcon="projekte"></mat-icon> Projekte      </a> -->      <a        mat-list-item        [routerLink]="[\'/nachhilfe/geben\']"        routerLinkActive="router-link-active"      >        <mat-icon svgIcon="nachhilfe_g"></mat-icon>Nachhilfe geben      </a>      <a        mat-list-item        [routerLink]="[\'/nachhilfe/nehmen\']"        routerLinkActive="router-link-active"      >        <mat-icon svgIcon="nachhilfe_n"></mat-icon> Nachhilfe nehmen      </a>      <!-- <a        mat-list-item        [routerLink]="[\'/ueber_uns\']"        routerLinkActive="router-link-active"      >        Über uns      </a> -->      <div>        <a          mat-list-item          [routerLink]="[\'/login\']"          routerLinkActive="router-link-active"          *ngIf="(user$ | async) === null"        >          <mat-icon>perm_identity</mat-icon> Anmelden        </a>        <a mat-list-item *ngIf="(user$ | async) !== null">          <mat-icon>perm_identity</mat-icon>          {{ (user$ | async)?.vorname + " " + (user$ | async)?.nachname }}        </a>        <a          mat-list-item          [routerLink]="[\'/settings\']"          routerLinkActive="router-link-active"        >          <mat-icon>settings</mat-icon> Einstellungen        </a>        <a mat-list-item (click)="logout()">          <mat-icon>close</mat-icon> Abmelden        </a>      </div>    </mat-nav-list>  </mat-sidenav>  <mat-sidenav-content>    <mat-toolbar color="primary" class="mat-elevation-z4">      <button mat-icon-button (click)="sidenav.toggle()">        <mat-icon>menu</mat-icon>      </button>      <h1>Sv-Website</h1>    </mat-toolbar>    <main>      <lw-loader *ngIf="isLoading$ | async"></lw-loader>      <ng-content *ngIf="!(isLoading$ | async)"></ng-content>    </main>  </mat-sidenav-content></mat-sidenav-container></div>'
-    var COMPONENTS = [{'name': 'AppBodyComponent', 'selector': 'lw-app-body'},{'name': 'AppComponent', 'selector': 'lw-root'},{'name': 'BasicRouterOutletComponent', 'selector': 'lw-basic-router-outlet'},{'name': 'GenericSnackbarComponent', 'selector': 'lw-generic-snackbar'},{'name': 'GreetingComponent', 'selector': 'lw-greeting'},{'name': 'HeaderComponent', 'selector': 'lw-header'},{'name': 'HeaderMobileComponent', 'selector': 'lw-header-mobile'},{'name': 'LoaderComponent', 'selector': 'lw-loader'},{'name': 'LoginComponent', 'selector': 'lw-login'},{'name': 'NachhilfeDiagComponent', 'selector': 'lw-nachhilfe-diag'},{'name': 'NachhilfeGComponent', 'selector': 'lw-nachhilfe-g'},{'name': 'NachhilfeNComponent', 'selector': 'lw-nachhilfe-n'},{'name': 'NachhilfeWComponent', 'selector': 'lw-nachhilfe-w'},{'name': 'RegisterComponent', 'selector': 'lw-register'},{'name': 'SettingsComponent', 'selector': 'lw-settings'}];
-    var DIRECTIVES = [{'name': 'CompareWithDirective', 'selector': '[lwCompareWith]'},{'name': 'EmailValidationDirective', 'selector': '[lwEmailValidation]'},{'name': 'KlasseValidationDirective', 'selector': '[lwKlasseValidation]'}];
-    var ACTUAL_COMPONENT = {'name': 'HeaderMobileComponent'};
-</script>
-<script src="../js/tree.js"></script>
 
 
 
 
 
-
-
-
-
-
-                   
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -608,22 +808,8 @@ h1 {
     </div>
 </div>
 </div>
-               <!-- END CONTENT -->
            </div>
        </div>
-
-       <script>
-            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'HeaderMobileComponent.html';
-            var MAX_SEARCH_RESULTS = 15;
-       </script>
-
-       <script src="../js/libs/custom-elements.min.js"></script>
-       <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 
@@ -634,17 +820,20 @@ h1 {
 
        <script src="../js/compodoc.js"></script>
 
-       <script src="../js/tabs.js"></script>
-       <script src="../js/menu.js"></script>
-       <script src="../js/libs/clipboard.min.js"></script>
-       <script src="../js/libs/prism.js"></script>
-       <script src="../js/sourceCode.js"></script>
-          <script src="../js/search/search.js"></script>
-          <script src="../js/search/lunr.min.js"></script>
-          <script src="../js/search/search-lunr.js"></script>
-          <script src="../js/search/search_index.js"></script>
-       <script src="../js/lazy-load-graphs.js"></script>
+       <script src="../js/search/search.js"></script>
+       <script src="../js/search/lunr.min.js"></script>
+       <script src="../js/search/search-lunr.js"></script>
 
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/highlight.pack.js"></script>
+       <script src="../js/libs/highlightjs-line-numbers.min.js"></script>
+       <script src="../js/search/search_index.js"></script>
+       <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                hljs.initHighlightingOnLoad();
+                hljs.initLineNumbersOnLoad();
+            });
+       </script>
 
     </body>
 </html>

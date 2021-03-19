@@ -46,18 +46,27 @@ export class NachhilfeGComponent implements OnInit, OnDestroy {
   classes$: Observable<string[]> = this.nachhilfeService
     .getClasses()
     .pipe(
-      map((x) => {
-        return x
-          .map((z) => z.match(/(Q|E)?\d+/i)[0])
+      tap((x) => console.log(x)),
+      map((x) =>
+        x
+          .map((z) => {
+            const match = z.match(/(Q|E)?\d+/i);
+            if (match) {
+              return match[0];
+            }
+          })
+          .filter((g) => g !== undefined)
           .reduce((a, b) => {
             if (a.indexOf(b) < 0) {
               a.push(b);
             }
             return a;
-          }, []);
-      })
+          }, [])
+      )
     )
     .pipe(
+      tap((x) => console.log(x)),
+
       map((x: string[]) => {
         if (x.length < 1) {
           throwError(

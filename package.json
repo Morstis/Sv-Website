@@ -11,7 +11,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "c": "ng g @ngx-storybook/schematics:component",
-    "compodoc": "npx compodoc -p tsconfig.json -w -s"
+    "compodoc": "npx compodoc -p tsconfig.json -s"
   },
   "private": true,
   "dependencies": {
