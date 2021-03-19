@@ -25,7 +25,7 @@
         ngModel
         #jg1="ngModel"
         name="jg1"
-        [lwCompareWith]="{ control: 'jg2', operator: '<=' }"
+        [lwCompareWith]="{ control: 'jg2', operator: '>=' }"
       >
         <mat-option
           *ngFor="let class of classes$ | async; let i = index"
@@ -48,7 +48,7 @@
         ngModel
         #jg2="ngModel"
         name="jg2"
-        [lwCompareWith]="{ control: 'jg1', operator: '>=' }"
+        [lwCompareWith]="{ control: 'jg1', operator: '<=' }"
       >
         <mat-option
           *ngFor="let class of classes$ | async; let i = index"
