@@ -163,7 +163,7 @@
                                     <a href="../components/NachhilfeNComponent.html" >NachhilfeNComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/NachhilfeWComponent.html"  class="active" >NachhilfeWComponent</a>
+                                    <a href="../components/NachhilfeWComponent.html" >NachhilfeWComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/RegisterComponent.html" >RegisterComponent</a>
@@ -251,7 +251,7 @@
                                     <a href="../injectables/AuthService.html" >AuthService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../injectables/CommunicationService.html" >CommunicationService</a>
+                                    <a href="../injectables/CommunicationService.html"  class="active" >CommunicationService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/LoaderInterceptor.html" >LoaderInterceptor</a>
@@ -466,7 +466,7 @@
                                            <a href="../components/NachhilfeNComponent.html" >NachhilfeNComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/NachhilfeWComponent.html"  class="active" >NachhilfeWComponent</a>
+                                           <a href="../components/NachhilfeWComponent.html" >NachhilfeWComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/RegisterComponent.html" >RegisterComponent</a>
@@ -554,7 +554,7 @@
                                            <a href="../injectables/AuthService.html" >AuthService</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../injectables/CommunicationService.html" >CommunicationService</a>
+                                           <a href="../injectables/CommunicationService.html"  class="active" >CommunicationService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/LoaderInterceptor.html" >LoaderInterceptor</a>
@@ -620,113 +620,85 @@
                    
                    </nav>
                </div>
-               <div class="content component">
+               <div class="content injectable">
                    <div class="content-data">
 
 
+
+
 <ol class="breadcrumb">
-  <li>Components</li>
-  <li>NachhilfeWComponent</li>
+  <li>Injectables</li>
+  <li>CommunicationService</li>
 </ol>
 
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active">
+        <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
+    </li>
+    <li>
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
+    </li>
+</ul>
 
-    <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
-        </li>
-        <li>
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
-        </li>
-    </ul>
-
-    <div class="tab-content">
-        <div class="tab-pane fade active in" id="infos"><p class="comment">
-    <h3>File</h3>
-</p>
-<p class="comment">
-    <code>src/app/modules/nachhilfe/c/nachhilfe-w/nachhilfe-w.component.ts</code>
-</p>
-
-
-
-<section>
-    <h3>Metadata</h3>
-    <table class="table table-sm table-hover">
-        <tbody>
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="infos">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/modules/app-body/s/communication.service.ts</code>
+        </p>
 
 
+            <section>
+                <h3 id="constructor">Constructor</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>constructor()</code>
+                                </td>
+                            </tr>
+            
+                        </tbody>
+                    </table>
+            </section>
 
 
+            <section>
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> scroll</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>scroll:     <code>BehaviorSubject&lt;boolean&gt;</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+    <div class="tab-pane fade tab-source-code" id="source">
+        <pre><code class="hljs javascript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { BehaviorSubject } from &#x27;rxjs&#x27;;
 
-
-
-
-
-
-
-
-            <tr>
-                <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>lw-nachhilfe-w</code></td>
-            </tr>
-
-            <tr>
-                <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>nachhilfe-w.component.scss</code></td>
-            </tr>
-
-
-
-            <tr>
-                <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>nachhilfe-w.component.html</code></td>
-            </tr>
-
-
-        </tbody>
-    </table>
-</section>
-
-
-
-    <section>
-        <h3 id="constructor">Constructor</h3>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>constructor()</code>
-                        </td>
-                    </tr>
-    
-                </tbody>
-            </table>
-    </section>
-
-
-</div>
-        <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-
-@Component({
-  selector: &#x27;lw-nachhilfe-w&#x27;,
-  templateUrl: &#x27;./nachhilfe-w.component.html&#x27;,
-  styleUrls: [&#x27;./nachhilfe-w.component.scss&#x27;]
+@Injectable({
+  providedIn: &#x27;root&#x27;,
 })
-export class NachhilfeWComponent implements OnInit {
+export class CommunicationService {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  scroll &#x3D; new BehaviorSubject&lt;boolean&gt;(true);
 }
 </code></pre>
-        </div>
     </div>
-
-
-
+</div>
 
 
 

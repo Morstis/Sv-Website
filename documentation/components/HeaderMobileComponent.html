@@ -251,6 +251,9 @@
                                     <a href="../injectables/AuthService.html" >AuthService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../injectables/CommunicationService.html" >CommunicationService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../injectables/LoaderInterceptor.html" >LoaderInterceptor</a>
                                 </li>
                                 <li class="link">
@@ -551,6 +554,9 @@
                                            <a href="../injectables/AuthService.html" >AuthService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../injectables/CommunicationService.html" >CommunicationService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../injectables/LoaderInterceptor.html" >LoaderInterceptor</a>
                                        </li>
                                        <li class="link">
@@ -689,7 +695,7 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(auth: any, loaderService: any)</code>
+                            <code>constructor(auth: any, loaderService: any, comm: <a href="../injectables/CommunicationService.html" >CommunicationService</a>)</code>
                         </td>
                     </tr>
     
@@ -731,6 +737,21 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
+                            <b> el</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>el:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
                             <b> isLoading$</b>
                         </td>
                     </tr>
@@ -760,9 +781,11 @@
     </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+            <pre><code class="hljs javascript">import { Component, ElementRef, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { fromEvent } from &#x27;rxjs&#x27;;
 import { AuthService } from &#x27;src/app/modules/auth/s/auth.service&#x27;;
 import { LoaderService } from &#x27;src/app/modules/shared/s/loader.service&#x27;;
+import { CommunicationService } from &#x27;../../s/communication.service&#x27;;
 
 @Component({
   selector: &#x27;lw-header-mobile&#x27;,
@@ -775,9 +798,17 @@ export class HeaderMobileComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private loaderService: LoaderService
+    private loaderService: LoaderService,
+    private comm: CommunicationService
   ) {}
 
+  @ViewChild(&#x27;main&#x27;) el: ElementRef;
+
+  ngAfterViewInit(): void {
+    fromEvent(this.el.nativeElement, &#x27;scroll&#x27;).subscribe((e: any) &#x3D;&gt; {
+      this.comm.scroll.next(e.target.scrollTop &gt; 0 ? false : true);
+    });
+  }
   ngOnInit(): void {}
   logout() {
     this.auth.logout().then(() &#x3D;&gt; {

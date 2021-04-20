@@ -251,6 +251,9 @@
                                     <a href="../injectables/AuthService.html" >AuthService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../injectables/CommunicationService.html" >CommunicationService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../injectables/LoaderInterceptor.html" >LoaderInterceptor</a>
                                 </li>
                                 <li class="link">
@@ -549,6 +552,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/AuthService.html" >AuthService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/CommunicationService.html" >CommunicationService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/LoaderInterceptor.html" >LoaderInterceptor</a>
@@ -976,18 +982,27 @@ export class NachhilfeGComponent implements OnInit, OnDestroy {
   classes$: Observable&lt;string[]&gt; &#x3D; this.nachhilfeService
     .getClasses()
     .pipe(
-      map((x) &#x3D;&gt; {
-        return x
-          .map((z) &#x3D;&gt; z.match(/(Q|E)?\d+/i)[0])
+      tap((x) &#x3D;&gt; console.log(x)),
+      map((x) &#x3D;&gt;
+        x
+          .map((z) &#x3D;&gt; {
+            const match &#x3D; z.match(/(Q|E)?\d+/i);
+            if (match) {
+              return match[0];
+            }
+          })
+          .filter((g) &#x3D;&gt; g !&#x3D;&#x3D; undefined)
           .reduce((a, b) &#x3D;&gt; {
             if (a.indexOf(b) &lt; 0) {
               a.push(b);
             }
             return a;
-          }, []);
-      })
+          }, [])
+      )
     )
     .pipe(
+      tap((x) &#x3D;&gt; console.log(x)),
+
       map((x: string[]) &#x3D;&gt; {
         if (x.length &lt; 1) {
           throwError(

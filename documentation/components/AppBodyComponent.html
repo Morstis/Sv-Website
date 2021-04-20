@@ -251,6 +251,9 @@
                                     <a href="../injectables/AuthService.html" >AuthService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../injectables/CommunicationService.html" >CommunicationService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../injectables/LoaderInterceptor.html" >LoaderInterceptor</a>
                                 </li>
                                 <li class="link">
@@ -551,6 +554,9 @@
                                            <a href="../injectables/AuthService.html" >AuthService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../injectables/CommunicationService.html" >CommunicationService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../injectables/LoaderInterceptor.html" >LoaderInterceptor</a>
                                        </li>
                                        <li class="link">
@@ -819,11 +825,9 @@
     </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+            <pre><code class="hljs javascript">import { Component } from &#x27;@angular/core&#x27;;
 import { SettingsService } from &#x27;../../s/settings.service&#x27;;
 import { AuthService } from &#x27;src/app/modules/auth/s/auth.service&#x27;;
-import { Subject } from &#x27;rxjs&#x27;;
-import { LoaderService } from &#x27;src/app/modules/shared/s/loader.service&#x27;;
 import { MatDialog } from &#x27;@angular/material/dialog&#x27;;
 import { DatenschutzComponent } from &#x27;src/app/modules/shared/c/datenschutz/datenschutz.component&#x27;;
 import { ImpressumComponent } from &#x27;src/app/modules/shared/c/impressum/impressum.component&#x27;;
@@ -835,7 +839,6 @@ import { ImpressumComponent } from &#x27;src/app/modules/shared/c/impressum/impr
 })
 export class AppBodyComponent {
   privacy &#x3D; false;
-
   animation$ &#x3D; this.settingsService.animation();
   mobileDesignSetting$ &#x3D; this.settingsService.mobileDesign();
   user$ &#x3D; this.auth.user$;

@@ -1,27 +1,43 @@
 # SvWebsite
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+Hallo! Das ist die Github Seite der Sv-Website. Es gibt sogar eine automatisch generierte Dokumentation (Juhu!). Die ist im Ordner "documentation" zu finden und kann mit jedem HTML Server gestartet werden. Die Dokumentation kann automatisch mit: `npm run compodoc` generiert werden.
+Wunderbarerweise hatte ich irgendwann keine Lust mehr Kommentare zu schreiben und irgendwann habe ich auch angefangen einfach Features unschön zusammen zu kleben ohne die schön zu implementieren.
+Trotzdem ein paar hilfreiche Informationen, falls jemals jemand so wahrsinnig sein sollte, sich nochmal der Website anzunehmen:
 
-## Development server
+## Namen
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+c steht für Component
+s steht für Service
+i steht für Interface
 
-## Code scaffolding
+## Struktur
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Es gibt einen generic Service, der für die Kommunikation mit der Datenbank zuständig ist.
+Der erbt von der Message Klasse und ist für die Benutzerbenachrichtigungen verantwortlich.
 
-## Build
+## Ein schnelles Wort zum loader Service
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Der loader Service funktioniert nicht, so wie er soll. Damit er funktioniert empfehle ich einen [async-loader Decorator] (https://gist.github.com/Morstis/c1963fd565d8b234871ae6662a11c8af)
 
-## Running unit tests
+Der Decorator müsste dann nur noch vor jede async Funktion geschrieben werden:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```@asyncLoader()
+	public async signIn(formValue: LoginForm): Promise<void> {
+		await this.afAuth.signInWithEmailAndPassword(
+		formValue.email,
+		formValue.passwort
+		);
+	}
+```
 
-## Running end-to-end tests
+## functions
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Das Firebase Backend funktioniert einwandfrei. Leider erlaubt Firebase das Backend nur, wenn man den Pay-as-you-go Tarif verwendet. Da ich nicht einen Ansturm auf die Website erwarte, bin ich beim Sparkle Tarif geblieben. Dadurch kann ich das wunderbare Backend nicht benutzen und der gesamte Inhalt in "functions" ist irrelevant. Dadurch funktioniert auch die linke Seite des Admin Interfaces nicht. Wenn das geändert werden soll, müsste das Projekt bei Firebase geupgradet werden.
 
-## Further help
+## lazy loading
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Die meisten Module werden mit [lazy loading] (https://angular.io/guide/lazy-loading-ngmodules) geladen.
+
+## Das war's
+
+Bei Fragen kann man mich gerne anschreiben: lucas.wiese@gmx.de

@@ -251,6 +251,9 @@
                                     <a href="../injectables/AuthService.html" >AuthService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../injectables/CommunicationService.html" >CommunicationService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../injectables/LoaderInterceptor.html" >LoaderInterceptor</a>
                                 </li>
                                 <li class="link">
@@ -551,6 +554,9 @@
                                            <a href="../injectables/AuthService.html" >AuthService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../injectables/CommunicationService.html" >CommunicationService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../injectables/LoaderInterceptor.html" >LoaderInterceptor</a>
                                        </li>
                                        <li class="link">
@@ -689,7 +695,7 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor()</code>
+                            <code>constructor(comm: <a href="../injectables/CommunicationService.html" >CommunicationService</a>)</code>
                         </td>
                     </tr>
     
@@ -698,22 +704,55 @@
     </section>
 
 
+    <section>
+        <h3 id="inputs">Properties</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> scroll</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>scroll:     <code>boolean</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value: </i><code>true</code>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+    </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+            <pre><code class="hljs javascript">import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from &#x27;@angular/core&#x27;;
+import { fromEvent } from &#x27;rxjs&#x27;;
+import { CommunicationService } from &#x27;../app-body/s/communication.service&#x27;;
 
 @Component({
   selector: &#x27;lw-home&#x27;,
   templateUrl: &#x27;./home.component.html&#x27;,
-  styleUrls: [&#x27;./home.component.scss&#x27;]
+  styleUrls: [&#x27;./home.component.scss&#x27;],
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
-
+  scroll &#x3D; true;
+  constructor(private comm: CommunicationService) {}
   ngOnInit(): void {
+    this.comm.scroll.subscribe((res) &#x3D;&gt; {
+      this.scroll &#x3D; res;
+    });
   }
-
 }
 </code></pre>
         </div>
