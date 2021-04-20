@@ -43,7 +43,7 @@
       </button>
     </mat-menu>
   </mat-toolbar>
-  <main>
+  <main #main>
     <lw-loader *ngIf="isLoading$ | async"></lw-loader>
     <ng-content *ngIf="!(isLoading$ | async)"></ng-content>
   </main>

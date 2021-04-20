@@ -1,8 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { SettingsService } from '../../s/settings.service';
 import { AuthService } from 'src/app/modules/auth/s/auth.service';
-import { Subject } from 'rxjs';
-import { LoaderService } from 'src/app/modules/shared/s/loader.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DatenschutzComponent } from 'src/app/modules/shared/c/datenschutz/datenschutz.component';
 import { ImpressumComponent } from 'src/app/modules/shared/c/impressum/impressum.component';
@@ -14,7 +12,6 @@ import { ImpressumComponent } from 'src/app/modules/shared/c/impressum/impressum
 })
 export class AppBodyComponent {
   privacy = false;
-
   animation$ = this.settingsService.animation();
   mobileDesignSetting$ = this.settingsService.mobileDesign();
   user$ = this.auth.user$;

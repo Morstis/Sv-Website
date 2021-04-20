@@ -1,3 +1,16 @@
+#scroll {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid: auto / auto auto;
+  gap: 0.5rem;
+  color: rgb(240, 240, 240);
+  span {
+    line-height: 25px;
+  }
+}
 .container {
   position: relative;
   width: calc(100% + 3rem);
