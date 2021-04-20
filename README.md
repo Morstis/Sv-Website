@@ -6,9 +6,9 @@ Trotzdem ein paar hilfreiche Informationen, falls jemals jemand so wahrsinnig se
 
 ## Namen
 
-c steht für Component
-s steht für Service
-i steht für Interface
+- c steht für Component
+- s steht für Service
+- i steht für Interface
 
 ## Struktur
 
@@ -17,7 +17,7 @@ Der erbt von der Message Klasse und ist für die Benutzerbenachrichtigungen vera
 
 ## Ein schnelles Wort zum loader Service
 
-Der loader Service funktioniert nicht, so wie er soll. Damit er funktioniert empfehle ich einen [async-loader Decorator] (https://gist.github.com/Morstis/c1963fd565d8b234871ae6662a11c8af)
+Der loader Service funktioniert nicht, so wie er soll. Damit er funktioniert empfehle ich einen [async-loader Decorator](https://gist.github.com/Morstis/c1963fd565d8b234871ae6662a11c8af)
 
 Der Decorator müsste dann nur noch vor jede async Funktion geschrieben werden:
 
@@ -36,7 +36,7 @@ Das Firebase Backend funktioniert einwandfrei. Leider erlaubt Firebase das Backe
 
 ## lazy loading
 
-Die meisten Module werden mit [lazy loading] (https://angular.io/guide/lazy-loading-ngmodules) geladen.
+Die meisten Module werden mit [lazy loading](https://angular.io/guide/lazy-loading-ngmodules) geladen.
 
 ## Das war's
 
