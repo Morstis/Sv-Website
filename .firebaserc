@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "sv-website3"
+  },
+  "targets": {
+    "sv-website3": {
+      "hosting": {
+        "Sv-Website3": [
+          "sv-website3"
+        ]
+      }
+    }
+  }
+}
