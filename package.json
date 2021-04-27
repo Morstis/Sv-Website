@@ -4,10 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "deploy": "npm run build:ssr --prod && firebase deploy",
+    "deploy": "npm run build:ssr --prod && npm run fireFunctions && firebase deploy",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "fireFunctions": "cd ./functions && npm run build",
     "dev:ssr": "ng run Sv-Website3:serve-ssr",
     "serve:ssr": "node functions/dist/Sv-Website3/server/main.js",
     "build:ssr": "ng build --prod && ng run Sv-Website3:server:production",
