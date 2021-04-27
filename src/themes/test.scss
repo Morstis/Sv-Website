@@ -1,3 +1,28 @@
-@use '~@angular/material' as mat;
+@import "~@angular/material/theming";
+$theme-primary: mat-palette($mat-indigo);
+$theme-accent: mat-palette($mat-pink, A200, A100, A400);
 
-$my-palette: mat.$indigo-palette;
+// The warn palette is optional (defaults to red).
+$theme-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$theme: mat-light-theme(
+  (
+    color: (
+      primary: $theme-primary,
+      accent: $theme-accent,
+      warn: $theme-warn,
+    ),
+  )
+);
+
+$themeD: mat-dark-theme(
+  (
+    color: (
+      primary: $theme-primary,
+      accent: $theme-accent,
+      warn: $theme-warn,
+    ),
+  )
+);
