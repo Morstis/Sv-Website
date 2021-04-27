@@ -1,0 +1,5 @@
+@import "/src/themes/test.scss";
+@import "sites/home/home.component.scss";
+@import "~@angular/material/theming";
+
+@include home-theme-theme($theme);
