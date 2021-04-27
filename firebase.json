@@ -7,11 +7,15 @@
     "indexes": "firebase/firestore.indexes.json"
   },
   "functions": {
-    "source": "dist/Sv-Website3"
+    "source": "functions"
+  },
+  "remoteconfig": {
+    "template": "firebase/remoteconfig.template.json"
   },
   "hosting": [
     {
-      "public": "dist/Sv-Website3/dist/Sv-Website3/browser",
+      "target": "Sv-Website3",
+      "public": "public",
       "ignore": ["**/.*"],
       "headers": [
         {
@@ -57,8 +61,5 @@
     "ui": {
       "enabled": true
     }
-  },
-  "remoteconfig": {
-    "template": "firebase/remoteconfig.template.json"
   }
 }

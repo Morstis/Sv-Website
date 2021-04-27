@@ -4,12 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "deploy": "npm run build:ssr --prod && firebase deploy",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev:ssr": "ng run Sv-Website3:serve-ssr",
-    "serve:ssr": "node dist/Sv-Website3/server/main.js",
+    "serve:ssr": "node functions/dist/Sv-Website3/server/main.js",
     "build:ssr": "ng build --prod && ng run Sv-Website3:server:production",
     "prerender": "ng run Sv-Website3:prerender"
   },
